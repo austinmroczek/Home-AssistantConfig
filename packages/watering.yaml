@@ -1,3 +1,7 @@
+#   Lawn Watering
+#
+
+
 automation:
   - alias: "Water Plants"
     initial_state: True
@@ -49,18 +53,18 @@ automation:
 scene:
   - name: "WaterLawn"
     entities:
-      switch.front_lawn_switch: on # front lawn
+      switch.front_lawn_switch: on
   - name: "WaterPlants"
     entities:
-      switch.side_drip_switch: on # side drip
-      switch.back_drip_switch: on # back drip
-      switch.front_drip_switch: on # front drip
+      switch.side_drip_switch: on
+      switch.back_drip_switch: on
+      switch.front_drip_switch: on
   - name: "StopAllWater"
     entities:
-      switch.side_drip_switch: off # side drip
-      switch.back_drip_switch: off # back drip
-      switch.front_lawn_switch: off # front lawn
-      switch.front_drip_switch: off # front drip
+      switch.side_drip_switch: off
+      switch.back_drip_switch: off
+      switch.front_lawn_switch: off
+      switch.front_drip_switch: off
 
 group:
   sprinklers:
