@@ -1,0 +1,16 @@
+timer:
+  front_patio_motion_timer:
+    duration: '00:02:00'
+
+automation:
+  - alias: "Front Patio Motion timer ends"
+    initial_state: True
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.front_patio_motion_timer
+    action:
+      service: switch.turn_off
+      entity_id: switch.front_patio_switch_2
+

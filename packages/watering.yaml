@@ -1,0 +1,78 @@
+automation:
+  - alias: "Water Plants"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:30:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.WaterPlants
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+            - mon
+            - wed
+            - sat
+        - condition: state
+          entity_id: input_boolean.rain_delay
+          state: 'off'
+  - alias: "Water Front Lawn"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:32:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.WaterLawn
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+            - mon
+            - wed
+            - sat
+        - condition: state
+          entity_id: input_boolean.rain_delay
+          state: 'off'
+  - alias: "Stop All Watering"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:40:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.StopAllWater
+
+scene:
+  - name: "WaterLawn"
+    entities:
+      switch.front_lawn_switch: on # front lawn
+  - name: "WaterPlants"
+    entities:
+      switch.side_drip_switch: on # side drip
+      switch.back_drip_switch: on # back drip
+      switch.front_drip_switch: on # front drip
+  - name: "StopAllWater"
+    entities:
+      switch.side_drip_switch: off # side drip
+      switch.back_drip_switch: off # back drip
+      switch.front_lawn_switch: off # front lawn
+      switch.front_drip_switch: off # front drip
+
+group:
+  sprinklers:
+    name: Sprinklers
+    view: no
+    entities:
+      - switch.back_drip_switch
+      - switch.side_drip_switch
+      - switch.front_drip_switch
+      - switch.front_lawn_switch
+      - input_boolean.rain_delay
+      - scene.WaterPlants
+      - scene.WaterLawn
+      - scene.StopAllWater
+

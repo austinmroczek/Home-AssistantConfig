@@ -1,0 +1,134 @@
+# Honeywell Total Connect integration
+# https://home-assistant.io/components/alarm_control_panel.totalconnect/
+alarm_control_panel:
+  - platform: totalconnect
+    username: !secret totalconnect_username
+    password: !secret totalconnect_password
+    usercode: !secret totalconnect_usercode
+
+# states that can be used:
+#   disarmed, armed_home, armed_away, armed_night, armed_custom_bypass, pending, arming, disarming, triggered
+
+automation:
+  - alias: "Alarm: Disarmed Daytime"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'disarmed'
+    condition:
+      condition: sun
+      before: sunset
+    action:
+      service: scene.turn_on
+      entity_id: scene.OnDisarmedDaytime
+  - alias: "Alarm: Disarmed Nighttime"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'disarmed'
+    condition:
+      condition: sun
+      after: sunset
+    action:
+      service: scene.turn_on
+      entity_id: scene.OnDisarmedNighttime
+  - alias: "Alarm: Armed Away"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'armed_away'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.OnArmedAway
+      - delay: 2:00
+      - service: lock.lock
+        data:
+          entity_id: group.all_locks
+  - alias: "Alarm: Armed Stay Daytime"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'armed_home'
+    condition:
+      condition: sun
+      before: sunset
+    action:
+      - service: scene.turn_on
+        entity_id: scene.OnArmedStayDaytime
+      - delay: 2:00
+      - service: lock.lock
+        data:
+          entity_id: group.all_locks
+  - alias: "Alarm: Armed Stay Daytime"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'armed_home'
+    condition:
+      condition: sun
+      after: sunset
+    action:
+      - service: scene.turn_on
+        entity_id: scene.OnArmedStayDaytime
+      - delay: 2:00
+      - service: lock.lock
+        data:
+          entity_id: group.all_locks
+  - alias: "Alarm: Triggered"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: alarm_control_panel.total_connect
+      to: 'triggered'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.OnAlarmTriggered
+      - service: lock.unlock
+        data:
+          entity_id: group.all_locks
+
+scene:
+  - name: "OnArmedAway"
+    entities:
+      light.hall_level: off
+      switch.kitchen_switch: off
+      switch.master_lights_switch: off
+      switch.front_porch_switch: off
+      switch.front_entry_light_switch: off
+      switch.melanie_switch: off
+      media_player.roku_living_room: idle
+      media_player.roku_master_bedroom: idle
+      media_player.sonos_living_room: idle
+      media_player.sonos_master_bedroom: idle
+      switch.garage_lights_switch: off
+      switch.garage_lights_switch_2: off
+      switch.garage_lights_switch_3: off
+  - name: "OnDisarmedNighttime"
+    entities:
+      light.hall_level: on
+  - name: "OnDisarmedDaytime"
+    entities:
+      light.hall_level: off
+      switch.kitchen_switch: off
+  - name: "OnAlarmTriggered"
+    entities:
+      switch.master_lights_switch: on
+      switch.melanie_switch: on
+      light.hall_level: on
+      switch.kitchen_switch: on
+      switch.kitchen_door_light_switch: on
+      switch.front_porch_switch: on
+      switch.front_entry_light_switch: on
+  - name: "OnArmedStayDaytime"
+    entities:
+      switch.front_porch_switch: off
+      switch.kitchen_door_light_switch: off
+  - name: "OnArmedStayNighttime"
+    entities:
+      switch.front_porch_switch: on
+      switch.kitchen_door_light_switch: on

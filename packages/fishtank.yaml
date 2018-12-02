@@ -1,0 +1,33 @@
+group:
+  fish:
+    name: Fish Tank
+    view: no
+    entities:
+      - sensor.fish_temperature
+      - switch.smart_strip_switch_2
+      - switch.smart_strip_switch_3
+      - switch.smart_strip_switch_4
+
+# switch.smart_strip_switch_3 is heater
+
+# https://www.home-assistant.io/docs/automation/trigger/
+
+automation:
+  - alias: "Turn on Fish Heater if cold"
+    initial_state: True
+    trigger:
+       platform: template
+       value_template: "{% if states.sensor.fish_temperature.state | float < 72.0 %} true {% endif %}"
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.smart_strip_switch_3
+
+  - alias: "Turn off Fish Heater if hot"
+    initial_state: True
+    trigger:
+       platform: template
+       value_template: "{% if states.sensor.fish_temperature.state | float > 75.0 %} true {% endif %}"
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.smart_strip_switch_3
+

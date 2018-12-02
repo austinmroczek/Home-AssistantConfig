@@ -1,0 +1,116 @@
+input_boolean:
+  enable_climate_heat:
+    name: Enable Heat
+
+automation:
+  - alias: "Climate_Heat_0600_Weekday"
+    initial_state: False
+    trigger:
+      platform: time
+      at: "06:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 62
+          operation_mode: 'Heat'
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+
+  - alias: "Climate_Heat_0600_Weekend"
+    initial_state: False
+    trigger:
+      platform: time
+      at: "06:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 66
+          operation_mode: 'Heat'
+    condition:
+      condition: time
+      weekday:
+        - sat
+        - sun
+
+  - alias: "Climate_Heat_1600"
+    initial_state: False
+    trigger:
+      platform: time
+      at: "16:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 66
+          operation_mode: 'Heat'
+
+  - alias: "Climate_Heat_2200"
+    initial_state: False
+    trigger:
+      platform: time
+      at: "22:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 62
+          operation_mode: 'Heat'
+
+  - alias: "Climate Heat Enabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_heat
+      to: 'on'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: group.ClimateAutomationHeat
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.heating
+          operation_mode: 'Heat'
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 62
+      - service: climate.set_fan_mode
+        data:
+          entity_id: climate.heating
+          fan_mode: 'Auto Low'
+
+  - alias: "Climate Heat Disabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_heat
+      to: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: group.ClimateAutomationHeat
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.heating
+          operation_mode: 'Off'
+      - service: climate.set_fan_mode
+        data:
+          entity_id: climate.heating
+          fan_mode: 'Auto Low'
+
+group:
+  ClimateAutomationHeat:
+    name: Climate Automation Heat
+    view: no
+    entities:
+      - automation.Climate_Heat_0600_Weekday
+      - automation.Climate_Heat_0600_Weekend
+      - automation.Climate_Heat_1600
+      - automation.Climate_Heat_2200
+

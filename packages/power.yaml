@@ -1,0 +1,120 @@
+group:
+
+  power:
+    name: Power
+    view: yes
+    entities:
+      - group.smart_strip_energy
+      - group.smart_strip_power
+      - group.smart_strip_energy_previous
+      - group.smart_strip_power_previous
+      - group.front_patio_energy
+      - group.front_patio_power
+      - group.front_patio_power_factor
+      - group.front_patio_energy_previous
+      - group.front_patio_current
+      - group.front_patio_voltage
+      - group.kitchen_door_light
+
+  kitchen_door_light:
+    name: Kitchen Door Light
+    view: no
+    entities:
+      - sensor.kitchen_door_light_energy
+      - sensor.kitchen_door_light_power
+      - sensor.kitchen_door_light_current
+      - sensor.kitchen_door_light_voltage
+      - sensor.kitchen_door_light_previous_energy
+      - sensor.kitchen_door_light_previous_power
+      - sensor.kitchen_door_light_previous_current
+      - sensor.kitchen_door_light_previous_voltage
+
+  front_patio_energy:
+    name: Front Patio Energy
+    view: no
+    entities:
+      - sensor.front_patio_energy
+      - sensor.front_patio_energy_2
+      - sensor.front_patio_energy_3
+
+  front_patio_power:
+    name: Front Patio Power
+    view: no
+    entities:
+      - sensor.front_patio_power
+      - sensor.front_patio_power_2
+      - sensor.front_patio_power_3
+
+  front_patio_power_factor:
+    name: Front Patio Power Factor
+    view: no
+    entities:
+      - sensor.front_patio_power_factor
+      - sensor.front_patio_power_factor_2
+      - sensor.front_patio_power_factor_3
+
+  front_patio_energy_previous:
+    name: Front Patio Energy Previous
+    view: no
+    entities:
+      - sensor.front_patio_previous_reading
+      - sensor.front_patio_previous_reading_2
+      - sensor.front_patio_previous_reading_3
+
+  front_patio_current:
+    name: Front Patio Current
+    view: no
+    entities:
+      - sensor.front_patio_current
+      - sensor.front_patio_current_2
+      - sensor.front_patio_current_3
+
+  front_patio_voltage:
+    name: Front Patio Voltage
+    view: no
+    entities:
+      - sensor.front_patio_voltage
+      - sensor.front_patio_voltage_2
+      - sensor.front_patio_voltage_3
+
+  smart_strip_energy:
+    name: Smart Strip Energy
+    view: no
+    entities:
+      - sensor.smart_strip_energy
+      - sensor.smart_strip_energy_2
+      - sensor.smart_strip_energy_3
+      - sensor.smart_strip_energy_4
+      - sensor.smart_strip_energy_5
+
+  smart_strip_power:
+    name: Smart Strip Power
+    view: no
+    entities:
+      - sensor.smart_strip_power
+      - sensor.smart_strip_power_2
+      - sensor.smart_strip_power_3
+      - sensor.smart_strip_power_4
+      - sensor.smart_strip_power_5
+
+  smart_strip_energy_previous:
+    name: Smart Strip Energy Previous
+    view: no
+    entities:
+      - sensor.smart_strip_previous_reading
+      - sensor.smart_strip_previous_reading_3
+      - sensor.smart_strip_previous_reading_5
+      - sensor.smart_strip_previous_reading_7
+      - sensor.smart_strip_previous_reading_9
+
+  smart_strip_power_previous:
+    name: Smart Strip Power Previous
+    view: no
+    entities:
+      - sensor.smart_strip_previous_reading_2
+      - sensor.smart_strip_previous_reading_4
+      - sensor.smart_strip_previous_reading_6
+      - sensor.smart_strip_previous_reading_8
+      - sensor.smart_strip_previous_reading_10
+
+

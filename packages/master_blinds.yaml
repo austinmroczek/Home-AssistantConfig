@@ -1,0 +1,19 @@
+cover:
+
+# 'on' = down or closed
+# 'off' = up or open
+# https://github.com/austinmroczek/hunter-douglas-remote-automation
+
+  - platform: command_line
+    covers:
+      master_blinds:
+        command_close: "/usr/bin/curl -X GET http://rpi3:8000/down"
+        command_open: "/usr/bin/curl -X GET http://rpi3:8000/up"
+        friendly_name: Master Blinds
+
+homeassistant:
+  customize:
+    cover.master_blinds:
+      #icon: mdi:mdi-blinds
+      device_class: windows
+

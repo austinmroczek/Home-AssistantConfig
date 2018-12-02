@@ -1,0 +1,54 @@
+# Track the sun
+sun:
+
+automation:
+  - alias: "AtSunset"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-00:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.AtSunset
+  - alias: "HourBeforeSunset"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.HourBeforeSunset
+  - alias: "AtSunrise"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '-00:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.AtSunrise
+
+scene:
+  - name: "AtSunset"
+    entities:
+      switch.smart_strip_switch_2: on #fish light
+      #switch.front_patio_motion_enable_switch: on
+      switch.back_floodlights_switch: on
+  - name: "AtSunrise"
+    entities:
+      switch.piano_outlet_switch: off
+      #switch.front_patio_motion_enable_switch: off
+      switch.front_entry_light_switch: off
+      switch.front_porch_switch: off
+      switch.back_floodlights_switch: off
+      switch.kitchen_door_light_switch: off
+      switch.smart_strip_switch_2: off #fish light
+      light.hall_level: off
+      switch.garage_lights_switch: off
+      switch.garage_lights_switch_2: off
+      switch.garage_lights_switch_3: off
+  - name: "HourBeforeSunset"
+    entities:
+      switch.smart_strip_switch_2: on #fish light
