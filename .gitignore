@@ -7,6 +7,7 @@
 !*.yaml
 !.gitignore
 !*.md
+!packages/*.yaml
 
 # Ignore folders.
 .storage
@@ -26,3 +27,5 @@ skybell_cache.pickle
 OZW_Log.txt
 pyozw.sqlite
 plex.conf
+.uuid
+.homekit.state
