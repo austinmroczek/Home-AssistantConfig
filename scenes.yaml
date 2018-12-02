@@ -1,0 +1,16 @@
+# scenes
+#
+# https://home-assistant.io/components/scene/
+#
+
+  - name: "Bedtime"
+    entities:
+      switch.stairway_switch: off
+      switch.piano_outlet_switch: off
+      light.hall_level: off
+      switch.kitchen_switch: off
+      switch.master_lights_switch: off
+      switch.garage_lights_switch: off
+      switch.garage_lights_switch_2: off
+      switch.garage_lights_switch_3: off
+

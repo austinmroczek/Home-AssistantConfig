@@ -1,0 +1,77 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Mroczek Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Los_Angeles
+  # Package support
+  packages: !include_dir_named packages
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+updater:
+  include_used_components: true
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - sonos
+    - roku
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+zwave:
+  usb_path: /dev/ttyAMA0
+  autoheal: false
+  network_key: !secret zwave_network_key
+
+media_player:
+  - platform: roku
+    name: Roku Master Bedroom
+    host: !secret roku_master_bedroom_ip
+  - platform: roku
+    name: Roku Living Room
+    host: !secret roku_living_room_ip
+  - platform: roku
+    name: Roku Studio
+    host: !secret roku_studio_ip
+
+sonos:
+  media_player:
+    hosts:
+      - !secret sonos_living_room_ip
+      - !secret sonos_master_bedroom_ip
+
+group: !include groups.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+recorder:
+
+tts:
+  - platform: google
+
+notify:
+  - name: mroczek_email
+    platform: smtp
+    sender: !secret smtp_sender
+    recipient: !secret smtp_recipient
+    server: !secret smtp_server
+    port: !secret smtp_port
+    username: !secret smtp_username
+    password: !secret smtp_password
+    encryption: !secret smtp_encryption

@@ -1,0 +1,152 @@
+# groups configuration
+
+  main:
+    name: Main
+    view: no
+    entities:
+      - alarm_control_panel.total_connect
+      - lock.kitchen_door_lock
+      - sensor.hall_temperature
+      - sensor.master_bedroom_sensor_temperature
+      - input_boolean.enable_climate_air
+      - climate.cooling
+      - input_boolean.enable_climate_heat
+      - climate.heating
+
+  other:
+    name: Other
+    view: yes
+    entities:
+      - group.melanie
+      - group.garage
+      - group.studio
+      - group.hidden
+
+  melanie:
+    name: Melanie
+    view: no
+    entities:
+      - switch.melanie_switch
+
+  hall:
+    name: Hall
+    view: yes
+    entities:
+      - light.hall_level
+      - switch.stairway_switch
+      - sensor.lynx_touch_alarm_type
+      - sensor.lynx_touch_alarm_level
+
+  master:
+    name: Master
+    view: yes
+    entities:
+      - group.master_bedroom
+      - group.master_bathroom
+
+  master_bedroom:
+    name: Master Bedroom
+    view: no
+    entities:
+      - sensor.master_bedroom_sensor_relative_humidity
+      - sensor.master_bedroom_sensor_luminance
+      - sensor.master_bedroom_sensor_temperature
+      - fan.master_fan_level
+      - switch.master_lights_switch_2
+      - switch.master_lights_switch_3
+      - cover.master_blinds
+      - media_player.roku_master_bedroom
+      - media_player.sonos_master_bedroom
+
+  master_bathroom:
+    name: Master Bathroom
+    view: no
+    entities:
+      - light.master_bath_level
+      - light.master_bath_level_2
+      - light.master_bath_level_3
+      - sensor.master_bath_burglar
+      - sensor.master_bath_alarm_type
+      - sensor.master_bath_alarm_level
+
+  kitchen:
+    name: Kitchen
+    view: yes
+    entities:
+      - switch.kitchen_switch
+      - lock.kitchen_door_lock
+      - sensor.kitchen_door_lock_sourcenodeid
+      - sensor.kitchen_door_lock_access_control
+      - sensor.kitchen_door_lock_burglar
+      - sensor.kitchen_door_lock_power_management
+      - sensor.kitchen_door_lock_system
+
+  dining:
+    name: Dining
+    view: yes
+    entities:
+      - group.fish
+      - light.dining_room_level
+      - switch.smart_strip_switch_5
+
+  living:
+    name: Living
+    view: yes
+    entities:
+      - switch.piano_outlet_switch
+      - switch.front_entry_switch_2
+      - switch.front_entry_switch_3
+      - media_player.roku_living_room
+      - media_player.sonos_living_room
+
+  studio: 
+    name: Studio
+    view: no
+    entities:
+      - media_player.roku_studio
+      - switch.studio_outlet_switch
+
+  outside:
+    name: Outside
+    view: yes
+    entities:
+      - sun.sun
+      - sensor.owm_cloud_coverage
+      - sensor.owm_condition
+      - sensor.owm_humidity
+      - sensor.owm_rain
+      - sensor.owm_temperature
+      - group.sprinklers
+      - switch.back_drip_switch
+      - switch.back_floodlights_switch
+      - switch.front_drip_switch
+      - switch.front_lawn_switch
+      - switch.side_drip_switch
+      - switch.kitchen_door_light_switch
+      - switch.front_patio_switch_2
+      - switch.front_entry_light_switch
+      - input_boolean.rain_delay
+      - timer.rain_delay
+      - timer.front_patio_motion_timer
+
+  garage:
+    name: Garage
+    view: no
+    entities:
+      - switch.garage_lights_switch_2
+      - switch.garage_lights_switch_3
+      - input_boolean.laundry
+      - timer.laundry
+
+  hidden:
+    name: Hidden
+    view: no
+    entities:
+      - switch.master_lights_switch
+      - switch.smart_strip_switch
+      - switch.front_patio_motion_enable_switch
+      - switch.front_patio_switch_3
+
+######## tabs (have view:yes) #########
+
+

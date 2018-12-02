@@ -1,0 +1,28 @@
+# https://www.home-assistant.io/docs/ecosystem/backup/backup_github/
+
+# A * ensures that everything will be ignored.
+*
+
+# You can whitelist files/folders with !, these will not be ignored.
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore folders.
+.storage
+.cloud
+.google.token
+tts
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+skybell_cache.pickle
+*.log
+*.db
+*.db*
+*.xml
+OZW_Log.txt
+pyozw.sqlite
+plex.conf
