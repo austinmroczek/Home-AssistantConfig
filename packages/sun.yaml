@@ -36,6 +36,7 @@ scene:
       switch.smart_strip_switch_2: on #fish light
       #switch.front_patio_motion_enable_switch: on
       switch.back_floodlights_switch: on
+      switch.piano_outlet_switch: on
   - name: "AtSunrise"
     entities:
       switch.piano_outlet_switch: off
