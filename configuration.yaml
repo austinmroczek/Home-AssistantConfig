@@ -34,6 +34,15 @@ history:
 # View all events in a logbook
 logbook:
 
+# Define logging levels
+logger:
+  default: info
+  logs: 
+    # hide 'Updating skybell binary_sensor took longer than the scheduled update interval' messages
+    homeassistant.components.skybell: error
+    # hide 'Could not connect' errors when plex server is turned off for power savings
+    homeassistant.components.plex: fatal
+    
 zwave:
   usb_path: /dev/ttyAMA0
   autoheal: false
