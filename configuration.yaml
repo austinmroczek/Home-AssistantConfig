@@ -39,9 +39,13 @@ logger:
   default: info
   logs: 
     # hide 'Updating skybell binary_sensor took longer than the scheduled update interval' messages
-    homeassistant.components.skybell: error
+    homeassistant.components.binary_sensor: error
     # hide 'Could not connect' errors when plex server is turned off for power savings
     homeassistant.components.plex: fatal
+    homeassistant.components.media_player.plex: fatal
+    homeassistant.helpers.entity: error
+    homeassistant.core: error
+    skybellpy: warn
     
 zwave:
   usb_path: /dev/ttyAMA0
@@ -84,3 +88,6 @@ notify:
     username: !secret smtp_username
     password: !secret smtp_password
     encryption: !secret smtp_encryption
+
+lovelace:
+  mode: yaml

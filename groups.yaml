@@ -94,8 +94,8 @@
     view: yes
     entities:
       - switch.piano_outlet_switch
-      - switch.front_entry_switch_2
-      - switch.front_entry_switch_3
+      - switch.front_entry_light_switch
+      - switch.front_porch_switch
       - media_player.roku_living_room
       - media_player.sonos_living_room
 
@@ -125,6 +125,7 @@
       - switch.kitchen_door_light_switch
       - switch.front_patio_switch_2
       - switch.front_entry_light_switch
+      - switch.front_porch_switch
       - input_boolean.rain_delay
       - timer.rain_delay
       - timer.front_patio_motion_timer

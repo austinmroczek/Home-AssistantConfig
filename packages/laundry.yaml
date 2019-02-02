@@ -29,6 +29,13 @@ automation:
         data:
           entity_id: input_boolean.laundry
       - service: tts.google_say
+        entity_id: "all"
+        data:
+          message: 'Laundry cycle complete.'
+      - delay:
+          seconds: 5
+      - service: tts.google_say
+        entity_id: "all"
         data:
           message: 'Laundry cycle complete.'
 

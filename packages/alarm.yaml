@@ -41,9 +41,9 @@ automation:
       entity_id: alarm_control_panel.total_connect
       to: 'armed_away'
     action:
+      - delay: 2:00
       - service: scene.turn_on
         entity_id: scene.OnArmedAway
-      - delay: 2:00
       - service: lock.lock
         data:
           entity_id: group.all_locks
@@ -57,9 +57,9 @@ automation:
       condition: sun
       before: sunset
     action:
+      - delay: 2:00
       - service: scene.turn_on
         entity_id: scene.OnArmedStayDaytime
-      - delay: 2:00
       - service: lock.lock
         data:
           entity_id: group.all_locks
@@ -73,9 +73,9 @@ automation:
       condition: sun
       after: sunset
     action:
+      - delay: 2:00
       - service: scene.turn_on
         entity_id: scene.OnArmedStayDaytime
-      - delay: 2:00
       - service: lock.lock
         data:
           entity_id: group.all_locks
