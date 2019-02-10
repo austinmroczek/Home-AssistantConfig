@@ -1,3 +1,163 @@
 climate:
   - platform: zwave
 
+input_boolean:
+  enable_climate_heat:
+    name: Enable Heat
+  enable_climate_air:
+    name: Enable Air
+
+automation:
+  - alias: "Climate_0600_Weekday"
+    initial_state: True
+    trigger:
+      platform: time
+      at: "06:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 68
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.cooling
+          temperature: 85
+
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+
+  - alias: "Climate_0800_Weekday"
+    initial_state: True
+    trigger:
+      platform: time
+      at: "08:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 62
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+
+  - alias: "Climate_0700_Weekend"
+    initial_state: True
+    trigger:
+      platform: time
+      at: "07:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 69
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.cooling
+          temperature: 79
+    condition:
+      condition: time
+      weekday:
+        - sat
+        - sun
+
+  - alias: "Climate_1600"
+    initial_state: True
+    trigger:
+      platform: time
+      at: "16:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 69
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.cooling
+          temperature: 79
+
+  - alias: "Climate_2000"
+    initial_state: True
+    trigger:
+      platform: time
+      at: "20:00:00"
+    action:
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.heating
+          temperature: 62
+      - service: climate.set_temperature
+        data:
+          entity_id: climate.cooling
+          temperature: 76
+
+  - alias: "Climate Heat Enabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_heat
+      to: 'on'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.enable_climate_air
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.heating
+          operation_mode: 'Heat'
+      - service: climate.set_fan_mode
+        data:
+          entity_id: climate.heating
+          fan_mode: 'Auto Low'
+
+  - alias: "Climate Heat Disabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_heat
+      to: 'off'
+    action:
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.heating
+          operation_mode: 'Off'
+
+  - alias: "Climate Air Enabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_air
+      to: 'on'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.enable_climate_heat
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.cooling
+          operation_mode: 'Cool'
+      - service: climate.set_fan_mode
+        data:
+          entity_id: climate.cooling
+          fan_mode: 'Auto Low'
+
+  - alias: "Climate Air Disabled"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.enable_climate_air
+      to: 'off'
+    action:
+      - service: climate.set_operation_mode
+        data:
+          entity_id: climate.cooling
+          operation_mode: 'Off'
+

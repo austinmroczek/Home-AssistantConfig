@@ -5,7 +5,7 @@ views:
       - type: entities
         title: Main
         entities:
-          - updater.updater
+#          - updater.updater
           - alarm_control_panel.total_connect
           - lock.kitchen_door_lock
           - sensor.hall_temperature
