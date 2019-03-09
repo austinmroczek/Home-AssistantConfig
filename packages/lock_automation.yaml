@@ -1,0 +1,16 @@
+automation:
+  - alias: "Kitchen Door Unlocked while Armed Away"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: sensor.kitchendoor_action
+      to: 'Keypad Unlock'
+    condition:
+      condition: state
+      entity_id: alarm_control_panel.total_connect
+      state: armed_away
+    action:
+      service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.total_connect
+

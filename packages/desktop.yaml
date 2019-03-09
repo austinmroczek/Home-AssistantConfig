@@ -1,5 +1,5 @@
 switch:
   - platform: wake_on_lan
-    mac_address: "C0-7C-D1-FE-B0-90"
+    mac_address: !secret desktop_mac
     name: Desktop
 

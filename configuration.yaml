@@ -70,6 +70,7 @@ sonos:
     hosts:
       - !secret sonos_living_room_ip
       - !secret sonos_master_bedroom_ip
+      - !secret sonos_kid_bedroom_ip
 
 group: !include groups.yaml
 script: !include scripts.yaml

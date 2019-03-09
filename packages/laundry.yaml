@@ -17,6 +17,16 @@ automation:
     action:
       - service: timer.start
         entity_id: timer.laundry
+  - alias: "Laundry cycle turned off"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: input_boolean.laundry
+      to: 'off'
+    action:
+      - service: timer.cancel
+        entity_id: timer.laundry
+
   - alias: "Laundry timer ends"
     initial_state: True
     trigger:
@@ -28,15 +38,28 @@ automation:
       - service: input_boolean.turn_off
         data:
           entity_id: input_boolean.laundry
-      - service: tts.google_say
-        entity_id: "all"
+      - service: script.sonos_say
         data:
+          sonos_entity: media_player.sonos_master_bedroom
+          volume: 0.5
           message: 'Laundry cycle complete.'
-      - delay:
-          seconds: 5
-      - service: tts.google_say
-        entity_id: "all"
+          delay: '00:00:05'
+      - service: script.sonos_say
         data:
+          sonos_entity: media_player.sonos_living_room
+          volume: 0.5
           message: 'Laundry cycle complete.'
+          delay: '00:00:05'
+
+#      - service: tts.google_say
+#        entity_id: "all"
+#        data:
+#          message: 'Laundry cycle complete.'
+#      - delay:
+#          seconds: 5
+#      - service: tts.google_say
+#        entity_id: "all"
+#        data:
+#          message: 'Laundry cycle complete.'
 
 
