@@ -100,7 +100,7 @@ scene:
       switch.master_lights_switch: off
       switch.front_porch_switch: off
       switch.front_entry_light_switch: off
-      switch.melanie_switch: off
+      light.melanie: off
       media_player.roku_living_room: idle
       media_player.roku_master_bedroom: idle
       media_player.sonos_living_room: idle
@@ -118,7 +118,7 @@ scene:
   - name: "OnAlarmTriggered"
     entities:
       switch.master_lights_switch: on
-      switch.melanie_switch: on
+      light.melanie: on
       light.hall_level: on
       switch.kitchen_switch: on
       switch.kitchen_door_light_switch: on

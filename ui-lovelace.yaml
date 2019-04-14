@@ -39,6 +39,7 @@ views:
       - type: entities
         title: Entry
         entities:
+          - camera.front_door
           - switch.front_entry_light_switch
           - switch.front_porch_switch
       - type: entities
@@ -46,14 +47,15 @@ views:
         entities:
           - switch.kitchen_switch
           - lock.kitchen_door_lock
+          - sensor.kitchen_door_lock_power_management_2
       - type: entities
         title: Other
         entities:
-          - switch.melanie_switch
           - light.hall_level
           - switch.stairway_switch
           - group.fish
           - light.dining_room_level
+          - switch.desktop
       - type: conditional
         conditions:
           - entity: media_player.roku_living_room
@@ -63,22 +65,32 @@ views:
           entity: media_player.roku_living_room
       - type: media-control
         entity: media_player.sonos_living_room
+      - type: entities
+        title: Melanie
+        entities:
+          - light.melanie
+          - binary_sensor.melanie_motion
       - type: media-control
         entity: media_player.sonos_melanie
 
   - title: Upstairs
     cards:
       - type: entities
-        title: Master
+        title: Master Bedroom
         entities:
           - sensor.master_bedroom_sensor_relative_humidity
           - sensor.master_bedroom_sensor_luminance
           - sensor.master_bedroom_sensor_temperature
+          - binary_sensor.master_bedroom_motion
           - fan.master_fan_level
           - switch.master_lights_switch_2
           - switch.master_lights_switch_3
           - cover.master_blinds
+      - type: entities
+        title: Master Bath
+        entities:
           - light.master_bath_level
+          - binary_sensor.master_bath_motion
       - type: conditional
         conditions:
           - entity: media_player.roku_master_bedroom
@@ -132,6 +144,9 @@ views:
           - sensor.owm_humidity
           - sensor.owm_rain
           - sensor.owm_temperature
-
+      - type: entities
+        title:  Water Heater
+        entities:
+          - switch.water_heater_outlet 
  
 
