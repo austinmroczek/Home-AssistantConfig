@@ -118,6 +118,16 @@ views:
           - input_boolean.laundry
           - timer.laundry
       - type: entities
+        title: Sparky
+        entities:
+          - binary_sensor.mychevy_2016_chevrolet_spark_ev_plugged_in
+          - sensor.mychevy_2016_chevrolet_spark_ev_battery_level
+          - sensor.mychevy_2016_chevrolet_spark_ev_charge_mode
+          - sensor.mychevy_2016_chevrolet_spark_ev_charged_by
+          - sensor.mychevy_2016_chevrolet_spark_ev_electric_range
+          - sensor.mychevy_2016_chevrolet_spark_ev_mileage
+          - sensor.mychevy_status
+      - type: entities
         title: Sprinklers
         entities:
           - switch.back_drip_switch

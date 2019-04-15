@@ -99,3 +99,7 @@ notify:
 
 lovelace:
   mode: yaml
+
+mychevy:
+  username: !secret mychevy_username
+  password: !secret mychevy_password
