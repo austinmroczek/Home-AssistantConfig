@@ -5,7 +5,6 @@ weather:
 
 # Weather prediction
 sensor:
-  - platform: yr
   - platform: openweathermap
     api_key: !secret owm_api_key
     monitored_conditions:

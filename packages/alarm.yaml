@@ -105,6 +105,7 @@ scene:
       media_player.roku_master_bedroom: idle
       media_player.sonos_living_room: idle
       media_player.sonos_master_bedroom: idle
+      media_player.sonos_melanie: idle
       switch.garage_lights_switch: off
       switch.garage_lights_switch_2: off
       switch.garage_lights_switch_3: off

@@ -82,9 +82,43 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 recorder:
+  exclude:
+    domains:
+      - sun
+      - openweathermap
+    entities:
+      - sensor.melanie_dimmer_alarm_level
+      - sensor.melanie_dimmer_alarm_type_2
+      - sensor.melanie_dimmer_alarm_type
+      - sensor.melanie_dimmer_alarm_level_2
+      - sensor.melanie_dimmer_burglar
+      - sensor.melanie_dimmer_burglar_2
+      - sensor.melanie_dimmer_sourcenodeid
+      - sensor.melanie_dimmer_sourcenodeid_2
+      - sensor.kitchen_door_light_previous_energy
+      - sensor.master_bath_alarm_level
+      - sensor.master_bath_alarm_level_2
+      - sensor.master_bath_alarm_type
+      - sensor.master_bath_alarm_type_2
+      - sensor.master_bath_burglar
+      - sensor.master_bath_burglar_2
+      - sensor.master_bath_sourcenodeid
+      - sensor.master_bath_sourcenodeid_2
+      - sensor.master_bedroom_sensor_alarm_level
+      - sensor.master_bedroom_sensor_alarm_type
+      - sensor.master_bedroom_sensor_burglar
+      - sensor.master_bedroom_sensor_sourcenodeid
+      - sensor.master_bedroom_sensor_ultraviolet
+      - sensor.mychevy_2016_chevrolet_spark_ev_charge_mode
+      - sensor.owm_condition
+      - sensor.owm_cloud_coverage
+      - sensor.owm_humidity
+      - sensor.owm_rain
+      - sensor.owm_temperature
 
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 notify:
   - name: mroczek_email
