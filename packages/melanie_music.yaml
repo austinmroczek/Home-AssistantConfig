@@ -1,0 +1,35 @@
+timer:
+  melanie_music:
+    duration: '00:05:00'
+
+automation:
+  - alias: "Melanie motion ends"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: binary_sensor.melanie_motion
+      to: 'off'
+    action:
+      - service: timer.start
+        entity_id: timer.melanie_music
+  - alias: "Melanie motion starts"
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: binary_sensor.melanie_motion
+      to: 'on'
+    action:
+      - service: timer.cancel
+        entity_id: timer.melanie_music
+  - alias: "Melanie music timer ends"
+    initial_state: True
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.melanie_music
+    action:
+      - service: media_player.turn_off
+        data:
+          entity_id: media_player.sonos_melanie
+
