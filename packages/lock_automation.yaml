@@ -14,7 +14,7 @@ automation:
       data:
         entity_id: alarm_control_panel.total_connect
 
-  - alias: "Kitchen Door Unlocked while Armed Away"
+  - alias: "Kitchen Door Locked while Disarmed"
     initial_state: True
     trigger:
       platform: state
