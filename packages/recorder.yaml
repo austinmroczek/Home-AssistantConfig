@@ -13,6 +13,8 @@ recorder:
       - updater
       - weather
     entities:
+      - automation.melanie_motion_ends
+      - automation.melanie_motion_starts
       - sensor.melanie_dimmer_alarm_level
       - sensor.melanie_dimmer_alarm_type_2
       - sensor.melanie_dimmer_alarm_type
@@ -38,9 +40,13 @@ recorder:
       - sensor.master_bedroom_sensor_sourcenodeid
       - sensor.master_bedroom_sensor_ultraviolet
       - sensor.mychevy_2016_chevrolet_spark_ev_charge_mode
+      - sensor.mychevy_2016_chevrolet_spark_ev_charged_by
+      - sensor.mychevy_2016_chevrolet_spark_ev_electric_range
+      - sensor.mychevy_2016_chevrolet_spark_ev_mileage
+      - sensor.mychevy_status
       - sensor.owm_condition
       - sensor.owm_cloud_coverage
       - sensor.owm_humidity
       - sensor.owm_rain
       - sensor.owm_temperature
-
+      - timer.melanie_music
