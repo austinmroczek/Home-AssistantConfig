@@ -1,10 +1,15 @@
 # Honeywell Total Connect integration
 # https://home-assistant.io/components/alarm_control_panel.totalconnect/
-alarm_control_panel:
-  - platform: totalconnect
+
+#alarm_control_panel:
+#  - platform: totalconnect
+#    username: !secret totalconnect_username
+#    password: !secret totalconnect_password
+
+totalconnect:
     username: !secret totalconnect_username
     password: !secret totalconnect_password
-#    usercode: !secret totalconnect_usercode
+
 
 # states that can be used:
 #   disarmed, armed_home, armed_away, armed_night, armed_custom_bypass, pending, arming, disarming, triggered
