@@ -7,12 +7,12 @@ automation:
       to: 'Keypad Unlock'
     condition:
       condition: state
-      entity_id: alarm_control_panel.total_connect
+      entity_id: alarm_control_panel.home1
       state: armed_away
     action:
       service: alarm_control_panel.alarm_disarm
       data:
-        entity_id: alarm_control_panel.total_connect
+        entity_id: alarm_control_panel.home1
 
   - alias: "Kitchen Door Locked while Disarmed"
     initial_state: True
@@ -22,10 +22,10 @@ automation:
       to: 'Keypad Lock'
     condition:
       condition: state
-      entity_id: alarm_control_panel.total_connect
+      entity_id: alarm_control_panel.home1
       state: disarmed
     action:
       service: alarm_control_panel.alarm_arm_away
       data:
-        entity_id: alarm_control_panel.total_connect
+        entity_id: alarm_control_panel.home1
 

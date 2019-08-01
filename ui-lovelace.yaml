@@ -5,7 +5,7 @@ views:
       - type: entities
         title: Main
         entities:
-          - alarm_control_panel.total_connect
+          - alarm_control_panel.home1
           - lock.kitchen_door_lock
           - sensor.hall_temperature
           - sensor.master_bedroom_sensor_temperature

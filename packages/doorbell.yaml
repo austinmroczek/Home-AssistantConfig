@@ -30,7 +30,7 @@ automation:
       to: 'on'
     condition:
       condition: state
-      entity_id: alarm_control_panel.total_connect
+      entity_id: alarm_control_panel.home1
       state: armed_away
     action:
       service: media_player.play_media

@@ -103,3 +103,8 @@ lovelace:
 mychevy:
   username: !secret mychevy_username
   password: !secret mychevy_password
+
+#totalconnect:
+#  username: !secret totalconnect_username
+#  password: !secret totalconnect_password
+

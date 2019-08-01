@@ -1589,7 +1589,7 @@ sensor:
       kitchen_door_lock_power_management:
         entity_id: zwave.kitchen_door_lock
         value_template: '{{states["zwave"]["kitchen_door_lock"]["attributes"]["battery_level"]}}'
-        friendly_name: Kitchen Door Deadbolt Battery Level
+        friendly_name: Kitchen Door Lock Battery Level
         unit_of_measurement: '%'
         icon_template: >-
           {% set level = ((states["zwave"]["kitchen_door_lock"]["attributes"]["battery_level"]*0.1)|round)*10|int %}
