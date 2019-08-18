@@ -1,0 +1,34 @@
+# control the internet from Home Assistant
+
+# adapted from https://medium.com/@arturlr/using-iot-button-to-control-my-kids-internet-usage-5bd825c1da76
+
+
+##### setup the router #####
+# # install mosquitto MQTT broker
+# # help from https://www.onetransistor.eu/2019/05/mosquitto-mqtt-on-openwrt-router.html
+# opkg install mosquitto mosquitto-client-nossl
+# # edit /etc/mosquitto/mosquitto.conf as needed
+# # generally follow directions of adapted from https://medium.com/@arturlr/using-iot-button-to-control-my-kids-internet-usage-5bd825c1da76
+# # ...but instead of connecting to Amazon we're using the local server
+
+##### setup the machine hosting home assistant (this one) #####
+
+# # get the mosquitto clients
+# apt install mosquitto-clients
+
+
+##### set up switches #####
+switch:
+  - platform: command_line
+    switches:
+      melanie_internet:
+        friendly_name: Melanie Internet
+        command_on: !secret enable_melanie_internet
+        command_off: !secret disable_melanie_internet
+      ipad_internet:
+        friendly_name: iPad Internet
+        command_on: !secret enable_ipad_internet
+        command_off: !secret disable_ipad_internet
+
+
+

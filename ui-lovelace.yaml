@@ -11,6 +11,8 @@ views:
           - sensor.master_bedroom_sensor_temperature
           - input_boolean.enable_climate_air
           - input_boolean.enable_climate_heat
+          - switch.melanie_internet
+          - switch.ipad_internet
 
       - type: conditional
         conditions:
