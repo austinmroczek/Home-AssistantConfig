@@ -110,10 +110,10 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.enable_climate_air
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.heating
-          operation_mode: 'Heat'
+          hvac_mode: 'Heat'
       - service: climate.set_fan_mode
         data:
           entity_id: climate.heating
@@ -126,10 +126,10 @@ automation:
       entity_id: input_boolean.enable_climate_heat
       to: 'off'
     action:
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.heating
-          operation_mode: 'Off'
+          hvac_mode: 'Off'
 
   - alias: "Climate Air Enabled"
     initial_state: True
@@ -140,10 +140,10 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.enable_climate_heat
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.cooling
-          operation_mode: 'Cool'
+          hvac_mode: 'Cool'
       - service: climate.set_fan_mode
         data:
           entity_id: climate.cooling
@@ -156,8 +156,8 @@ automation:
       entity_id: input_boolean.enable_climate_air
       to: 'off'
     action:
-      - service: climate.set_operation_mode
+      - service: climate.set_hvac_mode
         data:
           entity_id: climate.cooling
-          operation_mode: 'Off'
+          hvac_mode: 'Off'
 
