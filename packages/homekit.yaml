@@ -1,16 +1,16 @@
-homekit:
+#homekit:
 
 # https://www.home-assistant.io/components/homekit/#considerations
 
-  auto_start: False
+#  auto_start: False
 
-automation:
-  - alias: 'Start HomeKit'
-    initial_state: True
-    trigger:
-      - platform: event
-        event_type: zwave.network_ready
-    action:
-      - service: homekit.start
+#automation:
+#  - alias: 'Start HomeKit'
+#    initial_state: True
+#    trigger:
+#      - platform: event
+#        event_type: zwave.network_ready
+#    action:
+#      - service: homekit.start
 
 

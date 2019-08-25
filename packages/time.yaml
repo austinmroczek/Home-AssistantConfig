@@ -31,6 +31,19 @@ automation:
     action:
       service: scene.turn_on
       entity_id: scene.At9PM
+  - alias: "Weekend Internet"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:30:00'
+    action:
+      service: homeassistant.turn_on
+      entity_id: group.internet
+    condition:
+      condition: time
+      weekday:
+        - sat
+        - sun
 
 scene:
   - name: "AtMidnight"
@@ -44,6 +57,9 @@ scene:
     entities:
       switch.piano_outlet_switch: off
       switch.smart_strip_switch_2: off #fish light
+#      switch.ipad_internet: on
+#      switch.melanie_internet: on
+      group.internet: on
   - name: "At4PM"
     entities:
       switch.piano_outlet_switch: off
@@ -53,4 +69,10 @@ scene:
     entities:
       switch.smart_strip_switch_2: off #fish light
 #      switch.smart_strip_switch_3: on # fish heater
-
+#      switch.ipad_internet: off
+#      switch.melanie_internet: off
+      group.internet: off
+  - name: InternetOn
+    entities:
+      switch.ipad_internet: on
+      switch.melanie_internet: on
