@@ -8,7 +8,7 @@ views:
           - alarm_control_panel.home1
           - lock.kitchen_door_lock
           - sensor.hall_temperature
-          - sensor.master_bedroom_sensor_temperature
+          - sensor.master_bedroom_temperature
           - input_boolean.enable_climate_air
           - input_boolean.enable_climate_heat
           - group.internet
@@ -81,7 +81,7 @@ views:
         entities:
           - sensor.master_bedroom_sensor_relative_humidity
           - sensor.master_bedroom_sensor_luminance
-          - sensor.master_bedroom_sensor_temperature
+          - sensor.master_bedroom_temperature
           - binary_sensor.master_bedroom_motion
           - fan.master_fan_level
           - switch.master_lights_switch_2
