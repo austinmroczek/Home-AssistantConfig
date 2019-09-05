@@ -96,6 +96,23 @@ automation:
       - service: lock.unlock
         data:
           entity_id: group.all_locks
+      - service: notify.austin
+        data_template:
+          message: >-
+            {% set alarm_source = states['alarm_control_panel.home1'].attributes.triggered_source %}
+            {% set alarm_zone = states['alarm_control_panel.home1'].attributes.triggered_zone %}
+            {% set alarm_ac_loss = states['alarm_control_panel.home1'].attributes.ac_loss %}
+            {% set alarm_low_battery = states['alarm_control_panel.home1'].attributes.low_battery %}
+
+            The alarm has been triggered!
+            Source: {{ alarm_source }}
+            Zone: {{ alarm_zone }}
+            AC Loss: {{ alarm_ac_loss }}
+            Low Battery: {{ alarm_low_battery }}
+
+          title: >-
+            Goldsmith Alarm Triggered!
+
 
 scene:
   - name: "OnArmedAway"
@@ -124,6 +141,7 @@ scene:
   - name: "OnAlarmTriggered"
     entities:
       switch.master_lights_switch: on
+      switch.stairway_switch: on
       light.melanie: on
       light.hall_level: on
       switch.kitchen_switch: on
