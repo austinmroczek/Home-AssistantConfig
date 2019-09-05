@@ -183,9 +183,8 @@ automation:
             {% set switch_input = 'door_keypad_' ~ code_slot ~ '_kitchen_switch' %}
             {% set switch_name = states['input_boolean'][switch_input].attributes.friendly_name %}
             Beach House: Temporary code enabled on {{ switch_name }}
-          target:
-          - !secret austin_email
-
+#          target:
+#          - !secret austin_email
 
   - alias: Keypad temporary code end
     initial_state: True

@@ -8,6 +8,8 @@ notify:
     encryption: starttls
     username: !secret smtp_username
     password: !secret smtp_password
-    recipient: !secret smtp_recipient
+    recipient: 
+      - !secret smtp_recipient1
+      - !secret smtp_recipient2
     sender_name: Mroczek Home Assistant
 

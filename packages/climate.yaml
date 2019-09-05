@@ -113,11 +113,11 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.heating
-          hvac_mode: 'Heat'
+          hvac_mode: 'heat'
       - service: climate.set_fan_mode
         data:
           entity_id: climate.heating
-          fan_mode: 'Auto Low'
+          fan_mode: 'auto'
 
   - alias: "Climate Heat Disabled"
     initial_state: True
@@ -129,7 +129,7 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.heating
-          hvac_mode: 'Off'
+          hvac_mode: 'off'
 
   - alias: "Climate Air Enabled"
     initial_state: True
@@ -143,11 +143,11 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.cooling
-          hvac_mode: 'Cool'
+          hvac_mode: 'cool'
       - service: climate.set_fan_mode
         data:
           entity_id: climate.cooling
-          fan_mode: 'Auto Low'
+          fan_mode: 'auto'
 
   - alias: "Climate Air Disabled"
     initial_state: True
@@ -159,5 +159,5 @@ automation:
       - service: climate.set_hvac_mode
         data:
           entity_id: climate.cooling
-          hvac_mode: 'Off'
+          hvac_mode: 'off'
 
