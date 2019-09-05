@@ -6,6 +6,7 @@
   - name: "Bedtime"
     entities:
       switch.stairway_switch: off
+      switch.front_entry_light_switch: off
       switch.piano_outlet_switch: off
       light.hall_level: off
       switch.kitchen_switch: off
