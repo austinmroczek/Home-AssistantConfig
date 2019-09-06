@@ -10,7 +10,6 @@ totalconnect:
   username: !secret totalconnect_username
   password: !secret totalconnect_password
 
-
 # states that can be used:
 #   disarmed, armed_home, armed_away, armed_night, armed_custom_bypass, pending, arming, disarming, triggered
 
@@ -113,7 +112,6 @@ automation:
           title: >-
             Goldsmith Alarm Triggered!
 
-
 scene:
   - name: "OnArmedAway"
     entities:
@@ -128,9 +126,8 @@ scene:
       media_player.sonos_living_room: idle
       media_player.sonos_master_bedroom: idle
       media_player.sonos_melanie: idle
-      switch.garage_lights_switch_1: off
-      switch.garage_lights_switch_2: off
-      switch.garage_lights_switch_3: off
+      group.garage: off
+      climate.master_bedroom: off
   - name: "OnDisarmedNighttime"
     entities:
       light.hall_level: on
@@ -148,6 +145,7 @@ scene:
       switch.kitchen_door_light_switch: on
       switch.front_porch_switch: on
       switch.front_entry_light_switch: on
+      climate.master_bedroom: off
   - name: "OnArmedStayDaytime"
     entities:
       switch.front_porch_switch: off
