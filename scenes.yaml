@@ -9,6 +9,7 @@
       switch.front_entry_light_switch: off
       switch.piano_outlet_switch: off
       light.hall_level: off
+      light.dining_room_level: off
       switch.kitchen_switch: off
       switch.master_lights_switch: off
       group.garage: off
