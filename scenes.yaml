@@ -13,4 +13,5 @@
       switch.kitchen_switch: off
       switch.master_lights_switch: off
       group.garage: off
+      switch.master_bath_toilet_plug: off
 

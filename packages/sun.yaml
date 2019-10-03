@@ -48,6 +48,7 @@ scene:
       switch.smart_strip_switch_2: off #fish light
       light.hall_level: off
       group.garage: off
+      switch.master_bath_toilet_plug: on
   - name: "HourBeforeSunset"
     entities:
       switch.smart_strip_switch_2: on #fish light
