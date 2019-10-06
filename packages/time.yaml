@@ -65,26 +65,26 @@ scene:
   - name: "AtMidnight"
     entities:
       switch.piano_outlet_switch: off
-      switch.smart_strip_switch_2: off #fish light
+      switch.smart_strip_switch_1: off #fish light
       switch.master_bath_toilet_plug: off
       group.garage: off
   - name: "AtNoon"
     entities:
       switch.piano_outlet_switch: off
-      switch.smart_strip_switch_2: off #fish light
+      switch.smart_strip_switch_1: off #fish light
       group.internet: on
   - name: "At4PM"
     entities:
       switch.piano_outlet_switch: off
-#      switch.smart_strip_switch_2: off #fish light
-      switch.smart_strip_switch_3: off # fish heater
+#      switch.smart_strip_switch_1: off #fish light
+      switch.smart_strip_switch_2: off # fish heater
   - name: "At8PM"
     entities:
       group.internet: off
   - name: "At9PM"
     entities:
-      switch.smart_strip_switch_2: off #fish light
-#      switch.smart_strip_switch_3: on # fish heater
+      switch.smart_strip_switch_1: off #fish light
+#      switch.smart_strip_switch_2: on # fish heater
       group.internet: off
   - name: InternetOn
     entities:
@@ -93,3 +93,4 @@ scene:
   - name: "At0630"
     entities:
       switch.master_bath_toilet_plug: on
+      switch.water_heater_outlet: on
