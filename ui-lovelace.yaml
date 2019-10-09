@@ -96,6 +96,7 @@ views:
           - light.master_bath_tub
           - light.master_bath_toilet
           - binary_sensor.master_bath_motion
+          - cover.master_bath_skylight_switch
       - type: conditional
         conditions:
           - entity: media_player.roku_master_bedroom
