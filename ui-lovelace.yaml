@@ -11,7 +11,6 @@ views:
           - sensor.master_bedroom_temperature
           - input_boolean.enable_climate_air
           - input_boolean.enable_climate_heat
-          - group.internet
           - scene.bedtime
           - scene.showtime
 
@@ -71,6 +70,7 @@ views:
         title: Melanie
         entities:
           - light.melanie
+          - group.internet
           - binary_sensor.melanie_motion
       - type: media-control
         entity: media_player.sonos_melanie
@@ -92,6 +92,7 @@ views:
         title: Master Bath
         entities:
           - light.master_bath_level
+          - light.master_bath_sink
           - light.master_bath_vanity
           - light.master_bath_shower
           - light.master_bath_tub
