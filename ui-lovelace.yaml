@@ -13,6 +13,7 @@ views:
           - input_boolean.enable_climate_heat
           - group.internet
           - scene.bedtime
+          - scene.showtime
 
       - type: conditional
         conditions:
