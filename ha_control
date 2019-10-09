@@ -1,0 +1,167 @@
+#!/bin/bash
+
+# credit: adapted from Qmail 'qmailctl' script
+
+# assumes Home Assistant is using 'systemd' setup per https://home-assistant.io/docs/autostart/systemd/
+
+##### configuration #####
+sc=/bin/systemctl
+ha=home-assistant@homeassistant.service
+jc=/bin/journalctl
+ha_user=homeassistant
+ha_home=/home/homeassistant
+ozw_log=$ha_home/.homeassistant/OZW_Log.txt
+##### configuration #####
+
+##### functions #####
+function ha_status {
+  $sc status $ha
+}
+function ha_stop {
+  echo Stopping home assistant
+  $sc stop $ha
+}
+function ha_start {
+  save_ozw
+  echo Starting home assistant
+  $sc start $ha
+}
+function ha_restart {
+  save_ozw
+  echo Restarting home assistant
+  ha_stop
+  ha_start
+}
+function ha_disable {
+  echo Disabling automatic start at boot
+  $sc disable $ha
+}
+function ha_enable {
+  echo Enabling automatic start at boot
+  $sc enable $ha
+}
+function ha_logs {
+  echo Viewing latest log entries:
+  $jc -n 25 -u $ha
+}
+function ha_errors {
+  echo View latest errors only in log entries:
+  $jc -u $ha | grep -i error
+}
+function ha_backup {
+  echo Back up configuration
+  # must make a copy before tar otherwise HA may change file during the process
+  cp -R $ha_home/.homeassistant $ha_home/config_temp
+  timestamp=`date '+%Y%m%d_%H%M_%S'`
+  tar -zcf $ha_home/ha_config_$timestamp.tar.gz $ha_home/config_temp
+  rm -R $ha_home/config_temp
+}
+function save_ozw {
+  # when Home Assistant restarts, it wipes the Open Z-wave log file
+  echo "Save Open Z-wave log file so it's not lost"
+  timestamp=`date '+%Y%m%d_%H%M_%S'`
+  cp $ozw_log $ha_home/.homeassistant/OZW_Log.txt.$timestamp
+}
+function ha_upgrade {
+  # https://www.home-assistant.io/docs/installation/raspberry-pi/
+  echo Upgrade to latest Home Assistant
+  ha_stop
+  echo su to user $ha_user for upgrades
+  sudo -u $ha_user ./ha_upgrade
+  echo Done as user $ha_user
+  ha_start
+  echo Upgrade process complete
+}
+function check_systemd {
+  ##### check that systemd is on the system #####
+  systemd_expected=systemd
+  systemd_result=`ps -p 1 -o comm=`
+
+  if [ "$systemd_expected" != "$systemd_result"  ]; then
+    echo System does not appear to be running "systemd"
+    echo See https://home-assistant.io/docs/autostart/systemd/ for setup instructions
+    exit 1
+  fi
+}
+function check_root {
+  ##### check if running as root #####
+  # credit: https://askubuntu.com/questions/15853/how-can-a-script-check-if-its-being-run-as-root
+  if [[ $EUID -ne 0 ]]; then
+     echo "This script must be run as root"
+     exit 1
+  fi
+}
+##### end functions #####
+
+######################
+##### MAIN EVENT #####
+######################
+
+check_systemd
+check_root
+
+##### respond to the requested function #####
+case "$1" in
+
+  status)
+    ha_status
+  ;;
+  start)
+    ha_start
+  ;;
+  stop)
+    ha_stop
+  ;;
+  restart)
+    ha_restart
+  ;;
+  disable)
+    ha_disable
+  ;;
+  enable)
+    ha_enable
+  ;;
+  logs)
+    ha_logs
+  ;;
+  errors)
+    ha_errors
+  ;;
+  backup)
+    ha_backup
+  ;;
+  upgrade)
+    ha_upgrade
+  ;;
+  ozw)
+    save_ozw
+  ;;
+  help)
+    cat <<HELP
+
+This script simplifies control of Home Assistant when running under "systemd".
+
+Commands:
+  status - displays status of Home Assistant daemon
+  start - start Home Assistant daemon
+  stop - stop Home Assistant daemon
+  restart - restart the Home Assistant daemon
+  enable - enables automatic start at boot
+  disable - disables automatic start at boot
+  logs - view latest log entries
+  errors - view only errors in logs
+  backup - back up all configuration files in a tar.gz file
+  upgrade - upgrade to the latest release
+  ozw - save Open Z-wave log file with timestamp
+
+HELP
+  ;;
+
+  *)
+    echo Command not recognized.  Usage:   $0 help
+    exit 1
+  ;;
+esac
+
+exit 0
+

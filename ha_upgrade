@@ -1,0 +1,10 @@
+#!/bin/bash
+
+    # https://www.home-assistant.io/docs/installation/raspberry-pi/
+
+    source /srv/homeassistant/bin/activate
+    pip3 install --upgrade homeassistant
+
+    exit 0
+
+
