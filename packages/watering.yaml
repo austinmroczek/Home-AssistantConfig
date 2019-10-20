@@ -50,6 +50,33 @@ automation:
       service: scene.turn_on
       entity_id: scene.StopAllWater
 
+  - alias: "Weekly Soaking"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '07:00:00'
+    action:
+      service: switch.turn_on
+      entity_id: switch.back_drip_switch
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+            - sat
+        - condition: state
+          entity_id: input_boolean.rain_delay
+          state: 'off'
+
+  - alias: "Stop Weekly Soaking"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '07:55:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.StopAllWater
+
 scene:
   - name: "WaterLawn"
     entities:
