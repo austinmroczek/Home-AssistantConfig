@@ -45,6 +45,8 @@ automation:
       entity_id: alarm_control_panel.home1
       to: 'armed_away'
     action:
+      - service: homeassistant.turn_off
+        entity_id: group.house_media_players 
       - delay: 2:00
       - service: scene.turn_on
         entity_id: scene.OnArmedAway
@@ -60,22 +62,6 @@ automation:
     condition:
       condition: sun
       before: sunset
-    action:
-      - delay: 2:00
-      - service: scene.turn_on
-        entity_id: scene.OnArmedStayDaytime
-      - service: lock.lock
-        data:
-          entity_id: group.all_locks
-  - alias: "Alarm: Armed Stay Daytime"
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.home1
-      to: 'armed_home'
-    condition:
-      condition: sun
-      after: sunset
     action:
       - delay: 2:00
       - service: scene.turn_on
@@ -121,6 +107,7 @@ scene:
       switch.front_porch_switch: off
       switch.front_entry_light_switch: off
       light.melanie: off
+      group.house_media_players: idle
       media_player.roku_living_room: idle
       media_player.roku_master_bedroom: idle
       media_player.sonos_living_room: idle
