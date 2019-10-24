@@ -114,6 +114,7 @@ scene:
       media_player.sonos_master_bedroom: idle
       media_player.sonos_melanie: idle
       group.garage: off
+      group.master_bath_lights: off
       climate.master_bedroom: off
   - name: "OnDisarmedNighttime"
     entities:

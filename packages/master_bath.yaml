@@ -10,3 +10,17 @@ binary_sensor:
         device_class: motion
         value_template: "{{ is_state('sensor.master_bath_toilet_burglar', '8') }}"
 
+
+
+group:
+  master_bath_lights:
+    name: Master Bath Lights
+    view: no
+    entities:
+      - light.master_bath_level
+      - light.master_bath_sink
+      - light.master_bath_vanity
+      - light.master_bath_shower
+      - light.master_bath_tub
+      - light.master_bath_toilet
+
