@@ -11,5 +11,6 @@ notify:
     recipient: 
       - !secret smtp_recipient1
       - !secret smtp_recipient2
+      - !secret smtp_recipient3
     sender_name: Mroczek Home Assistant
 

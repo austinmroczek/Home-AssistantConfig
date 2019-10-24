@@ -118,10 +118,12 @@ scene:
   - name: "OnDisarmedNighttime"
     entities:
       light.hall_level: on
+      climate.master_bedroom: cool
   - name: "OnDisarmedDaytime"
     entities:
       light.hall_level: off
       switch.kitchen_switch: off
+      climate.master_bedroom: cool
   - name: "OnAlarmTriggered"
     entities:
       switch.master_lights_switch: on
