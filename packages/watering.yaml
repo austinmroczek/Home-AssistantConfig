@@ -80,18 +80,18 @@ automation:
 scene:
   - name: "WaterLawn"
     entities:
-      switch.front_lawn_switch: on
+      switch.front_lawn: on
   - name: "WaterPlants"
     entities:
       switch.side_drip_switch: on
       switch.back_drip_switch: on
-      switch.front_drip_switch: on
+      switch.front_drip: on
   - name: "StopAllWater"
     entities:
       switch.side_drip_switch: off
       switch.back_drip_switch: off
-      switch.front_lawn_switch: off
-      switch.front_drip_switch: off
+      switch.front_lawn: off
+      switch.front_drip: off
       switch.water_heater_outlet: off
 
 group:
@@ -101,10 +101,9 @@ group:
     entities:
       - switch.back_drip_switch
       - switch.side_drip_switch
-      - switch.front_drip_switch
-      - switch.front_lawn_switch
+      - switch.front_drip
+      - switch.front_lawn
       - input_boolean.rain_delay
       - scene.WaterPlants
       - scene.WaterLawn
       - scene.StopAllWater
-

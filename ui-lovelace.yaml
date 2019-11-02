@@ -88,6 +88,7 @@ views:
           - switch.master_lights_switch_2
           - switch.master_lights_switch_3
           - cover.master_blinds
+          - climate.master_bedroom
       - type: entities
         title: Master Bath
         entities:
@@ -139,8 +140,8 @@ views:
         title: Sprinklers
         entities:
           - switch.back_drip_switch
-          - switch.front_drip_switch
-          - switch.front_lawn_switch
+          - switch.front_drip
+          - switch.front_lawn
           - switch.side_drip_switch
           - input_boolean.rain_delay
           - timer.rain_delay
