@@ -103,7 +103,3 @@ group:
       - switch.side_drip_switch
       - switch.front_drip
       - switch.front_lawn
-      - input_boolean.rain_delay
-      - scene.WaterPlants
-      - scene.WaterLawn
-      - scene.StopAllWater

@@ -145,6 +145,7 @@ views:
           - switch.side_drip_switch
           - input_boolean.rain_delay
           - timer.rain_delay
+          - scene.stopallwater
       - type: entities
         title: Lights
         entities:

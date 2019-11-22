@@ -66,7 +66,7 @@ scene:
     entities:
       switch.piano_outlet_switch: off
       switch.smart_strip_switch_1: off #fish light
-      switch.master_bath_toilet_plug: off
+#      switch.master_bath_toilet_plug: off
       group.garage: off
   - name: "AtNoon"
     entities:

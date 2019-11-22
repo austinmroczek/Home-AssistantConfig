@@ -37,3 +37,14 @@ automation:
         data:
           entity_id: input_boolean.rain_delay
 
+# the Fakro FVS rain sensor ('flood sensor' alarm_level) is 0 when no rain, goes to 1 if rain, then immediately goes to 254.
+  - alias: "Rain Delay turns on when skylight senses rain"
+    initial_state: True
+    trigger:
+      platform: template
+      value_template: "{% if is_state('sensor.master_bath_skylight_flood', '1') %}true{% endif %}"
+    action:
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.rain_delay
+

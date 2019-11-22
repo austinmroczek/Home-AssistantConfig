@@ -12,6 +12,10 @@
       light.dining_room_level: off
       switch.kitchen_switch: off
       switch.master_lights_switch: off
-      group.garage: off
+#      group.garage: off
+      switch.garage_lights_switch_1: off
+      switch.garage_lights_switch_2: off
+      switch.garage_lights_switch_3: off
+
 #      switch.master_bath_toilet_plug: off
 
