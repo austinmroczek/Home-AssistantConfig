@@ -1,0 +1,22 @@
+#   Water Heater automation
+#
+
+
+automation:
+  - alias: "Start water heater"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:00:00'
+    action:
+      service: switch.turn_on
+      entity_id: switch.water_heater_outlet
+
+  - alias: "Stop water heater"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '07:00:00'
+    action:
+      service: switch.turn_off
+      entity_id: switch.water_heater_outlet
