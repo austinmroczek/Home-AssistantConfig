@@ -86,25 +86,10 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-#notify:
-#  - name: mroczek_email
-#    platform: smtp
-#    sender: !secret smtp_sender
-#    recipient: !secret smtp_recipient
-#    server: !secret smtp_server
-#    port: !secret smtp_port
-#    username: !secret smtp_username
-#    password: !secret smtp_password
-#    encryption: !secret smtp_encryption
-
 lovelace:
   mode: yaml
 
 mychevy:
   username: !secret mychevy_username
   password: !secret mychevy_password
-
-#totalconnect:
-#  username: !secret totalconnect_username
-#  password: !secret totalconnect_password
 
