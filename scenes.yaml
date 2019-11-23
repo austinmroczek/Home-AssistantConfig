@@ -3,7 +3,8 @@
 # https://home-assistant.io/components/scene/
 #
 
-  - name: "Bedtime"
+  - id: bedtime
+    name: Bedtime
     entities:
       switch.stairway_switch: off
       switch.front_entry_light_switch: off
