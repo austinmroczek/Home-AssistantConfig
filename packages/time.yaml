@@ -93,4 +93,3 @@ scene:
   - name: "At0630"
     entities:
       switch.master_bath_toilet_plug: on
-      switch.water_heater_outlet: on

@@ -92,7 +92,6 @@ scene:
       switch.back_drip_switch: off
       switch.front_lawn: off
       switch.front_drip: off
-      switch.water_heater_outlet: off
 
 group:
   sprinklers:
