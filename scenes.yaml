@@ -20,3 +20,11 @@
 
 #      switch.master_bath_toilet_plug: off
 
+
+  - id: HourBeforeSunset
+    name: "Hour Before Sunset"
+    entities:
+      switch.smart_strip_switch_1: on #fish light
+      switch.piano_outlet_switch: on
+
+

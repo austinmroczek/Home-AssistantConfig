@@ -56,6 +56,7 @@ views:
           - switch.stairway_switch
           - group.fish
           - light.dining_room_level
+          - switch.piano_outlet_switch
           - switch.desktop
       - type: conditional
         conditions:
