@@ -26,5 +26,36 @@
     entities:
       switch.smart_strip_switch_1: on #fish light
       switch.piano_outlet_switch: on
-
-
+  - id: AtMidnight
+    name: "AtMidnight"
+    entities:
+      switch.piano_outlet_switch: off
+      switch.smart_strip_switch_1: off #fish light
+      group.garage: off
+  - id: AtNoon
+    name: "AtNoon"
+    entities:
+      switch.smart_strip_switch_1: off #fish light
+      group.internet: on
+  - id: At0630
+    name: "At0630"
+    entities:
+      switch.master_bath_toilet_plug: on
+  - id: At4PM
+    name: "At4PM"
+    entities:
+      switch.smart_strip_switch_2: off # fish heater
+  - id: At8PM
+    name: "At8PM"
+    entities:
+      group.internet: off
+  - id: At9PM
+    name: "At9PM"
+    entities:
+      switch.smart_strip_switch_1: off #fish light
+      group.internet: off
+  - id: InternetOn
+    name: InternetOn
+    entities:
+      switch.ipad_internet: on
+      switch.melanie_internet: on
