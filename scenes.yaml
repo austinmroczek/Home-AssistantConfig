@@ -59,3 +59,116 @@
     entities:
       switch.ipad_internet: on
       switch.melanie_internet: on
+
+# showtime scene - what to do when we want to start a show on the living room TV
+  - id: Showtime
+    name: "ShowTime"
+    entities:
+      switch.stairway_switch: off
+      switch.front_entry_light_switch: off
+      switch.piano_outlet_switch: off
+      light.hall_level: off
+      light.dining_room_level: off
+      switch.kitchen_switch: off
+
+# alarm
+
+  - id: OnArmedAway
+    name: "OnArmedAway"
+    entities:
+      light.hall_level: off
+      switch.kitchen_switch: off
+      switch.master_lights_switch: off
+      switch.front_porch_switch: off
+      switch.front_entry_light_switch: off
+      light.melanie: off
+      group.house_media_players: idle
+      media_player.roku_living_room: idle
+      media_player.roku_master_bedroom: idle
+      media_player.sonos_living_room: idle
+      media_player.sonos_master_bedroom: idle
+      media_player.sonos_melanie: idle
+      group.garage: off
+      group.master_bath_lights: off
+      climate.master_bedroom: off
+  - id: OnDisarmedNighttime
+    name: "OnDisarmedNighttime"
+    entities:
+      light.hall_level: on
+      climate.master_bedroom: cool
+  - id: OnDisarmedDaytime
+    name: "OnDisarmedDaytime"
+    entities:
+      light.hall_level: off
+      switch.kitchen_switch: off
+      climate.master_bedroom: cool
+  - id: OnAlarmTriggered
+    name: "OnAlarmTriggered"
+    entities:
+      switch.master_lights_switch: on
+      switch.stairway_switch: on
+      light.melanie: on
+      light.hall_level: on
+      switch.kitchen_switch: on
+      switch.kitchen_door_light_switch: on
+      switch.front_porch_switch: on
+      switch.front_entry_light_switch: on
+      climate.master_bedroom: off
+  - id: OnArmedStayDaytime
+    name: "OnArmedStayDaytime"
+    entities:
+      switch.front_porch_switch: off
+      switch.kitchen_door_light_switch: off
+  - id: OnArmedStayNighttime
+    name: "OnArmedStayNighttime"
+    entities:
+      switch.front_porch_switch: on
+      switch.kitchen_door_light_switch: on
+
+# sun
+
+  - id: AtSunset
+    name: "AtSunset"
+    entities:
+      switch.smart_strip_switch_1: on #fish light
+      #switch.front_patio_motion_enable_switch: on
+      switch.back_floodlights_switch: on
+      switch.piano_outlet_switch: on
+  - id: AtSunrise
+    name: "AtSunrise"
+    entities:
+      switch.piano_outlet_switch: off
+      #switch.front_patio_motion_enable_switch: off
+      switch.front_entry_light_switch: off
+      switch.front_porch_switch: off
+      switch.back_floodlights_switch: off
+      switch.kitchen_door_light_switch: off
+      switch.smart_strip_switch_1: off #fish light
+      light.hall_level: off
+      group.garage: off
+      switch.master_bath_toilet_plug: on
+  - id: HourBeforeSunset
+    name: "HourBeforeSunset"
+    entities:
+      switch.smart_strip_switch_1: on #fish light
+      switch.piano_outlet_switch: on
+
+# watering
+  - id: WaterLawn
+    name: "WaterLawn"
+    entities:
+      switch.front_lawn: on
+  - id: WaterPlants
+    name: "WaterPlants"
+    entities:
+      switch.side_drip_switch: on
+      switch.back_drip_switch: on
+      switch.front_drip: on
+  - id: StopAllWater
+    name: "StopAllWater"
+    entities:
+      switch.side_drip_switch: off
+      switch.back_drip_switch: off
+      switch.front_lawn: off
+      switch.front_drip: off
+

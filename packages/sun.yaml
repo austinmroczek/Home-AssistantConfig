@@ -30,26 +30,3 @@ automation:
       service: scene.turn_on
       entity_id: scene.AtSunrise
 
-scene:
-  - name: "AtSunset"
-    entities:
-      switch.smart_strip_switch_1: on #fish light
-      #switch.front_patio_motion_enable_switch: on
-      switch.back_floodlights_switch: on
-      switch.piano_outlet_switch: on
-  - name: "AtSunrise"
-    entities:
-      switch.piano_outlet_switch: off
-      #switch.front_patio_motion_enable_switch: off
-      switch.front_entry_light_switch: off
-      switch.front_porch_switch: off
-      switch.back_floodlights_switch: off
-      switch.kitchen_door_light_switch: off
-      switch.smart_strip_switch_1: off #fish light
-      light.hall_level: off
-      group.garage: off
-      switch.master_bath_toilet_plug: on
-#  - name: "HourBeforeSunset"
-#    entities:
-#      switch.smart_strip_switch_1: on #fish light
-#      switch.piano_outlet_switch: on

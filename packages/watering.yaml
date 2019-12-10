@@ -77,22 +77,6 @@ automation:
       service: scene.turn_on
       entity_id: scene.StopAllWater
 
-scene:
-  - name: "WaterLawn"
-    entities:
-      switch.front_lawn: on
-  - name: "WaterPlants"
-    entities:
-      switch.side_drip_switch: on
-      switch.back_drip_switch: on
-      switch.front_drip: on
-  - name: "StopAllWater"
-    entities:
-      switch.side_drip_switch: off
-      switch.back_drip_switch: off
-      switch.front_lawn: off
-      switch.front_drip: off
-
 group:
   sprinklers:
     name: Sprinklers
