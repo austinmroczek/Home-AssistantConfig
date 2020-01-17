@@ -19,6 +19,12 @@ frontend:
 # Enables configuration UI
 config:
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies: !secret trusted_proxy
+  ssl_key: !secret ssl_key
+  ssl_certificate: !secret ssl_certificate
+
 updater:
   include_used_components: true
 

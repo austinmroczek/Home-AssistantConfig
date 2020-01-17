@@ -60,7 +60,7 @@ function save_ozw {
   # when Home Assistant restarts, it wipes the Open Z-wave log file
   echo "Save Open Z-wave log file so it's not lost"
   timestamp=`date '+%Y%m%d_%H%M_%S'`
-  cp $ozw_log $ha_home/.homeassistant/OZW_Log.txt.$timestamp
+  cp $ozw_log $ha_home/OZW_Log.txt.$timestamp
 }
 function ha_upgrade {
   # https://www.home-assistant.io/docs/installation/raspberry-pi/
@@ -71,6 +71,13 @@ function ha_upgrade {
   echo Done as user $ha_user
   ha_start
   echo Upgrade process complete
+}
+function update_ssl {
+  echo update SSL certs from Lets Encrypt
+  /usr/bin/certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  echo give Home Assistant permissions
+  chown $ha_user:$ha_user /etc/letsencrypt/live/*/*.pem
+  echo ssl certificate update is complete
 }
 function check_systemd {
   ##### check that systemd is on the system #####
@@ -135,6 +142,9 @@ case "$1" in
   ;;
   ozw)
     save_ozw
+  ;;
+  ssl)
+    update_ssl
   ;;
   help)
     cat <<HELP

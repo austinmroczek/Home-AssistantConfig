@@ -20,7 +20,7 @@ views:
             state: "on"
         card:
           type: thermostat
-          entity: climate.cooling
+          entity: climate.central
           name: Central Air
       - type: conditional
         conditions:
@@ -28,7 +28,7 @@ views:
             state: "on"
         card:
           type: thermostat
-          entity: climate.heating
+          entity: climate.central
           name: Central Heat
 
       - type: weather-forecast

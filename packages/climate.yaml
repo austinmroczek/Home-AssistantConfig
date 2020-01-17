@@ -16,11 +16,11 @@ automation:
     action:
       - service: climate.set_temperature
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           temperature: 68
       - service: climate.set_temperature
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           temperature: 85
 
     condition:
@@ -40,7 +40,7 @@ automation:
     action:
       - service: climate.set_temperature
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           temperature: 62
     condition:
       condition: time
@@ -59,11 +59,11 @@ automation:
     action:
       - service: climate.set_temperature
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           temperature: 69
       - service: climate.set_temperature
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           temperature: 79
     condition:
       condition: time
@@ -79,11 +79,11 @@ automation:
     action:
       - service: climate.set_temperature
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           temperature: 69
       - service: climate.set_temperature
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           temperature: 79
 
   - alias: "Climate_2000"
@@ -94,11 +94,11 @@ automation:
     action:
       - service: climate.set_temperature
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           temperature: 62
       - service: climate.set_temperature
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           temperature: 76
 
   - alias: "Climate Heat Enabled"
@@ -112,11 +112,11 @@ automation:
         entity_id: input_boolean.enable_climate_air
       - service: climate.set_hvac_mode
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           hvac_mode: 'heat'
       - service: climate.set_fan_mode
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           fan_mode: 'auto'
 
   - alias: "Climate Heat Disabled"
@@ -128,7 +128,7 @@ automation:
     action:
       - service: climate.set_hvac_mode
         data:
-          entity_id: climate.heating
+          entity_id: climate.central
           hvac_mode: 'off'
 
   - alias: "Climate Air Enabled"
@@ -142,11 +142,11 @@ automation:
         entity_id: input_boolean.enable_climate_heat
       - service: climate.set_hvac_mode
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           hvac_mode: 'cool'
       - service: climate.set_fan_mode
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           fan_mode: 'auto'
 
   - alias: "Climate Air Disabled"
@@ -158,6 +158,6 @@ automation:
     action:
       - service: climate.set_hvac_mode
         data:
-          entity_id: climate.cooling
+          entity_id: climate.central
           hvac_mode: 'off'
 
