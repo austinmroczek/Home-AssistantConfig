@@ -48,7 +48,7 @@ automation:
         entity_id: scene.OnArmedAway
       - service: lock.lock
         data:
-          entity_id: group.all_locks
+          entity_id: lock.kitchen_door_lock
   - alias: "Alarm: Armed Stay Daytime"
     initial_state: True
     trigger:
@@ -64,7 +64,7 @@ automation:
         entity_id: scene.OnArmedStayDaytime
       - service: lock.lock
         data:
-          entity_id: group.all_locks
+          entity_id: lock.kitchen_door_lock
   - alias: "Alarm: Triggered"
     initial_state: True
     trigger:
@@ -76,7 +76,7 @@ automation:
         entity_id: scene.OnAlarmTriggered
       - service: lock.unlock
         data:
-          entity_id: group.all_locks
+          entity_id: lock.kitchen_door_lock
       - service: notify.austin
         data_template:
           message: >-
