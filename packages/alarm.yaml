@@ -1,11 +1,6 @@
 # Honeywell Total Connect integration
 # https://home-assistant.io/components/alarm_control_panel.totalconnect/
 
-#alarm_control_panel:
-#  - platform: totalconnect
-#    username: !secret totalconnect_username
-#    password: !secret totalconnect_password
-
 totalconnect:
   username: !secret totalconnect_username
   password: !secret totalconnect_password
@@ -24,8 +19,9 @@ automation:
       condition: sun
       before: sunset
     action:
-      service: scene.turn_on
-      entity_id: scene.OnDisarmedDaytime
+      - delay: 0:30
+      - service: scene.turn_on
+        entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Disarmed Nighttime"
     initial_state: True
     trigger:
