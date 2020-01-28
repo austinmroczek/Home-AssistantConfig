@@ -87,6 +87,8 @@ sonos:
 group: !include groups.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+automation: !include automations.yaml
+sun:
 
 tts:
   - platform: google_translate
