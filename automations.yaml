@@ -1,0 +1,33 @@
+  - id: atSunset
+    alias: "AtSunset"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-00:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.AtSunset
+
+  - id: hourBeforeSunset
+    alias: "HourBeforeSunset"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunset
+      offset: '-01:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.HourBeforeSunset
+
+  - id: atSunrise
+    alias: "AtSunrise"
+    initial_state: True
+    trigger:
+      platform: sun
+      event: sunrise
+      offset: '-00:00:00'
+    action:
+      service: scene.turn_on
+      entity_id: scene.AtSunrise
+
