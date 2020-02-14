@@ -15,7 +15,6 @@ binary_sensor:
 group:
   master_bath_lights:
     name: Master Bath Lights
-    view: no
     entities:
       - light.master_bath_level
       - light.master_bath_sink

@@ -4,7 +4,6 @@
 group:
   house_media_players:
     name: House Media Players
-    view: no
     entities:
       - media_player.roku_living_room
       - media_player.roku_master_bedroom

@@ -1,7 +1,6 @@
 group:
   fish:
     name: Fish Tank
-    view: no
     entities:
       - sensor.fish_temperature
       - switch.smart_strip_switch_1

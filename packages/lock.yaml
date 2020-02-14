@@ -348,7 +348,6 @@ group:
 # so its not really possible to hide the codes from the UI at this time.
   keypads:
     name: Door Lock Entry Codes
-    view: yes
     icon: mdi:dialpad
     entities:
       - group.door_keypad_1
@@ -364,7 +363,6 @@ group:
       
   keypads_workers:
     name: Worker Entry Codes
-    view: yes
     icon: mdi:dialpad
     entities:
       - group.door_keypad_11
@@ -375,7 +373,6 @@ group:
       
   keypads_one_time_use:
     name: One Time Use Entry Codes
-    view: yes
     icon: mdi:bomb
     entities:
       - group.door_keypad_16

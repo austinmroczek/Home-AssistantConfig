@@ -80,7 +80,6 @@ automation:
 group:
   sprinklers:
     name: Sprinklers
-    view: no
     entities:
       - switch.back_drip_switch
       - switch.side_drip_switch

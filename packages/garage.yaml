@@ -3,7 +3,6 @@
 group:
   garage:
     name: Garage
-    view: no
     entities:
       - switch.garage_lights_switch_1
       - switch.garage_lights_switch_2

@@ -35,7 +35,6 @@ switch:
 group:
   internet:
     name: Internet
-    view: no
     entities:
       - switch.melanie_internet
       - switch.ipad_internet
