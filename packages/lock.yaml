@@ -386,7 +386,6 @@ group:
        - sensor.kitchen_door_lock_power_management
 
   door_keypad_1:
-    control: hidden
     name: Entry Code 1
     entities:
       - input_text.door_keypad_1_name
@@ -397,7 +396,6 @@ group:
       - input_boolean.door_keypad_1_kitchen_switch
       - script.door_keypad_1_delete
   door_keypad_2:
-    control: hidden
     name: Entry Code 2
     entities:
       - input_text.door_keypad_2_name
@@ -408,7 +406,6 @@ group:
       - input_boolean.door_keypad_2_kitchen_switch
       - script.door_keypad_2_delete
   door_keypad_3:
-    control: hidden
     name: Entry Code 3
     entities:
       - input_text.door_keypad_3_name
@@ -419,7 +416,6 @@ group:
       - input_boolean.door_keypad_3_kitchen_switch
       - script.door_keypad_3_delete
   door_keypad_4:
-    control: hidden
     name: Entry Code 4
     entities:
       - input_text.door_keypad_4_name
@@ -430,7 +426,6 @@ group:
       - input_boolean.door_keypad_4_kitchen_switch
       - script.door_keypad_4_delete
   door_keypad_5:
-    control: hidden
     name: Entry Code 5
     entities:
       - input_text.door_keypad_5_name
@@ -441,7 +436,6 @@ group:
       - input_boolean.door_keypad_5_kitchen_switch
       - script.door_keypad_5_delete
   door_keypad_6:
-    control: hidden
     name: Entry Code 6
     entities:
       - input_text.door_keypad_6_name
@@ -452,7 +446,6 @@ group:
       - input_boolean.door_keypad_6_kitchen_switch
       - script.door_keypad_6_delete
   door_keypad_7:
-    control: hidden
     name: Entry Code 7
     entities:
       - input_text.door_keypad_7_name
@@ -463,7 +456,6 @@ group:
       - input_boolean.door_keypad_7_kitchen_switch
       - script.door_keypad_7_delete
   door_keypad_8:
-    control: hidden
     name: Entry Code 8
     entities:
       - input_text.door_keypad_8_name
@@ -474,7 +466,6 @@ group:
       - input_boolean.door_keypad_8_kitchen_switch
       - script.door_keypad_8_delete
   door_keypad_9:
-    control: hidden
     name: Entry Code 9
     entities:
       - input_text.door_keypad_9_name
@@ -485,7 +476,6 @@ group:
       - input_boolean.door_keypad_9_kitchen_switch
       - script.door_keypad_9_delete
   door_keypad_10:
-    control: hidden
     name: Entry Code 10
     entities:
       - input_text.door_keypad_10_name
@@ -497,7 +487,6 @@ group:
       - script.door_keypad_10_delete
 
   door_keypad_11:
-    control: hidden
     name: Worker Code 1
     entities:
       - input_text.door_keypad_11_name
@@ -508,7 +497,6 @@ group:
       - input_boolean.door_keypad_11_kitchen_switch
       - script.door_keypad_11_delete
   door_keypad_12:
-    control: hidden
     name: Worker Code2
     entities:
       - input_text.door_keypad_12_name
@@ -519,7 +507,6 @@ group:
       - input_boolean.door_keypad_12_kitchen_switch
       - script.door_keypad_12_delete
   door_keypad_13:
-    control: hidden
     name: Worker Code 3
     entities:
       - input_text.door_keypad_13_name
@@ -530,7 +517,6 @@ group:
       - input_boolean.door_keypad_13_kitchen_switch
       - script.door_keypad_13_delete
   door_keypad_14:
-    control: hidden
     name: Worker Code 4
     entities:
       - input_text.door_keypad_14_name
@@ -541,7 +527,6 @@ group:
       - input_boolean.door_keypad_14_kitchen_switch
       - script.door_keypad_14_delete
   door_keypad_15:
-    control: hidden
     name: Worker Code 5
     entities:
       - input_text.door_keypad_15_name
@@ -552,7 +537,6 @@ group:
       - input_boolean.door_keypad_15_kitchen_switch
       - script.door_keypad_15_delete
   door_keypad_16:
-    control: hidden
     name: One Time Use Code 1
     entities:
       - input_select.door_keypad_16_access_schedule
@@ -561,7 +545,6 @@ group:
       - input_boolean.door_keypad_16_kitchen_switch
       - script.door_keypad_16_delete
   door_keypad_17:
-    control: hidden
     name: One Time Use Code 2
     entities:
       - input_select.door_keypad_17_access_schedule
@@ -570,7 +553,6 @@ group:
       - input_boolean.door_keypad_17_kitchen_switch
       - script.door_keypad_17_delete
   door_keypad_18:
-    control: hidden
     name: One Time Use Code 3
     entities:
       - input_select.door_keypad_18_access_schedule
