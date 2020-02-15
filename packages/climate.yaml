@@ -1,5 +1,5 @@
-climate:
-  - platform: zwave
+#climate:
+#  - platform: zwave
 
 input_boolean:
   enable_climate_heat:
