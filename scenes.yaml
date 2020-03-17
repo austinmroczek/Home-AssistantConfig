@@ -57,8 +57,7 @@
   - id: InternetOn
     name: InternetOn
     entities:
-      switch.ipad_internet: on
-      switch.melanie_internet: on
+      group.internet: on
 
 # showtime scene - what to do when we want to start a show on the living room TV
   - id: Showtime

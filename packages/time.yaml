@@ -60,3 +60,9 @@ automation:
       weekday:
         - sat
         - sun
+# expand days for covid-19 time off of school
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
