@@ -1,6 +1,6 @@
 #   Rain Delay
 #
-# 1) The manually triggered input_boolean.rain_delay starts a timer.  
+# 1) The manually or automation triggered input_boolean.rain_delay starts a timer.  
 # 2) Lawn watering automation uses it as a condition.  See watering.yaml
 # 3) When the timer completes, it turns off input_boolean.rain_delay
 #
