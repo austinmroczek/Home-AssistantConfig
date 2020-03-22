@@ -31,3 +31,25 @@
       service: scene.turn_on
       entity_id: scene.AtSunrise
 
+# water heater
+  - id: StartWaterHeater0600
+    alias: "Start water heater"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '06:00:00'
+    action:
+      service: switch.turn_on
+      entity_id: switch.water_heater_outlet
+
+  - id: StopWaterHeater0700
+    alias: "Stop water heater"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '07:00:00'
+    action:
+      service: switch.turn_off
+      entity_id: switch.water_heater_outlet
+
+
