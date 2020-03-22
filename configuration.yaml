@@ -101,3 +101,8 @@ mychevy:
   username: !secret mychevy_username
   password: !secret mychevy_password
 
+
+timer:
+  water_heater:
+    duration: '00:05:00'
+
