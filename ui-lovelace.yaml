@@ -50,6 +50,19 @@ views:
             icon: 'mdi:emoticon-dead-outline'
             name: Deaths
 
+      - type: history-graph
+        title: Coronavirus Confirmed
+        hours_to_show: 72
+        entities:
+          - sensor.us_coronavirus_confirmed
+
+      - type: history-graph
+        title: Coronavirus Deaths
+        hours_to_show: 72
+        entities:
+          - sensor.us_coronavirus_deaths
+
+
       - type: weather-forecast
         entity: weather.openweathermap
 

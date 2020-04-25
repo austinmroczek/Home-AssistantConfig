@@ -1,91 +1,106 @@
-  - id: atSunset
-    alias: "AtSunset"
-    initial_state: True
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '-00:00:00'
-    action:
-      service: scene.turn_on
-      entity_id: scene.AtSunset
-
-  - id: hourBeforeSunset
-    alias: "HourBeforeSunset"
-    initial_state: True
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '-01:00:00'
-    action:
-      service: scene.turn_on
-      entity_id: scene.hour_before_sunset
-
-  - id: atSunrise
-    alias: "AtSunrise"
-    initial_state: True
-    trigger:
-      platform: sun
-      event: sunrise
-      offset: '-00:00:00'
-    action:
-      service: scene.turn_on
-      entity_id: scene.AtSunrise
-
-# water heater
-  - id: StartWaterHeater0600
-    alias: "Start water heater"
-    initial_state: True
-    trigger:
-      platform: time
-      at: '06:00:00'
-    action:
-      service: switch.turn_on
-      entity_id: switch.water_heater_outlet
-
-  - id: StopWaterHeater0700
-    alias: "Stop water heater"
-    initial_state: True
-    trigger:
-      platform: time
-      at: '07:00:00'
-    action:
-      service: switch.turn_off
-      entity_id: switch.water_heater_outlet
-
-# turn on/off water heater based on master bathroom motion sensor so water is hot for hand washing
-
-  - id: MasterBathMotionEnds
-    alias: "Master bath motion ends"
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: binary_sensor.master_bath_toilet_motion
-      to: 'off'
-    action:
-      - service: timer.start
-        entity_id: timer.water_heater
-
-  - id: MasterBathMotionStarts
-    alias: "Master bath motion starts"
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: binary_sensor.master_bath_toilet_motion
-      to: 'on'
-    action:
-      - service: timer.cancel
-        entity_id: timer.water_heater
-      - service: switch.turn_on
-        entity_id: switch.water_heater_outlet
-
-  - id: WaterHeaterTimerEnds
-    alias: "Water Heater timer ends"
-    initial_state: True
-    trigger:
-      platform: event
-      event_type: timer.finished
-      event_data:
-        entity_id: timer.water_heater
-    action:
-      service: switch.turn_off
-      entity_id: switch.water_heater_outlet
+- id: atSunset
+  alias: AtSunset
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:00:00
+  action:
+    service: scene.turn_on
+    entity_id: scene.AtSunset
+- id: hourBeforeSunset
+  alias: HourBeforeSunset
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -01:00:00
+  action:
+    service: scene.turn_on
+    entity_id: scene.hour_before_sunset
+- id: atSunrise
+  alias: AtSunrise
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: -00:00:00
+  action:
+    service: scene.turn_on
+    entity_id: scene.AtSunrise
+- id: StartWaterHeater0600
+  alias: Start water heater
+  initial_state: true
+  trigger:
+    platform: time
+    at: 06:00:00
+  action:
+    service: switch.turn_on
+    entity_id: switch.water_heater_outlet
+- id: StopWaterHeater0700
+  alias: Stop water heater
+  initial_state: true
+  trigger:
+    platform: time
+    at: 07:00:00
+  action:
+    service: switch.turn_off
+    entity_id: switch.water_heater_outlet
+- id: MasterBathMotionEnds
+  alias: Master bath motion ends
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.master_bath_toilet_motion
+    to: 'off'
+  action:
+  - service: timer.start
+    entity_id: timer.water_heater
+- id: MasterBathMotionStarts
+  alias: Master bath motion starts
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: binary_sensor.master_bath_toilet_motion
+    to: 'on'
+  action:
+  - service: timer.cancel
+    entity_id: timer.water_heater
+  - service: switch.turn_on
+    entity_id: switch.water_heater_outlet
+- id: WaterHeaterTimerEnds
+  alias: Water Heater timer ends
+  initial_state: true
+  trigger:
+    platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.water_heater
+  action:
+    service: switch.turn_off
+    entity_id: switch.water_heater_outlet
+- id: '1587841836008'
+  alias: Laundry flood
+  description: If the laundry floods, announce it on Sonos.
+  trigger:
+  - entity_id: sensor.laundry_flood
+    platform: state
+    to: '2'
+  - entity_id: sensor.laundry_flood
+    platform: state
+    to: '1'
+  condition: []
+  action:
+  - data:
+      delay: 00:00:03
+      message: The laundry area is flooded in the master bathroom.
+      sonos_entity: media_player.sonos_master_bedroom
+      volume: 0.5
+    service: script.sonos_say
+  - delay: '7'
+  - data:
+      delay: 00:00:03
+      message: The laundry area is flooded in the master bathroom.
+      sonos_entity: media_player.sonos_living_room
+      volume: 0.5
+    service: script.sonos_say

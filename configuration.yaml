@@ -62,15 +62,15 @@ zwave:
   network_key: !secret zwave_network_key
 
 media_player:
-  - platform: roku
-    name: Roku Master Bedroom
-    host: !secret roku_master_bedroom_ip
-  - platform: roku
-    name: Roku Living Room
-    host: !secret roku_living_room_ip
-  - platform: roku
-    name: Roku Studio
-    host: !secret roku_studio_ip
+#  - platform: roku
+#    name: Roku Master Bedroom
+#    host: !secret roku_master_bedroom_ip
+#  - platform: roku
+#    name: Roku Living Room
+#    host: !secret roku_living_room_ip
+#  - platform: roku
+#    name: Roku Studio
+#    host: !secret roku_studio_ip
 
 roku:
   - host: !secret roku_master_bedroom_ip
@@ -93,6 +93,7 @@ sun:
 tts:
   - platform: google_translate
     service_name: google_say
+    base_url: !secret tts_url
 
 lovelace:
   mode: yaml
