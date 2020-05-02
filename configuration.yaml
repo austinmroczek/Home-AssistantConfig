@@ -34,7 +34,6 @@ system_health:
 discovery:
   ignore:
     - sonos
-    - roku
 
 # Enables support for tracking state changes over time
 history:
