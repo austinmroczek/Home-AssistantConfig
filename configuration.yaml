@@ -111,4 +111,7 @@ input_boolean:
     name: Enable Heat
   enable_climate_air:
     name: Enable Air
+  master_bedroom_shades:
+    name: Master Bedroom Shades
+    initial: true
 

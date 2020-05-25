@@ -1,0 +1,61 @@
+cover:
+
+# 'on' = down or closed
+# 'off' = up or open
+
+# cover template: https://www.home-assistant.io/integrations/cover.template
+
+# Since there is no sensor involved, an input_boolean.master_bedroom_shades is used instead.  
+# If the system gets confused, flip the state of input_boolean.master_bedroom_shades
+
+  - platform: template
+    covers:
+      master_bedroom_shades:
+        friendly_name: Master Bedroom Shades
+        device_class: shade
+        value_template: "{{ is_state('input_boolean.master_bedroom_shades','off') }}"
+        open_cover:
+          - service: switch.turn_on
+            data: 
+              entity_id: switch.master_bedroom_shades
+          - delay: 
+              seconds: 1
+          - service: switch.turn_off
+            data: 
+              entity_id: switch.master_bedroom_shades
+          - service: input_boolean.turn_off
+            data: 
+              entity_id: input_boolean.master_bedroom_shades
+        close_cover:
+          - service: switch.turn_on
+            data:
+              entity_id: switch.master_bedroom_shades
+          - delay:
+              seconds: 1
+          - service: switch.turn_off
+            data:
+              entity_id: switch.master_bedroom_shades
+          - service: input_boolean.turn_on
+            data:
+              entity_id: input_boolean.master_bedroom_shades
+
+
+
+# ######### older system ###########
+
+# https://github.com/austinmroczek/hunter-douglas-remote-automation
+
+#
+#  - platform: command_line
+#    covers:
+#      master_blinds:
+#        command_close: "/usr/bin/curl -X GET http://rpi3:8000/down"
+#        command_open: "/usr/bin/curl -X GET http://rpi3:8000/up"
+#        friendly_name: Master Blinds
+
+#homeassistant:
+#  customize:
+#    cover.master_blinds:
+#      #icon: mdi:mdi-blinds
+#      device_class: windows
+

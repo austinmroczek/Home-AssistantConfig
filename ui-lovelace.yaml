@@ -120,7 +120,7 @@ views:
           - fan.master_fan_level
           - switch.master_lights_switch_2
           - switch.master_lights_switch_3
-          - cover.master_blinds
+          - cover.master_bedroom_shades
           - climate.master_bedroom
       - type: entities
         title: Master Bath
