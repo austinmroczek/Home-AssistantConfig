@@ -47,6 +47,24 @@ automation:
     action:
       service: scene.turn_on
       entity_id: scene.At9PM
+
+  - alias: "Weekday Internet"
+    initial_state: True
+    trigger:
+      platform: time
+      at: '08:15:00'
+    action:
+      service: homeassistant.turn_on
+      entity_id: group.internet
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+
   - alias: "Weekend Internet"
     initial_state: True
     trigger:
@@ -60,9 +78,3 @@ automation:
       weekday:
         - sat
         - sun
-# expand days for covid-19 time off of school
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
