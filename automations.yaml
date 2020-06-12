@@ -267,3 +267,93 @@
       - thu
       - fri
 
+- id: 'Weekday_Internet'
+  alias: "Weekday Internet"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '08:15:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.internet
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+
+- id: 'Weekend_Internet'
+  alias: "Weekend Internet"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '06:30:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.internet
+  condition:
+    condition: time
+    weekday:
+      - sat
+      - sun
+
+- id: 'AtMidnight'
+  alias: "AtMidnight"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '00:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.AtMidnight
+- id: 'At0630'
+  alias: "At0630"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '06:30:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At0630
+- id: 'AtNoon'
+  alias: "AtNoon"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '12:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.AtNoon
+
+
+- id: 'At4PM'
+  alias: "At4PM"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '16:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At4PM
+- id: 'At8PM'
+  alias: "At8PM"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '20:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At8PM
+- id: 'At9PM'
+  alias: "At9PM"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At9PM
+
