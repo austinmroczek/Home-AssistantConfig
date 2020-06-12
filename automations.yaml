@@ -318,6 +318,53 @@
   action:
     service: scene.turn_on
     entity_id: scene.At0630
+- id: 'At0800'
+  alias: "At0800"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '08:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At0800
+- id: 'At1000'
+  alias: "At1000"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '10:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At1000
+- id: 'At1300'
+  alias: "At1300"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '13:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At1300
+- id: 'At1500'
+  alias: "At1500"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '15:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At1500
+- id: 'At1700'
+  alias: "At1700"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '17:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.At1700
+
+
 - id: 'AtNoon'
   alias: "AtNoon"
   initial_state: True
