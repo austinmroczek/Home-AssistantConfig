@@ -50,6 +50,7 @@ logbook:
       - sensor.master_bath_toilet_burglar
       - switch.master_bedroom_thermostat_switch
     domains:
+      - automation
       - sun
       - timer
       - zwave
