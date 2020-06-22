@@ -74,7 +74,8 @@ function ha_upgrade {
 }
 function update_ssl {
   echo update SSL certs from Lets Encrypt
-  /usr/bin/certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  /usr/local/bin/certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  echo if certbot failed, likely need to temporarily open router firewall for port 80
   echo give Home Assistant permissions
   chown $ha_user:$ha_user /etc/letsencrypt/live/*/*.pem
   echo ssl certificate update is complete
@@ -163,6 +164,7 @@ Commands:
   backup - back up all configuration files in a tar.gz file
   upgrade - upgrade to the latest release
   ozw - save Open Z-wave log file with timestamp
+  ssl - update the SSL certificate
 
 HELP
   ;;
