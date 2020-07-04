@@ -130,3 +130,5 @@ input_boolean:
     name: Master Bedroom Shades
     initial: true
 
+mqtt:
+  broker: !secret mqtt_broker_address

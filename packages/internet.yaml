@@ -19,17 +19,30 @@
 
 ##### set up switches #####
 switch:
-  - platform: command_line
-    switches:
-      melanie_internet:
-        friendly_name: Melanie Internet
-        command_on: !secret enable_melanie_internet
-        command_off: !secret disable_melanie_internet
-      ipad_internet:
-        friendly_name: iPad Internet
-        command_on: !secret enable_ipad_internet
-        command_off: !secret disable_ipad_internet
+  - platform: mqtt
+    unique_id: melanie_internet
+    name: Melanie Internet
+    state_topic: "ha/internet/kid_computer"
+    command_topic: "ha/internet/kid_computer"
+#    availability_topic: "ha/internet/kid_computer/available"
+#    payload_on: "on"
+#    payload_off: "off"
+#    state_on: "on"
+#    state_off: "off"
+    retain: true
 
+  - platform: mqtt
+
+    unique_id: ipad_internet
+    name: iPad Internet
+    state_topic: "ha/internet/ipad"
+    command_topic: "ha/internet/ipad"
+ #   availability_topic: "ha/internet/ipad/available"
+ #   payload_on: on
+ #   payload_off: off
+ #   state_on: on
+ #   state_off: off
+    retain: true
 
 
 group:
