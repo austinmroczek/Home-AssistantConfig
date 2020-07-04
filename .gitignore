@@ -10,6 +10,7 @@
 !packages
 !ha_control
 !ha_upgrade 
+!internet_setup
 
 # Ignore folders.
 .storage

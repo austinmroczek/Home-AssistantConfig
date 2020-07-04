@@ -1,0 +1,34 @@
+#!/bin/sh /etc/rc.common
+# Example script
+# Copyright (C) 2007 OpenWrt.org
+
+# from https://medium.com/@arturlr/using-iot-button-to-control-my-kids-internet-usage-5bd825c1da76
+
+START=82
+
+start() {
+        echo start
+
+	# show the MQTT switches as as available
+	/usr/bin/mosquitto_pub -t ha/internet/kid_computer/available -m on	
+	/usr/bin/mosquitto_pub -t ha/internet/ipad/available -m on	
+
+        /etc/iot/mosquitto_sub_ipad.sh &
+        /etc/iot/mosquitto_sub_kid_computer.sh &
+}
+
+stop() {
+        echo stop
+	PIDS=$(ps | grep mosquitto_sub | grep -v grep | awk '{print $1}')
+	export PIDS
+	for i in ${PIDS}
+ 	do
+	   echo $1
+	   kill -9 $i
+	done
+
+	#show the MQTT switches as unavailable
+	/usr/bin/mosquitto_pub -t ha/internet/kid_computer/available -m off
+	/usr/bin/mosquitto_pub -t ha/internet/ipad/available -m off
+
+}

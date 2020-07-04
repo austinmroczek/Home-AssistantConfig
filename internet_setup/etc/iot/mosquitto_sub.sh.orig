@@ -1,0 +1,25 @@
+#!/bin/sh
+p="mqttPipe"
+([ ! -p "$p" ]) && mkfifo $p
+(mosquitto_sub -q 1 -d -t internet >$p 2>/dev/null) &
+PID=$!
+
+trap 'kill $PID' HUP INT TERM QUIT KILL
+
+while read line <$p
+do
+   echo $line > /tmp/cmds
+      TASK=`cat /tmp/cmds`
+      #echo $TASK
+      if [ "$TASK" == "disable_ipad" ]; then
+         /etc/iot/disable_ipad.sh
+      elif [ "$TASK" == "enable_ipad" ]; then
+         /etc/iot/enable_ipad.sh
+      elif [ "$TASK" == "disable_melanie" ]; then
+         /etc/iot/disable_melanie.sh
+      elif [ "$TASK" == "enable_melanie" ]; then
+         /etc/iot/enable_melanie.sh
+      fi
+      #echo "Event: " $line
+done
+
