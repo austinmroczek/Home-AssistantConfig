@@ -117,7 +117,7 @@
     service: homeassistant.turn_off
   - data:
       entity_id: climate.central
-      hvac_mode: cool
+      hvac_mode: heat_cool
     service: climate.set_hvac_mode
   - data:
       entity_id: climate.central
@@ -139,268 +139,187 @@
     data:
       entity_id: climate.central
       hvac_mode: 'off'
-
-- id: 'ClimateHeatEnabled'
-  alias: "Climate Heat Enabled"
-  initial_state: True
+- id: ClimateHeatEnabled
+  alias: Climate Heat Enabled
   trigger:
+  - entity_id: input_boolean.enable_climate_heat
     platform: state
-    entity_id: input_boolean.enable_climate_heat
     to: 'on'
   action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.enable_climate_air
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.central
-        hvac_mode: 'heat'
-    - service: climate.set_fan_mode
-      data:
-        entity_id: climate.central
-        fan_mode: 'auto'
-
-- id: 'ClimateHeatDisabled'
-  alias: "Climate Heat Disabled"
-  initial_state: True
+  - entity_id: input_boolean.enable_climate_air
+    service: homeassistant.turn_off
+  - data:
+      entity_id: climate.central
+      hvac_mode: heat_cool
+    service: climate.set_hvac_mode
+  - data:
+      entity_id: climate.central
+      fan_mode: auto
+    service: climate.set_fan_mode
+  initial_state: true
+- id: ClimateHeatDisabled
+  alias: Climate Heat Disabled
+  initial_state: true
   trigger:
     platform: state
     entity_id: input_boolean.enable_climate_heat
     to: 'off'
   action:
-    - service: climate.set_hvac_mode
-      data:
-        entity_id: climate.central
-        hvac_mode: 'off'
-
-- id: 'Climate_0700_Weekend'
-  alias: "Climate_0700_Weekend"
-  initial_state: True
+  - service: climate.set_hvac_mode
+    data:
+      entity_id: climate.central
+      hvac_mode: 'off'
+- id: Climate_1600
+  alias: Climate 0600
   trigger:
+  - at: 06:00:00
     platform: time
-    at: "07:00:00"
   action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 69
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 79
-  condition:
-    condition: time
-    weekday:
-      - sat
-      - sun
-- id: 'Climate_1600'
-  alias: "Climate_1600"
-  initial_state: True
+  - data:
+      entity_id: climate.central
+      target_temp_high: 79
+      target_temp_low: 68
+    service: climate.set_temperature
+  initial_state: true
+- id: Climate_2000
+  alias: Climate 2000
   trigger:
+  - at: '20:00:00'
     platform: time
-    at: "16:00:00"
   action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 69
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 79
-
-- id: 'Climate_2000'
-  alias: "Climate_2000"
-  initial_state: True
+  - data:
+      entity_id: climate.central
+      target_temp_high: 76
+      target_temp_low: 62
+    service: climate.set_temperature
+  initial_state: true
+- id: Weekday_Internet
+  alias: Weekday Internet
+  initial_state: true
   trigger:
     platform: time
-    at: "20:00:00"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 62
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 76
-
-- id: 'Climate_0600_Weekday'
-  alias: "Climate_0600_Weekday"
-  initial_state: True
-  trigger:
-    platform: time
-    at: "06:00:00"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 68
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 85
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-- id: 'Climate_0800_Weekday'
-  alias: "Climate_0800_Weekday"
-  initial_state: True
-  trigger:
-    platform: time
-    at: "08:00:00"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.central
-        temperature: 62
-  condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-
-- id: 'Weekday_Internet'
-  alias: "Weekday Internet"
-  initial_state: True
-  trigger:
-    platform: time
-    at: '08:15:00'
+    at: 08:15:00
   action:
     service: homeassistant.turn_on
     entity_id: group.internet
   condition:
     condition: time
     weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-
-- id: 'Weekend_Internet'
-  alias: "Weekend Internet"
-  initial_state: True
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+- id: Weekend_Internet
+  alias: Weekend Internet
+  initial_state: true
   trigger:
     platform: time
-    at: '06:30:00'
+    at: 06:30:00
   action:
     service: homeassistant.turn_on
     entity_id: group.internet
   condition:
     condition: time
     weekday:
-      - sat
-      - sun
-
-- id: 'AtMidnight'
-  alias: "AtMidnight"
-  initial_state: True
+    - sat
+    - sun
+- id: AtMidnight
+  alias: AtMidnight
+  initial_state: true
   trigger:
     platform: time
-    at: '00:00:00'
+    at: 00:00:00
   action:
     service: scene.turn_on
     entity_id: scene.AtMidnight
-- id: 'At0630'
-  alias: "At0630"
-  initial_state: True
+- id: At0630
+  alias: At0630
+  initial_state: true
   trigger:
     platform: time
-    at: '06:30:00'
+    at: 06:30:00
   action:
     service: scene.turn_on
     entity_id: scene.At0630
-- id: 'At0800'
-  alias: "At0800"
-  initial_state: True
+- id: At0800
+  alias: At0800
+  initial_state: true
   trigger:
     platform: time
-    at: '08:00:00'
+    at: 08:00:00
   action:
     service: scene.turn_on
     entity_id: scene.At0800
-- id: 'At1000'
-  alias: "At1000"
-  initial_state: True
+- id: At1000
+  alias: At1000
+  initial_state: true
   trigger:
     platform: time
     at: '10:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At1000
-- id: 'At1300'
-  alias: "At1300"
-  initial_state: True
+- id: At1300
+  alias: At1300
+  initial_state: true
   trigger:
     platform: time
     at: '13:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At1300
-- id: 'At1500'
-  alias: "At1500"
-  initial_state: True
+- id: At1500
+  alias: At1500
+  initial_state: true
   trigger:
     platform: time
     at: '15:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At1500
-- id: 'At1700'
-  alias: "At1700"
-  initial_state: True
+- id: At1700
+  alias: At1700
+  initial_state: true
   trigger:
     platform: time
     at: '17:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At1700
-
-
-- id: 'AtNoon'
-  alias: "AtNoon"
-  initial_state: True
+- id: AtNoon
+  alias: AtNoon
+  initial_state: true
   trigger:
     platform: time
     at: '12:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.AtNoon
-
-
-- id: 'At4PM'
-  alias: "At4PM"
-  initial_state: True
+- id: At4PM
+  alias: At4PM
+  initial_state: true
   trigger:
     platform: time
     at: '16:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At4PM
-- id: 'At8PM'
-  alias: "At8PM"
-  initial_state: True
+- id: At8PM
+  alias: At8PM
+  initial_state: true
   trigger:
     platform: time
     at: '20:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At8PM
-- id: 'At9PM'
-  alias: "At9PM"
-  initial_state: True
+- id: At9PM
+  alias: At9PM
+  initial_state: true
   trigger:
     platform: time
     at: '21:00:00'
   action:
     service: scene.turn_on
     entity_id: scene.At9PM
-
