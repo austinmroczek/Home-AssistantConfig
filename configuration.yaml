@@ -132,3 +132,9 @@ input_boolean:
 
 mqtt:
   broker: !secret mqtt_broker_address
+
+sensor:
+  - platform: cert_expiry
+    host: ha.mroczek.org
+  - platform: cert_expiry
+    host: mroczek689154.duckdns.org
