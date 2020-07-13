@@ -138,3 +138,8 @@ sensor:
     host: ha.mroczek.org
   - platform: cert_expiry
     host: mroczek689154.duckdns.org
+
+totalconnect:
+  username: !secret totalconnect_username
+  password: !secret totalconnect_password
+
