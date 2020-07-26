@@ -163,4 +163,3 @@ sensor:
 totalconnect:
   username: !secret totalconnect_username
   password: !secret totalconnect_password
-
