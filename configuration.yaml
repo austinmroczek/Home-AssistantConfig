@@ -98,6 +98,27 @@ sonos:
       - !secret sonos_master_bedroom_ip
       - !secret sonos_kid_bedroom_ip
 
+# docs at https://home-assistant.io/components/skybell/
+skybell:
+  username: !secret skybell_username
+  password: !secret skybell_password
+
+binary_sensor:
+  - platform: skybell
+    monitored_conditions:
+      - button
+      - motion
+
+camera:
+  - platform: skybell
+
+switch:
+  - platform: skybell
+    monitored_conditions:
+      - do_not_disturb
+      - motion_sensor
+
+
 group: !include groups.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
