@@ -130,18 +130,6 @@ tts:
     service_name: google_say
     base_url: !secret tts_url
 
-lovelace:
-  mode: yaml
-
-mychevy:
-  username: !secret mychevy_username
-  password: !secret mychevy_password
-
-
-timer:
-  water_heater:
-    duration: '00:05:00'
-
 input_boolean:
   enable_climate_heat:
     name: Enable Heat
@@ -151,14 +139,36 @@ input_boolean:
     name: Master Bedroom Shades
     initial: true
 
+#   Rain Delay
+# 1) When turned on manually or by automation, an automation starts a timer.
+# 2) Lawn watering automation uses it as a condition.
+# 3) When the timer completes, it turns off input_boolean.rain_delay
+  rain_delay:
+    name: Rain Delay
+    icon: mdi:water
+    initial: false
+
+lovelace:
+  mode: yaml
+
 mqtt:
   broker: !secret mqtt_broker_address
+
+mychevy:
+  username: !secret mychevy_username
+  password: !secret mychevy_password
 
 sensor:
   - platform: cert_expiry
     host: ha.mroczek.org
   - platform: cert_expiry
     host: mroczek689154.duckdns.org
+
+timer:
+  water_heater:
+    duration: '00:05:00'
+  rain_delay:
+    duration: '96:00:00'
 
 totalconnect:
   username: !secret totalconnect_username
