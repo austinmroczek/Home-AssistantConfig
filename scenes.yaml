@@ -139,46 +139,52 @@
   name: At0630
   entities:
     switch.master_bath_toilet_plug: true
-- id: At0800
-  name: At0800
+- id: At0730
+  name: At0730
   entities:
-    switch.ipad_internet: true
-    switch.melanie_internet: true
-- id: At1000
-  name: At1000
-  entities:
-    switch.ipad_internet: false
-    switch.melanie_internet: false
-- id: At1300
-  name: At1300
-  entities:
-    switch.ipad_internet: true
-    switch.melanie_internet: true
-- id: At1500
-  name: At1500
-  entities:
-    switch.ipad_internet: false
-    switch.melanie_internet: false
-- id: At1700
-  name: At1700
-  entities:
-    switch.ipad_internet: true
-    switch.melanie_internet: true
+    switch.ipad_internet:
+      friendly_name: iPad Internet
+      state: 'on'
+    switch.melanie_internet:
+      friendly_name: Melanie Internet
+      state: 'on'
 - id: At4PM
-  name: At4PM
+  name: At1600
   entities:
-    switch.smart_strip_switch_2: false
+    switch.smart_strip_switch_2:
+      friendly_name: Smart Strip 2
+      node_id: 25
+      power_consumption: 3
+      state: 'off'
+      value_id: '216172782538014720'
+      value_index: 0
+      value_instance: 3
 - id: At8PM
-  name: At8PM
+  name: At2000
   entities:
-    switch.ipad_internet: false
-    switch.melanie_internet: false
+    switch.ipad_internet:
+      friendly_name: iPad Internet
+      state: 'off'
+    switch.melanie_internet:
+      friendly_name: Melanie Internet
+      state: 'off'
 - id: At9PM
-  name: At9PM
+  name: At2100
   entities:
-    switch.smart_strip_switch_1: false
-    switch.ipad_internet: false
-    switch.melanie_internet: false
+    switch.ipad_internet:
+      friendly_name: iPad Internet
+      state: 'off'
+    switch.melanie_internet:
+      friendly_name: Melanie Internet
+      state: 'off'
+    switch.smart_strip_switch_1:
+      friendly_name: Smart Strip 1
+      node_id: 25
+      power_consumption: 0
+      state: 'off'
+      value_id: '144115188500086784'
+      value_index: 0
+      value_instance: 2
 - id: InternetOn
   name: InternetOn
   entities:

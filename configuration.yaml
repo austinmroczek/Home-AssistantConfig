@@ -87,7 +87,7 @@ media_player:
 #    host: !secret roku_studio_ip
 
 roku:
-  - host: !secret roku_master_bedroom_ip
+  - host: !secret roku_guest
   - host: !secret roku_living_room_ip
   - host: !secret roku_studio_ip
 

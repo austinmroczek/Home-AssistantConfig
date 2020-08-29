@@ -169,7 +169,19 @@
     data:
       entity_id: climate.central
       hvac_mode: 'off'
-- id: Climate_1600
+- id: Climate_0100
+  alias: Climate 0100
+  trigger:
+  - at: 01:00:00
+    platform: time
+  action:
+  - data:
+      entity_id: climate.central
+      target_temp_high: 75
+      target_temp_low: 65
+    service: climate.set_temperature
+  initial_state: true
+- id: Climate_0600
   alias: Climate 0600
   trigger:
   - at: 06:00:00
@@ -247,50 +259,15 @@
     service: climate.set_fan_mode
   initial_state: true
 - id: At0800
-  alias: At0800
-  initial_state: true
+  alias: At0730
   trigger:
+  - at: 07:30:00
     platform: time
-    at: 08:00:00
   action:
+  - entity_id: scene.at0730
     service: scene.turn_on
-    entity_id: scene.At0800
-- id: At1000
-  alias: At1000
   initial_state: true
-  trigger:
-    platform: time
-    at: '10:00:00'
-  action:
-    service: scene.turn_on
-    entity_id: scene.At1000
-- id: At1300
-  alias: At1300
-  initial_state: true
-  trigger:
-    platform: time
-    at: '13:00:00'
-  action:
-    service: scene.turn_on
-    entity_id: scene.At1300
-- id: At1500
-  alias: At1500
-  initial_state: true
-  trigger:
-    platform: time
-    at: '15:00:00'
-  action:
-    service: scene.turn_on
-    entity_id: scene.At1500
-- id: At1700
-  alias: At1700
-  initial_state: true
-  trigger:
-    platform: time
-    at: '17:00:00'
-  action:
-    service: scene.turn_on
-    entity_id: scene.At1700
+  mode: single
 - id: AtNoon
   alias: AtNoon
   initial_state: true
@@ -301,32 +278,35 @@
     service: scene.turn_on
     entity_id: scene.AtNoon
 - id: At4PM
-  alias: At4PM
-  initial_state: true
+  alias: At1600
   trigger:
+  - at: '16:00:00'
     platform: time
-    at: '16:00:00'
   action:
+  - entity_id: scene.At4PM
     service: scene.turn_on
-    entity_id: scene.At4PM
+  initial_state: true
+  mode: single
 - id: At8PM
-  alias: At8PM
-  initial_state: true
+  alias: At2000
   trigger:
+  - at: '20:00:00'
     platform: time
-    at: '20:00:00'
   action:
+  - entity_id: scene.At8PM
     service: scene.turn_on
-    entity_id: scene.At8PM
+  initial_state: true
+  mode: single
 - id: At9PM
-  alias: At9PM
-  initial_state: true
+  alias: At2100
   trigger:
+  - at: '21:00:00'
     platform: time
-    at: '21:00:00'
   action:
+  - entity_id: scene.at9pm
     service: scene.turn_on
-    entity_id: scene.At9PM
+  initial_state: true
+  mode: single
 - id: AlarmDisarmedDaytime
   alias: 'Alarm: Disarmed Daytime'
   initial_state: true
