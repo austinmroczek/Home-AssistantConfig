@@ -309,18 +309,23 @@
   mode: single
 - id: AlarmDisarmedDaytime
   alias: 'Alarm: Disarmed Daytime'
-  initial_state: true
   trigger:
+  - entity_id: alarm_control_panel.home1
     platform: state
-    entity_id: alarm_control_panel.home1
     to: disarmed
   condition:
+  - before: sunset
     condition: sun
-    before: sunset
   action:
-  - delay: 90
-  - service: scene.turn_on
-    entity_id: scene.OnDisarmedDaytime
+  - delay: '180'
+  - entity_id: scene.OnDisarmedDaytime
+    service: scene.turn_on
+  - delay: '180'
+  - data: {}
+    entity_id: scene.ondisarmeddaytime
+    service: scene.turn_on
+  initial_state: true
+  mode: single
 - id: AlarmDisarmedNighttime
   alias: 'Alarm: Disarmed Nighttime'
   initial_state: true
