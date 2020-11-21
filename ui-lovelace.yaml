@@ -6,6 +6,7 @@ views:
         title: Main
         entities:
           - alarm_control_panel.home1
+          - binary_sensor.youtube
           - group.internet
           - sensor.hall_temperature
           - sensor.master_bedroom_temperature

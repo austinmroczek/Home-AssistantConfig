@@ -24,11 +24,6 @@ switch:
     name: Melanie Internet
     state_topic: "ha/internet/kid_computer"
     command_topic: "ha/internet/kid_computer"
-#    availability_topic: "ha/internet/kid_computer/available"
-#    payload_on: "on"
-#    payload_off: "off"
-#    state_on: "on"
-#    state_off: "off"
     retain: true
 
   - platform: mqtt
@@ -37,12 +32,14 @@ switch:
     name: iPad Internet
     state_topic: "ha/internet/ipad"
     command_topic: "ha/internet/ipad"
- #   availability_topic: "ha/internet/ipad/available"
- #   payload_on: on
- #   payload_off: off
- #   state_on: on
- #   state_off: off
     retain: true
+
+binary_sensor:
+  - platform: mqtt
+    name: YouTube
+    state_topic: "ha/internet/youtube"
+
+
 
 
 group:
