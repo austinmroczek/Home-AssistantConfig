@@ -25,22 +25,34 @@ switch:
     state_topic: "ha/internet/kid_computer"
     command_topic: "ha/internet/kid_computer"
     retain: true
+    availability:
+      - topic: "ha/internet/kid_computer/available"
 
   - platform: mqtt
-
     unique_id: ipad_internet
     name: iPad Internet
     state_topic: "ha/internet/ipad"
     command_topic: "ha/internet/ipad"
     retain: true
+    availability:
+      - topic: "ha/internet/ipad/available"
+
+  - platform: mqtt
+    unique_id: guest_roku_internet
+    name: Guest Roku Internet
+    state_topic: "ha/internet/roku"
+    command_topic: "ha/internet/roku"
+    retain: true
+    availability:
+      - topic: "ha/internet/roku/available"
 
 binary_sensor:
   - platform: mqtt
     name: YouTube
     state_topic: "ha/internet/youtube"
-
-
-
+    device_class: connectivity
+    availability:
+      - topic: "ha/internet/youtube/available"
 
 group:
   internet:
@@ -48,4 +60,4 @@ group:
     entities:
       - switch.melanie_internet
       - switch.ipad_internet
-
+      - switch.guest_roku_internet
