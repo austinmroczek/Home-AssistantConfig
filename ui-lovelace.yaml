@@ -6,30 +6,22 @@ views:
         title: Main
         entities:
           - alarm_control_panel.home1
+          - binary_sensor.youtube
           - group.internet
           - sensor.hall_temperature
           - sensor.master_bedroom_temperature
-          - input_boolean.enable_climate_air
-          - input_boolean.enable_climate_heat
+          - input_boolean.enable_climate
           - scene.bedtime
           - scene.showtime
 
       - type: conditional
         conditions:
-          - entity: input_boolean.enable_climate_air
+          - entity: input_boolean.enable_climate
             state: "on"
         card:
           type: thermostat
           entity: climate.central
-          name: Central Air
-      - type: conditional
-        conditions:
-          - entity: input_boolean.enable_climate_heat
-            state: "on"
-        card:
-          type: thermostat
-          entity: climate.central
-          name: Central Heat
+          name: Central Heat/Air
 
       - type: weather-forecast
         entity: weather.openweathermap

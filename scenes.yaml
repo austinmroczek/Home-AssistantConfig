@@ -142,6 +142,9 @@
 - id: At0730
   name: At0730
   entities:
+    switch.guest_roku_internet:
+      friendly_name: Guest Roku Internet
+      state: 'on'
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'on'
@@ -171,6 +174,9 @@
 - id: At9PM
   name: At2100
   entities:
+    switch.guest_roku_internet:
+      friendly_name: Guest Roku Internet
+      state: 'on'
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'off'

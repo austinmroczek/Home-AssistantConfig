@@ -104,17 +104,14 @@
       sonos_entity: media_player.sonos_living_room
       volume: 0.5
     service: script.sonos_say
-- id: ClimateAirEnabled
-  alias: Climate Air Enabled
-  description: Turn on air conditioner and close the skylight when Enable Air is turned
-    on.
+- id: ClimateEnabled
+  alias: Climate Enabled
+  description: Turn on heat/air and close the skylight.
   trigger:
-  - entity_id: input_boolean.enable_climate_air
+  - entity_id: input_boolean.enable_climate
     platform: state
     to: 'on'
   action:
-  - entity_id: input_boolean.enable_climate_heat
-    service: homeassistant.turn_off
   - data:
       entity_id: climate.central
       hvac_mode: heat_cool
@@ -127,42 +124,12 @@
     entity_id: cover.master_bath_skylight_switch
     service: cover.close_cover
   initial_state: true
-- id: ClimateAirDisabled
-  alias: Climate Air Disabled
+- id: ClimateDisabled
+  alias: Climate Disabled
   initial_state: true
   trigger:
     platform: state
-    entity_id: input_boolean.enable_climate_air
-    to: 'off'
-  action:
-  - service: climate.set_hvac_mode
-    data:
-      entity_id: climate.central
-      hvac_mode: 'off'
-- id: ClimateHeatEnabled
-  alias: Climate Heat Enabled
-  trigger:
-  - entity_id: input_boolean.enable_climate_heat
-    platform: state
-    to: 'on'
-  action:
-  - entity_id: input_boolean.enable_climate_air
-    service: homeassistant.turn_off
-  - data:
-      entity_id: climate.central
-      hvac_mode: heat_cool
-    service: climate.set_hvac_mode
-  - data:
-      entity_id: climate.central
-      fan_mode: auto
-    service: climate.set_fan_mode
-  initial_state: true
-- id: ClimateHeatDisabled
-  alias: Climate Heat Disabled
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: input_boolean.enable_climate_heat
+    entity_id: input_boolean.enable_climate
     to: 'off'
   action:
   - service: climate.set_hvac_mode
@@ -178,7 +145,7 @@
   - data:
       entity_id: climate.central
       target_temp_high: 75
-      target_temp_low: 65
+      target_temp_low: 62
     service: climate.set_temperature
   initial_state: true
 - id: Climate_0600
@@ -190,7 +157,7 @@
   - data:
       entity_id: climate.central
       target_temp_high: 77
-      target_temp_low: 68
+      target_temp_low: 70
     service: climate.set_temperature
   initial_state: true
 - id: Climate_2000

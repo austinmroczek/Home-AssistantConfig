@@ -131,10 +131,8 @@ tts:
     base_url: !secret tts_url
 
 input_boolean:
-  enable_climate_heat:
-    name: Enable Heat
-  enable_climate_air:
-    name: Enable Air
+  enable_climate:
+    name: Enable Heat/Air
   master_bedroom_shades:
     name: Master Bedroom Shades
     initial: true
