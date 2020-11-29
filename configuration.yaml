@@ -86,10 +86,10 @@ media_player:
 #    name: Roku Studio
 #    host: !secret roku_studio_ip
 
-roku:
-  - host: !secret roku_guest
-  - host: !secret roku_living_room_ip
-  - host: !secret roku_studio_ip
+#roku:
+#  - host: !secret roku_guest
+#  - host: !secret roku_living_room_ip
+#  - host: !secret roku_studio_ip
 
 sonos:
   media_player:
