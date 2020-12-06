@@ -152,11 +152,11 @@ views:
         title: Weather
         entities:
           - sun.sun
-          - sensor.owm_cloud_coverage
-          - sensor.owm_condition
-          - sensor.owm_humidity
-          - sensor.owm_rain
-          - sensor.owm_temperature
+          - sensor.openweathermap_cloud_coverage
+          - sensor.openweathermap_condition
+          - sensor.openweathermap_humidity
+          - sensor.openweathermap_rain
+          - sensor.openweathermap_temperature
       - type: entities
         title:  Water Heater
         entities:

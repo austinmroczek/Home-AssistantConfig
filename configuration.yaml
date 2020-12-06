@@ -70,10 +70,10 @@ logger:
     homeassistant.core: error
     skybellpy: warn
     
-zwave:
-  usb_path: /dev/ttyAMA0
-  autoheal: false
-  network_key: !secret zwave_network_key
+#zwave:
+#  usb_path: /dev/ttyAMA0
+#  autoheal: false
+#  network_key: !secret zwave_network_key
 
 media_player:
 #  - platform: roku
