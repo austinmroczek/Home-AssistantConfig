@@ -40,7 +40,7 @@ views:
         entities:
           - switch.kitchen_switch
           - lock.kitchen_door_lock
-          - sensor.kitchen_door_lock_power_management_2
+          - sensor.kitchen_door_lock_battery
       - type: entities
         title: Other
         entities:
