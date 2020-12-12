@@ -383,7 +383,7 @@ group:
     name: Door Locks
     entities:
        - lock.kitchen_door_lock
-       - sensor.kitchen_door_lock_power_management
+       - sensor.kitchen_door_lock_battery
 
   door_keypad_1:
     name: Entry Code 1
@@ -1561,26 +1561,6 @@ sensor:
           {% else %}
             n/a
           {% endif %}
-#  Battery info, use your custom name if needed.  Also I had some issues that I thought was related to this
-#  and had this commented out for a while, but it seems to be working well now, so might not be a problem
-#  if you notice any issues, try commenting this out
-      kitchen_door_lock_power_management:
-        entity_id: zwave.kitchen_door_lock
-        value_template: '{{states["zwave"]["kitchen_door_lock"]["attributes"]["battery_level"]}}'
-        friendly_name: Kitchen Door Lock Battery Level
-        unit_of_measurement: '%'
-        icon_template: >-
-          {% set level = ((states["zwave"]["kitchen_door_lock"]["attributes"]["battery_level"]*0.1)|round)*10|int %}
-            mdi:battery
-          {%- if level > 90 -%}
-          {%- elif level > 70 or ( level < 31 and level > 10 ) -%}
-            -{{ level }}
-          {%- elif level > 50 -%}
-            -60
-          {%- elif level > 30 -%}
-            -40
-          {%- else -%}
-            -alert
-          {%- endif -%}
+
 
 
