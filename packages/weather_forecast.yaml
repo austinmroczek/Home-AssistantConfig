@@ -1,16 +1,16 @@
 # Weather
-weather:
-  - platform: openweathermap
-    api_key: !secret owm_api_key
+#weather:
+#  - platform: openweathermap
+#    api_key: !secret owm_api_key
 
 # Weather prediction
-sensor:
-  - platform: openweathermap
-    api_key: !secret owm_api_key
-    monitored_conditions:
-      - weather
-      - temperature
-      - humidity
-      - clouds
-      - rain
+#sensor:
+#  - platform: openweathermap
+#    api_key: !secret owm_api_key
+#    monitored_conditions:
+#      - weather
+#      - temperature
+#      - humidity
+#      - clouds
+#      - rain
 

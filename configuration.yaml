@@ -70,10 +70,10 @@ logger:
     homeassistant.core: error
     skybellpy: warn
     
-zwave:
-  usb_path: /dev/ttyAMA0
-  autoheal: false
-  network_key: !secret zwave_network_key
+#zwave:
+#  usb_path: /dev/ttyAMA0
+#  autoheal: false
+#  network_key: !secret zwave_network_key
 
 media_player:
 #  - platform: roku
@@ -86,10 +86,10 @@ media_player:
 #    name: Roku Studio
 #    host: !secret roku_studio_ip
 
-roku:
-  - host: !secret roku_guest
-  - host: !secret roku_living_room_ip
-  - host: !secret roku_studio_ip
+#roku:
+#  - host: !secret roku_guest
+#  - host: !secret roku_living_room_ip
+#  - host: !secret roku_studio_ip
 
 sonos:
   media_player:

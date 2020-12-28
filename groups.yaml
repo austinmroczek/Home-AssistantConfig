@@ -1,2 +1,35 @@
 # groups configuration
 
+  power:
+    name: Power
+    entities:
+      - group.smart_strip_energy
+      - group.smart_strip_power
+      - group.smart_strip_energy_previous
+      - group.smart_strip_power_previous
+      - group.front_patio_energy
+      - group.front_patio_power
+      - group.front_patio_power_factor
+      - group.front_patio_energy_previous
+      - group.front_patio_current
+      - group.front_patio_voltage
+      - group.kitchen_door_light
+
+  smart_strip_energy:
+    name: Smart Strip Energy
+    entities:
+      - sensor.smart_strip_energy
+      - sensor.smart_strip_energy_1
+      - sensor.smart_strip_energy_2
+      - sensor.smart_strip_energy_3
+      - sensor.smart_strip_energy_4
+
+  smart_strip_power:
+    name: Smart Strip Power
+    entities:
+      - sensor.smart_strip_power
+      - sensor.smart_strip_power_1
+      - sensor.smart_strip_power_2
+      - sensor.smart_strip_power_3
+      - sensor.smart_strip_power_4
+

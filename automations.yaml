@@ -157,9 +157,10 @@
   - data:
       entity_id: climate.central
       target_temp_high: 77
-      target_temp_low: 70
+      target_temp_low: 71
     service: climate.set_temperature
   initial_state: true
+  mode: single
 - id: Climate_2000
   alias: Climate 2000
   trigger:

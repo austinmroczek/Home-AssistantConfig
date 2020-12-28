@@ -5,81 +5,44 @@
       entity_id:
       - switch.melanie_internet
       - switch.ipad_internet
-      friendly_name: Internet
+      - switch.guest_roku_internet
       order: 3
+      friendly_name: Internet
       state: 'off'
     light.dining_room_level:
-      friendly_name: Dining Room
       node_id: 6
-      state: 'off'
+      friendly_name: Dining Room
       supported_features: 1
-      value_id: '72057594143408129'
-      value_index: 0
-      value_instance: 1
+      state: 'off'
     light.hall_level:
-      friendly_name: Hall
       node_id: 9
-      state: 'off'
+      friendly_name: Hall Light
       supported_features: 1
-      value_id: '72057594193739777'
-      value_index: 0
-      value_instance: 1
-    switch.front_entry_light_switch:
-      friendly_name: Front Entry
-      node_id: 27
       state: 'off'
-      value_id: '216172782571569152'
-      value_index: 0
-      value_instance: 3
     switch.garage_lights_switch_1:
-      friendly_name: Garage Lights All
       node_id: 33
+      friendly_name: Garage Lights 1
       state: 'off'
-      value_id: '72057594596376576'
-      value_index: 0
-      value_instance: 1
     switch.garage_lights_switch_2:
+      node_id: 33
       friendly_name: Garage Lights 2
-      node_id: 33
       state: 'off'
-      value_id: '144115188634304512'
-      value_index: 0
-      value_instance: 2
     switch.garage_lights_switch_3:
-      friendly_name: Garage Lights 3
       node_id: 33
+      friendly_name: Garage Lights 3
       state: 'on'
-      value_id: '216172782672232448'
-      value_index: 0
-      value_instance: 3
     switch.kitchen_switch:
-      friendly_name: kitchen Switch
       node_id: 7
+      friendly_name: Kitchen
       state: 'off'
-      value_id: '72057594160168960'
-      value_index: 0
-      value_instance: 1
-    switch.master_lights_switch:
-      friendly_name: Master Bedroom Lights
-      node_id: 20
-      state: 'off'
-      value_id: '72057594378272768'
-      value_index: 0
-      value_instance: 1
     switch.piano_outlet_switch:
-      friendly_name: Piano
       node_id: 21
+      friendly_name: Piano Outlet
       state: 'off'
-      value_id: '72057594395049984'
-      value_index: 0
-      value_instance: 1
     switch.stairway_switch:
-      friendly_name: Stairway
       node_id: 3
+      friendly_name: Stairs
       state: 'off'
-      value_id: '72057594093060096'
-      value_index: 0
-      value_instance: 1
 - id: HourBeforeSunset
   name: Hour Before Sunset
   entities:
