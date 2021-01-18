@@ -22,12 +22,10 @@ function ha_stop {
   $sc stop $ha
 }
 function ha_start {
-  save_ozw
   echo Starting home assistant
   $sc start $ha
 }
 function ha_restart {
-  save_ozw
   echo Restarting home assistant
   ha_stop
   ha_start
@@ -55,12 +53,6 @@ function ha_backup {
   timestamp=`date '+%Y%m%d_%H%M_%S'`
   tar -zcf $ha_home/ha_config_$timestamp.tar.gz $ha_home/config_temp
   rm -R $ha_home/config_temp
-}
-function save_ozw {
-  # when Home Assistant restarts, it wipes the Open Z-wave log file
-  echo "Save Open Z-wave log file so it's not lost"
-  timestamp=`date '+%Y%m%d_%H%M_%S'`
-  cp $ozw_log $ha_home/OZW_Log.txt.$timestamp
 }
 function ha_upgrade {
   # https://www.home-assistant.io/docs/installation/raspberry-pi/
@@ -142,9 +134,6 @@ case "$1" in
   ;;
   upgrade)
     ha_upgrade
-  ;;
-  ozw)
-    save_ozw
   ;;
   ssl)
     update_ssl
