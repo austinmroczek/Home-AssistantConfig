@@ -168,6 +168,3 @@ timer:
   rain_delay:
     duration: '96:00:00'
 
-totalconnect:
-  username: !secret totalconnect_username
-  password: !secret totalconnect_password
