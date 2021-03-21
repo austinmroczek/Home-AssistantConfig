@@ -60,13 +60,13 @@ views:
       - type: media-control
         entity: media_player.sonos_living_room
       - type: entities
-        title: Melanie
+        title: Kid
         entities:
-          - light.melanie
+          - light.kid
           - group.internet
-          - binary_sensor.melanie_motion
+          - binary_sensor.kid_motion
       - type: media-control
-        entity: media_player.sonos_melanie
+        entity: media_player.sonos_kid
 
   - title: Upstairs
     cards:

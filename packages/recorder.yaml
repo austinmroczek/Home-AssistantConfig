@@ -13,16 +13,16 @@ recorder:
       - updater
       - weather
     entities:
-      - automation.melanie_motion_ends
-      - automation.melanie_motion_starts
-      - sensor.melanie_dimmer_alarm_level
-      - sensor.melanie_dimmer_alarm_type_2
-      - sensor.melanie_dimmer_alarm_type
-      - sensor.melanie_dimmer_alarm_level_2
-      - sensor.melanie_dimmer_burglar
-      - sensor.melanie_dimmer_burglar_2
-      - sensor.melanie_dimmer_sourcenodeid
-      - sensor.melanie_dimmer_sourcenodeid_2
+      - automation.kid_motion_ends
+      - automation.kid_motion_starts
+      - sensor.kid_dimmer_alarm_level
+      - sensor.kid_dimmer_alarm_type_2
+      - sensor.kid_dimmer_alarm_type
+      - sensor.kid_dimmer_alarm_level_2
+      - sensor.kid_dimmer_burglar
+      - sensor.kid_dimmer_burglar_2
+      - sensor.kid_dimmer_sourcenodeid
+      - sensor.kid_dimmer_sourcenodeid_2
       - sensor.kitchen_door_light_previous_energy
       - sensor.kitchen_door_lock_alarm_level
       - sensor.kitchen_door_lock_alarm_type
@@ -49,4 +49,4 @@ recorder:
       - sensor.owm_humidity
       - sensor.owm_rain
       - sensor.owm_temperature
-      - timer.melanie_music
+      - timer.kid_music

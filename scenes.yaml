@@ -3,7 +3,7 @@
   entities:
     group.internet:
       entity_id:
-      - switch.melanie_internet
+      - switch.kid_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
       order: 3
@@ -53,7 +53,7 @@
   entities:
     group.internet:
       entity_id:
-      - switch.melanie_internet
+      - switch.kid_internet
       - switch.ipad_internet
       friendly_name: Internet
       order: 3
@@ -111,8 +111,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'on'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'on'
 - id: At4PM
   name: At1600
@@ -131,8 +131,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'off'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'off'
 - id: At9PM
   name: At2100
@@ -143,8 +143,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'off'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'off'
     switch.smart_strip_switch_1:
       friendly_name: Smart Strip 1
@@ -158,7 +158,7 @@
   name: InternetOn
   entities:
     switch.ipad_internet: true
-    switch.melanie_internet: true
+    switch.kid_internet: true
 - id: Showtime
   name: ShowTime
   entities:
@@ -182,7 +182,7 @@
     media_player.roku_master_bedroom: idle
     media_player.sonos_living_room: idle
     media_player.sonos_master_bedroom: idle
-    media_player.sonos_melanie: idle
+    media_player.sonos_kid: idle
     switch.garage_lights_switch_1: false
     switch.garage_lights_switch_2: false
     switch.garage_lights_switch_3: false
