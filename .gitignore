@@ -11,6 +11,7 @@
 !ha_control
 !ha_upgrade 
 !internet_setup
+!blueprints
 
 # Ignore folders.
 .storage
