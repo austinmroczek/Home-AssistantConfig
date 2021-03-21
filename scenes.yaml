@@ -176,7 +176,7 @@
     switch.master_lights_switch: false
     switch.front_porch_switch: false
     switch.front_entry_light_switch: false
-    light.melanie: false
+    light.kid: false
     group.house_media_players: idle
     media_player.roku_living_room: idle
     media_player.roku_master_bedroom: idle
@@ -204,7 +204,7 @@
   entities:
     switch.master_lights_switch: true
     switch.stairway_switch: true
-    light.melanie: true
+    light.kid: true
     light.hall_level: true
     switch.kitchen_switch: true
     switch.kitchen_door_light_switch: true
