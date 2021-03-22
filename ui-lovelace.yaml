@@ -116,8 +116,8 @@ views:
       - type: entities
         title: Garage
         entities:
-          - switch.garage_lights_switch_2
-          - switch.garage_lights_switch_3
+          - switch.garage_lights_main
+          - switch.garage_lights_laundry
           - input_boolean.laundry
           - timer.laundry
       - type: entities

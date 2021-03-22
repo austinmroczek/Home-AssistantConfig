@@ -1,5 +1,11 @@
 # groups configuration
 
+  garage:
+    name: Garage
+    entities:
+      - switch.garage_lights_main
+      - switch.garage_lights_laundry
+
   power:
     name: Power
     entities:
