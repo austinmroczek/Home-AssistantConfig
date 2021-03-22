@@ -16,7 +16,6 @@ The device has six outlets, two always on and four controlled by Z-Wave.  It als
 
 Physical Outlet | Z-Wave Switch Instance | Z-Wave Sensor instance | HA entity | Notes
 ------------ | - | - | - | -
-n/a | n/a | ? | | 
 Always on 1 | n/a | 1 | | Next to action button
 Always on 2 | n/a | 2 | | 
 Switchable 1 | 1 | 3 | | 
