@@ -6,42 +6,31 @@
       - switch.melanie_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
-      order: 3
+      order: 6
       friendly_name: Internet
       state: 'off'
     light.dining_room_level:
-      node_id: 6
       friendly_name: Dining Room
-      supported_features: 1
+      supported_features: 33
       state: 'off'
     light.hall_level:
-      node_id: 9
-      friendly_name: Hall Light
-      supported_features: 1
+      friendly_name: Hall
+      supported_features: 33
       state: 'off'
-    switch.garage_lights_switch_1:
-      node_id: 33
-      friendly_name: Garage Lights 1
-      state: 'off'
-    switch.garage_lights_switch_2:
-      node_id: 33
-      friendly_name: Garage Lights 2
-      state: 'off'
-    switch.garage_lights_switch_3:
-      node_id: 33
-      friendly_name: Garage Lights 3
-      state: 'on'
     switch.kitchen_switch:
-      node_id: 7
-      friendly_name: Kitchen
+      friendly_name: Kitchen Lights
       state: 'off'
     switch.piano_outlet_switch:
-      node_id: 21
       friendly_name: Piano Outlet
       state: 'off'
     switch.stairway_switch:
-      node_id: 3
-      friendly_name: Stairs
+      friendly_name: "stairs\0\0\0\0\0\0\0\0\0\0"
+      state: 'off'
+    switch.garage_lights_main:
+      friendly_name: Garage Lights Main
+      state: 'off'
+    switch.garage_lights_laundry:
+      friendly_name: Garage Lights Laundry
       state: 'off'
 - id: HourBeforeSunset
   name: Hour Before Sunset
@@ -55,45 +44,19 @@
       entity_id:
       - switch.melanie_internet
       - switch.ipad_internet
+      - switch.guest_roku_internet
+      order: 6
       friendly_name: Internet
-      order: 3
       state: 'off'
-    switch.garage_lights_switch_1:
-      friendly_name: Garage Lights All
-      node_id: 33
-      state: 'off'
-      value_id: '72057594596376576'
-      value_index: 0
-      value_instance: 1
-    switch.garage_lights_switch_2:
-      friendly_name: Garage Lights 2
-      node_id: 33
-      state: 'off'
-      value_id: '144115188634304512'
-      value_index: 0
-      value_instance: 2
-    switch.garage_lights_switch_3:
-      friendly_name: Garage Lights 3
-      node_id: 33
-      state: 'on'
-      value_id: '216172782672232448'
-      value_index: 0
-      value_instance: 3
     switch.piano_outlet_switch:
-      friendly_name: Piano
-      node_id: 21
+      friendly_name: Piano Outlet
       state: 'off'
-      value_id: '72057594395049984'
-      value_index: 0
-      value_instance: 1
-    switch.smart_strip_switch_1:
-      friendly_name: Smart Strip 1
-      node_id: 25
-      power_consumption: 0
+    switch.garage_lights_main:
+      friendly_name: Garage Lights Main
       state: 'off'
-      value_id: '144115188500086784'
-      value_index: 0
-      value_instance: 2
+    switch.garage_lights_laundry:
+      friendly_name: Garage Lights Laundry
+      state: 'off'
 - id: AtNoon
   name: AtNoon
   entities:
@@ -111,8 +74,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'on'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'on'
 - id: At4PM
   name: At1600
@@ -131,8 +94,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'off'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'off'
 - id: At9PM
   name: At2100
@@ -143,8 +106,8 @@
     switch.ipad_internet:
       friendly_name: iPad Internet
       state: 'off'
-    switch.melanie_internet:
-      friendly_name: Melanie Internet
+    switch.kid_internet:
+      friendly_name: Kid Internet
       state: 'off'
     switch.smart_strip_switch_1:
       friendly_name: Smart Strip 1
@@ -158,7 +121,7 @@
   name: InternetOn
   entities:
     switch.ipad_internet: true
-    switch.melanie_internet: true
+    switch.kid_internet: true
 - id: Showtime
   name: ShowTime
   entities:
@@ -171,23 +134,203 @@
 - id: OnArmedAway
   name: OnArmedAway
   entities:
-    light.hall_level: false
-    switch.kitchen_switch: false
-    switch.master_lights_switch: false
-    switch.front_porch_switch: false
-    switch.front_entry_light_switch: false
-    light.melanie: false
-    group.house_media_players: idle
-    media_player.roku_living_room: idle
-    media_player.roku_master_bedroom: idle
-    media_player.sonos_living_room: idle
-    media_player.sonos_master_bedroom: idle
-    media_player.sonos_melanie: idle
-    switch.garage_lights_switch_1: false
-    switch.garage_lights_switch_2: false
-    switch.garage_lights_switch_3: false
-    group.master_bath_lights: false
-    climate.master_bedroom: false
+    light.hall_level:
+      friendly_name: Hall
+      supported_features: 33
+      state: 'off'
+    switch.kitchen_switch:
+      friendly_name: Kitchen Lights
+      state: 'off'
+    switch.master_lights_switch:
+      friendly_name: Master Bedroom Lights
+      state: 'off'
+    switch.front_porch_switch:
+      friendly_name: Front Porch
+      state: 'off'
+    switch.front_entry_light_switch:
+      friendly_name: Front Entry
+      state: 'off'
+    light.kid:
+      friendly_name: Kid Light
+      supported_features: 33
+      state: 'off'
+    group.house_media_players:
+      entity_id:
+      - media_player.roku_living_room
+      - media_player.roku_master_bedroom
+      - media_player.sonos_living_room
+      - media_player.sonos_master_bedroom
+      - media_player.sonos_melanie
+      order: 30
+      friendly_name: House Media Players
+      state: 'on'
+    media_player.roku_living_room:
+      source_list:
+      - Home
+      - AMC
+      - Angry Birds Space
+      - BBC America
+      - Crackle
+      - Disney Plus
+      - DisneyNOW
+      - FOX NOW
+      - FXNOW
+      - Fanatiz
+      - FandangoNOW Movies & TV
+      - Hulu
+      - NASA TV
+      - NBC
+      - Netflix
+      - Newsy
+      - Nick Jr.
+      - PBS
+      - PBS KIDS
+      - Paramount Plus
+      - Plex - Stream for Free
+      - Prime Video
+      - Roku Tips & Tricks
+      - SHOWTIME
+      - STARZ
+      - SYFY
+      - The CW
+      - The Roku Channel
+      - Twitch
+      - VH1
+      - Watch TNT
+      - YouTube
+      app_name: Roku
+      source: Roku
+      friendly_name: Living Room
+      supported_features: 151481
+      device_class: receiver
+      state: idle
+    media_player.roku_master_bedroom:
+      source_list:
+      - Home
+      - AMC
+      - Angry Birds Space
+      - BBC America
+      - Crackle
+      - Disney Plus
+      - DisneyNOW
+      - FOX NOW
+      - FXNOW
+      - Fanatiz
+      - FandangoNOW Movies & TV
+      - Hulu
+      - NASA TV
+      - NBC
+      - Netflix
+      - Newsy
+      - Nick Jr.
+      - PBS
+      - PBS KIDS
+      - Paramount Plus
+      - Plex - Stream for Free
+      - Prime Video
+      - Roku Tips & Tricks
+      - SHOWTIME
+      - STARZ
+      - SYFY
+      - The CW
+      - The Roku Channel
+      - Twitch
+      - VH1
+      - Watch TNT
+      - YouTube
+      app_name: Roku
+      source: Roku
+      friendly_name: Master Bedroom
+      supported_features: 151481
+      device_class: receiver
+      state: idle
+    media_player.sonos_living_room:
+      source_list:
+      - Christmas
+      - Melanie dance mix
+      - Other stuff (clean)
+      - Sunday unplugged
+      volume_level: 0.24
+      is_volume_muted: false
+      media_content_type: music
+      shuffle: false
+      repeat: 'off'
+      sonos_group:
+      - media_player.sonos_living_room
+      friendly_name: Living Room
+      supported_features: 457279
+      state: idle
+    media_player.sonos_master_bedroom:
+      source_list:
+      - Christmas
+      - Melanie dance mix
+      - Other stuff (clean)
+      - Sunday unplugged
+      volume_level: 0.12
+      is_volume_muted: false
+      media_content_id: x-sonos-http:PXjuSkiGyRNo3WYo7Nwe0cMibF2jlzqmHBRfGv8vlv3lwnCcVzPAw4uw0a19hbRHiTVCCx6WiB5Ylv_CnvaKDkJ2PxuY99Qty%3a%3aST%3a3040207538845718264%3a%3aRINCON_7828CAC4FE6001400%3a1609017632.mp3?sid=236&flags=0&sn=1
+      media_content_type: music
+      media_duration: 231
+      media_position: 0
+      media_position_updated_at: '2021-03-22T00:06:04.658201+00:00'
+      media_title: Seven Nation Army
+      media_artist: The White Stripes
+      media_album_name: Elephant
+      shuffle: false
+      repeat: 'off'
+      sonos_group:
+      - media_player.sonos_master_bedroom
+      queue_position: 0
+      friendly_name: Office
+      entity_picture: /api/media_player_proxy/media_player.sonos_master_bedroom?token=69440c39d6e7da132e16d1c8e76496bd1fbf02261bbd9ac040dfb26a61416687&cache=b5a477762e5e65ed
+      supported_features: 457279
+      state: paused
+    media_player.sonos_kid:
+      source_list:
+      - Christmas
+      - Melanie dance mix
+      - Other stuff (clean)
+      - Sunday unplugged
+      volume_level: 0.03
+      is_volume_muted: false
+      media_content_type: music
+      shuffle: false
+      repeat: 'off'
+      sonos_group:
+      - media_player.sonos_kid
+      friendly_name: Melanie
+      supported_features: 457279
+      state: idle
+    group.master_bath_lights:
+      entity_id:
+      - light.master_bath_level
+      - light.master_bath_sink
+      - light.master_bath_vanity
+      - light.master_bath_shower
+      - light.master_bath_tub
+      - light.master_bath_toilet
+      order: 29
+      friendly_name: Master Bath Lights
+      state: 'off'
+    climate.master_bedroom:
+      hvac_modes:
+      - cool
+      - 'off'
+      min_temp: 45
+      max_temp: 95
+      target_temp_step: 1
+      current_temperature: 71
+      temperature: 74
+      hvac_action: 'off'
+      friendly_name: Master Bedroom
+      supported_features: 1
+      state: 'off'
+    switch.garage_lights_main:
+      friendly_name: Garage Lights Main
+      state: 'off'
+    switch.garage_lights_laundry:
+      friendly_name: Garage Lights Laundry
+      state: 'off'
 - id: OnDisarmedNighttime
   name: OnDisarmedNighttime
   entities:
@@ -204,7 +347,7 @@
   entities:
     switch.master_lights_switch: true
     switch.stairway_switch: true
-    light.melanie: true
+    light.kid: true
     light.hall_level: true
     switch.kitchen_switch: true
     switch.kitchen_door_light_switch: true
@@ -230,17 +373,31 @@
 - id: AtSunrise
   name: AtSunrise
   entities:
-    switch.piano_outlet_switch: false
-    switch.front_entry_light_switch: false
-    switch.front_porch_switch: false
-    switch.back_floodlights_switch: false
-    switch.kitchen_door_light_switch: false
-    switch.smart_strip_switch_1: false
-    light.hall_level: false
-    switch.garage_lights_switch_1: false
-    switch.garage_lights_switch_2: false
-    switch.garage_lights_switch_3: false
-    switch.master_bath_toilet_plug: true
+    switch.piano_outlet_switch:
+      friendly_name: Piano Outlet
+      state: 'off'
+    switch.front_entry_light_switch:
+      friendly_name: Front Entry
+      state: 'off'
+    switch.front_porch_switch:
+      friendly_name: Front Porch
+      state: 'off'
+    switch.back_floodlights_switch:
+      friendly_name: Back Floodlights
+      state: 'off'
+    switch.kitchen_door_light_switch:
+      friendly_name: Kitchen Door
+      state: 'off'
+    light.hall_level:
+      friendly_name: Hall
+      supported_features: 33
+      state: 'off'
+    switch.garage_lights_main:
+      friendly_name: Garage Lights Main
+      state: 'off'
+    switch.garage_lights_laundry:
+      friendly_name: Garage Lights Laundry
+      state: 'off'
 - id: WaterLawn
   name: WaterLawn
   entities:

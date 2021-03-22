@@ -83,12 +83,9 @@
   alias: Laundry flood
   description: If the laundry floods, announce it on Sonos.
   trigger:
-  - entity_id: sensor.laundry_flood
+  - entity_id: binary_sensor.laundry_strip_flood
     platform: state
-    to: '2'
-  - entity_id: sensor.laundry_flood
-    platform: state
-    to: '1'
+    to: 'on'
   condition: []
   action:
   - data:
@@ -104,6 +101,7 @@
       sonos_entity: media_player.sonos_living_room
       volume: 0.5
     service: script.sonos_say
+  mode: single
 - id: ClimateEnabled
   alias: Climate Enabled
   description: Turn on heat/air and close the skylight.

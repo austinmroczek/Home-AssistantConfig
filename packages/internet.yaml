@@ -20,8 +20,8 @@
 ##### set up switches #####
 switch:
   - platform: mqtt
-    unique_id: melanie_internet
-    name: Melanie Internet
+    unique_id: kid_internet
+    name: Kid Internet
     state_topic: "ha/internet/kid_computer"
     command_topic: "ha/internet/kid_computer"
     retain: true
@@ -58,6 +58,6 @@ group:
   internet:
     name: Internet
     entities:
-      - switch.melanie_internet
+      - switch.kid_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
