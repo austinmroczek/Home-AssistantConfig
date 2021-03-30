@@ -30,3 +30,12 @@ As reported by ZwaveJS to Home Assistant.
 - all remotec switches for the lawn
 - hall
 
+## Fakro skylight notes
+
+Per email with Fakro support on 12/3/19
+If the window is closed, it always reports Value 0, even if it is raining
+If the window is open
+
+- Value 0 - occurs only after the first answer since the power reset - when the rain sensor does not detect
+- Value 1 - reports when the sensor is active (rain detection occurs)
+- Value 254 - reports when the sensor is not detecting rain at a given moment - i.e. when it is not raining
