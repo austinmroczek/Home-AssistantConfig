@@ -11,3 +11,47 @@ Autostart is enabled by [systemd](https://home-assistant.io/docs/autostart/syste
 ## Other
 For issues with python package 'av' not installing properly, which caused skybell to stop working:
 The ffmpeg included with Raspbian Buster is old/wrong.  Need to [upgrade ffmpeg](https://linuxconfig.org/how-to-install-the-deb-multimedia-repository-with-vlc-kodi-and-ffmpeg-on-debian-10-buster#h2-how-to-import-the-repository-key)
+
+## mosquitto setup
+
+Set up the mosquitto MQTT server [docker image](https://hub.docker.com/_/eclipse-mosquitto)
+
+`mkdir ~pi/mosquitto`
+`mkdir ~pi/mosquitto/config`
+`touch ~pi/mosquitto/config/mosquitto.conf`
+`mkdir ~pi/mosquitto/data`
+`mkdir ~pi/mosquitto/log`
+
+Add the following to mosquitto.conf:
+
+```txt
+persistence true
+persistence_location /mosquitto/data/
+log_dest file /mosquitto/log/mosquitto.log
+```
+
+First run the container to make sure it works right
+`docker run -d --restart always -p 1883:1883 -p 9001:9001 -v /home/pi/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf -v /home/pi/mosquitto/data:/mosquitto/data -v /home/pi/mosquitto/log:/mosquitto/log eclipse-mosquitto`
+
+## [Open Z-Wave setup](https://github.com/OpenZWave/qt-openzwave)
+
+Set up ozw daemon [docker image](https://hub.docker.com/r/openzwave/ozwdaemon)
+
+`mkdir ~pi/ozw`
+
+Replace the IP address and network key below with the real thing.
+
+```bash
+docker run -d \
+    --restart always \
+    --security-opt seccomp=unconfined \
+    --device=/dev/ttyAMA0 \
+    -v /home/pi/ozw:/opt/ozw/config \
+    -e MQTT_SERVER="192.168.1.123" \
+    -e USB_PATH=/dev/ttyAMA0 \
+    -e OZW_NETWORK_KEY="0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A,0x0b,0x0c,0x0d,0x0e,0x0f,0x10" \
+    -p 1983:1983 \
+    -p 5901:5901 \
+    -p 7800:7800 \
+    openzwave/ozwdaemon:allinone-latest
+```
