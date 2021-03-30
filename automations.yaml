@@ -290,10 +290,13 @@
   - before: sunset
     condition: sun
   action:
-  - delay: '180'
   - entity_id: scene.OnDisarmedDaytime
     service: scene.turn_on
-  - delay: '180'
+  - delay:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
   - data: {}
     entity_id: scene.ondisarmeddaytime
     service: scene.turn_on
@@ -301,50 +304,59 @@
   mode: single
 - id: AlarmDisarmedNighttime
   alias: 'Alarm: Disarmed Nighttime'
-  initial_state: true
   trigger:
-    platform: state
+  - platform: state
     entity_id: alarm_control_panel.home1
     to: disarmed
   condition:
-    condition: sun
+  - condition: sun
     after: sunset
   action:
-    service: scene.turn_on
+  - service: scene.turn_on
     entity_id: scene.OnDisarmedNighttime
+  initial_state: true
+  mode: single
 - id: AlarmArmedAway
   alias: 'Alarm: Armed Away'
-  initial_state: true
   trigger:
-    platform: state
+  - platform: state
     entity_id: alarm_control_panel.home1
     to: armed_away
   action:
   - service: homeassistant.turn_off
     entity_id: group.house_media_players
-  - delay: 120
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
   - service: scene.turn_on
     entity_id: scene.OnArmedAway
   - service: lock.lock
-    data:
+    data: {}
+    target:
       entity_id: lock.kitchen_door_lock
+  initial_state: true
+  mode: single
 - id: AlarmArmedStayDaytime
   alias: 'Alarm: Armed Stay Daytime'
-  initial_state: true
   trigger:
-    platform: state
+  - platform: state
     entity_id: alarm_control_panel.home1
     to: armed_home
   condition:
-    condition: sun
+  - condition: sun
     before: sunset
   action:
   - delay: 120
   - service: scene.turn_on
     entity_id: scene.OnArmedStayDaytime
   - service: lock.lock
-    data:
+    data: {}
+    target:
       entity_id: lock.kitchen_door_lock
+  initial_state: true
+  mode: single
 - id: AlarmTriggered
   alias: 'Alarm: Triggered'
   initial_state: true
@@ -431,42 +443,33 @@
     entity_id: switch.smart_strip_switch_2
     domain: switch
   mode: single
-
-- id: 'kitchenDoorUnlockedArmedAway'
-  alias: "Kitchen Door Unlocked while Armed Away"
-  initial_state: True
+- id: kitchenDoorUnlockedArmedAway
+  alias: Kitchen Door Unlocked while Armed Away
   trigger:
-    platform: state
-    entity_id: sensor.kitchendoor_action
-    to: 'Keypad Unlock'
+  - platform: state
+    entity_id: lock.kitchen_door_lock
+    to: Unlocked
   condition:
-    condition: state
+  - condition: state
     entity_id: alarm_control_panel.home1
     state: armed_away
   action:
-    service: alarm_control_panel.alarm_disarm
-    data:
+  - service: alarm_control_panel.alarm_disarm
+    data: {}
+    target:
       entity_id: alarm_control_panel.home1
-
-- id: "KitchenDoorLockedWhileDisarmed"
-  alias: "Kitchen Door Locked while Disarmed"
-  initial_state: True
-  trigger:
-    platform: state
-    entity_id: sensor.kitchendoor_action
-    to: 'Keypad Lock'
-  condition:
-    condition: state
-    entity_id: alarm_control_panel.home1
-    state: disarmed
-  action:
-    service: alarm_control_panel.alarm_arm_away
-    data:
-      entity_id: alarm_control_panel.home1
-
-- id: "DoorbellPushedWhileAway"
-  alias: "Doorbell pushed while away"
-  initial_state: True
+  initial_state: true
+  mode: single
+- id: KitchenDoorLockedWhileDisarmed
+  alias: Kitchen Door Locked while Disarmed
+  trigger: []
+  condition: []
+  action: []
+  initial_state: true
+  mode: single
+- id: DoorbellPushedWhileAway
+  alias: Doorbell pushed while away
+  initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.skybell_front_door_button
@@ -481,9 +484,9 @@
       entity_id: media_player.sonos_living_room
       media_content_id: http://192.168.1.196:8123/local/pitbull.mp3
       media_content_type: music
-- id: "DoorbellPushedAfterDark"
-  alias: "Doorbell pushed after dark"
-  initial_state: True
+- id: DoorbellPushedAfterDark
+  alias: Doorbell pushed after dark
+  initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.skybell_front_door_button
@@ -494,117 +497,112 @@
   action:
     service: homeassistant.turn_on
     entity_id: switch.front_entry_light_switch
-
-- id: "WaterPlants"
-  alias: "Water Plants"
-  initial_state: True
+- id: WaterPlants
+  alias: Water Plants
+  initial_state: true
   trigger:
     platform: time
-    at: '06:30:00'
+    at: 06:30:00
   action:
     service: scene.turn_on
     entity_id: scene.WaterPlants
   condition:
     condition: and
     conditions:
-      - condition: time
-        weekday:
-          - mon
-          - wed
-          - sat
-      - condition: state
-        entity_id: input_boolean.rain_delay
-        state: 'off'
-- id: "WaterFrontLawn"
-  alias: "Water Front Lawn"
-  initial_state: True
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - sat
+    - condition: state
+      entity_id: input_boolean.rain_delay
+      state: 'off'
+- id: WaterFrontLawn
+  alias: Water Front Lawn
+  initial_state: true
   trigger:
     platform: time
-    at: '06:32:00'
+    at: 06:32:00
   action:
     service: scene.turn_on
     entity_id: scene.WaterLawn
   condition:
     condition: and
     conditions:
-      - condition: time
-        weekday:
-          - mon
-          - wed
-          - sat
-      - condition: state
-        entity_id: input_boolean.rain_delay
-        state: 'off'
-- id: "stopAllWatering"
-  alias: "Stop All Watering"
-  initial_state: True
+    - condition: time
+      weekday:
+      - mon
+      - wed
+      - sat
+    - condition: state
+      entity_id: input_boolean.rain_delay
+      state: 'off'
+- id: stopAllWatering
+  alias: Stop All Watering
+  initial_state: true
   trigger:
     platform: time
-    at: '06:40:00'
+    at: 06:40:00
   action:
     service: scene.turn_on
     entity_id: scene.StopAllWater
-
-- id: "WeeklySoaking"
-  alias: "Weekly Soaking"
-  initial_state: True
+- id: WeeklySoaking
+  alias: Weekly Soaking
+  initial_state: true
   trigger:
     platform: time
-    at: '07:00:00'
+    at: 07:00:00
   action:
     service: switch.turn_on
     entity_id: switch.back_drip_switch
   condition:
     condition: and
     conditions:
-      - condition: time
-        weekday:
-          - sat
-      - condition: state
-        entity_id: input_boolean.rain_delay
-        state: 'off'
-
-- id: "StopWeeklySoaking"
-  alias: "Stop Weekly Soaking"
-  initial_state: True
+    - condition: time
+      weekday:
+      - sat
+    - condition: state
+      entity_id: input_boolean.rain_delay
+      state: 'off'
+- id: StopWeeklySoaking
+  alias: Stop Weekly Soaking
+  initial_state: true
   trigger:
     platform: time
-    at: '07:55:00'
+    at: 07:55:00
   action:
     service: scene.turn_on
     entity_id: scene.StopAllWater
-
-- id: "KidMotionEnds"
-  alias: "Kid motion ends"
-  initial_state: True
+- id: KidMotionEnds
+  alias: Kid motion ends
+  initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.kid_motion
     to: 'off'
   action:
-    - service: timer.start
-      entity_id: timer.kid_music
-- id: "KidMotionStarts"
-  alias: "Kid motion starts"
-  initial_state: True
+  - service: timer.start
+    entity_id: timer.kid_music
+- id: KidMotionStarts
+  alias: Kid motion starts
+  initial_state: true
   trigger:
     platform: state
     entity_id: binary_sensor.kid_motion
     to: 'on'
   action:
-    - service: timer.cancel
-      entity_id: timer.kid_music
-- id: "KidMusicTimerEnds"
-  alias: "Kid music timer ends"
-  initial_state: True
+  - service: timer.cancel
+    entity_id: timer.kid_music
+- id: KidMusicTimerEnds
+  alias: Kid music timer ends
+  initial_state: true
   trigger:
     platform: event
     event_type: timer.finished
     event_data:
       entity_id: timer.kid_music
   action:
-    - service: sonos.set_sleep_timer
-      data:
-        entity_id: media_player.sonos_kid
-        sleep_time: 0
-
+  - service: sonos.set_sleep_timer
+    data:
+      entity_id: media_player.sonos_kid
+      sleep_time: 0
