@@ -55,13 +55,13 @@ automation:
     - service: fan.turn_on
       entity_id: fan.master_fan_level
       data_template:
-          speed: >-
+          percentage: >-
             {% if (((states('sensor.master_bedroom_temperature_target') | float) - (states('sensor.master_bedroom_temperature') | float))) >= 1.0 %}
-              low
+              33
             {% elif (((states('sensor.master_bedroom_temperature_target') | float) - (states('sensor.master_bedroom_temperature') | float))) <= -3.0 %}
-              high
+              100
             {% else %}
-              medium
+              66
             {% endif %}
     - service: timer.start
       entity_id: timer.master_bedroom_fan_cooldown
