@@ -168,11 +168,11 @@ switch:
 
 
 
-
-group: !include groups.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
 automation: !include automations.yaml
+group: !include groups.yaml
+recorder: !include recorder.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
 sun:
 
 tts:
