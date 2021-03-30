@@ -495,3 +495,82 @@
     service: homeassistant.turn_on
     entity_id: switch.front_entry_light_switch
 
+- id: "WaterPlants"
+  alias: "Water Plants"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '06:30:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.WaterPlants
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - wed
+          - sat
+      - condition: state
+        entity_id: input_boolean.rain_delay
+        state: 'off'
+- id: "WaterFrontLawn"
+  alias: "Water Front Lawn"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '06:32:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.WaterLawn
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - wed
+          - sat
+      - condition: state
+        entity_id: input_boolean.rain_delay
+        state: 'off'
+- id: "stopAllWatering"
+  alias: "Stop All Watering"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '06:40:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.StopAllWater
+
+- id: "WeeklySoaking"
+  alias: "Weekly Soaking"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '07:00:00'
+  action:
+    service: switch.turn_on
+    entity_id: switch.back_drip_switch
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sat
+      - condition: state
+        entity_id: input_boolean.rain_delay
+        state: 'off'
+
+- id: "StopWeeklySoaking"
+  alias: "Stop Weekly Soaking"
+  initial_state: True
+  trigger:
+    platform: time
+    at: '07:55:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.StopAllWater
+
