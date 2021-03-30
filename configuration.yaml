@@ -161,6 +161,9 @@ switch:
     retain: true
     availability:
       - topic: "ha/internet/roku/available"
+  - platform: wake_on_lan
+    mac: !secret desktop_mac
+    name: Desktop
 
 
 
