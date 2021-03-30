@@ -193,4 +193,5 @@ timer:
     duration: '00:05:00'
   rain_delay:
     duration: '96:00:00'
-
+  kid_music:
+    duration: '00:05:00'
