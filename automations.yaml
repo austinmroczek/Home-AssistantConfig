@@ -464,3 +464,34 @@
     data:
       entity_id: alarm_control_panel.home1
 
+- id: "DoorbellPushedWhileAway"
+  alias: "Doorbell pushed while away"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.skybell_front_door_button
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.home1
+    state: armed_away
+  action:
+    service: media_player.play_media
+    data:
+      entity_id: media_player.sonos_living_room
+      media_content_id: http://192.168.1.196:8123/local/pitbull.mp3
+      media_content_type: music
+- id: "DoorbellPushedAfterDark"
+  alias: "Doorbell pushed after dark"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.skybell_front_door_button
+    to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.front_entry_light_switch
+

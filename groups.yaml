@@ -108,3 +108,11 @@
       - switch.kid_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
+
+  doorbell:
+    name: Skybell
+    entities:
+      - binary_sensor.skybell_front_door_button
+      - binary_sensor.skybell_front_door_motion
+      - switch.skybell_front_door_do_not_disturb
+      - switch.skybell_front_door_motion_sensor
