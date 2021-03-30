@@ -133,3 +133,14 @@
       - switch.side_drip_switch
       - switch.front_drip
       - switch.front_lawn
+
+  master_bath_lights:
+    name: Master Bath Lights
+    entities:
+      - light.master_bath_level
+      - light.master_bath_sink
+      - light.master_bath_vanity
+      - light.master_bath_shower
+      - light.master_bath_tub
+      - light.master_bath_toilet
+
