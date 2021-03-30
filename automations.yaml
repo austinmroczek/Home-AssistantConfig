@@ -431,3 +431,36 @@
     entity_id: switch.smart_strip_switch_2
     domain: switch
   mode: single
+
+- id: 'kitchenDoorUnlockedArmedAway'
+  alias: "Kitchen Door Unlocked while Armed Away"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.kitchendoor_action
+    to: 'Keypad Unlock'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.home1
+    state: armed_away
+  action:
+    service: alarm_control_panel.alarm_disarm
+    data:
+      entity_id: alarm_control_panel.home1
+
+- id: "KitchenDoorLockedWhileDisarmed"
+  alias: "Kitchen Door Locked while Disarmed"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.kitchendoor_action
+    to: 'Keypad Lock'
+  condition:
+    condition: state
+    entity_id: alarm_control_panel.home1
+    state: disarmed
+  action:
+    service: alarm_control_panel.alarm_arm_away
+    data:
+      entity_id: alarm_control_panel.home1
+
