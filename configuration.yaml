@@ -195,3 +195,7 @@ timer:
     duration: '96:00:00'
   kid_music:
     duration: '00:05:00'
+
+webostv:
+  host: !secret master_tv_address
+  name: Master Bedroom TV
