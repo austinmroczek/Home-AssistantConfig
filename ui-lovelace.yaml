@@ -42,21 +42,22 @@ views:
           - lock.kitchen_door_lock
           - sensor.kitchen_door_lock_battery
       - type: entities
+        title: Living Room
+        entities:
+          - switch.piano_outlet_switch
+          - media_player.living_room_apple_tv
+
+
+      - type: entities
         title: Other
         entities:
           - light.hall_level
           - switch.stairway_switch
           - group.fish
           - light.dining_room_level
-          - switch.piano_outlet_switch
           - switch.desktop
-      - type: conditional
-        conditions:
-          - entity: media_player.roku_living_room
-            state_not: "idle"
-        card:
-          type: media-control
-          entity: media_player.roku_living_room
+      - type: media-control
+        entity: media_player.living_room_apple_tv
       - type: media-control
         entity: media_player.sonos_living_room
       - type: entities
@@ -82,6 +83,7 @@ views:
           - switch.master_lights_switch
           - cover.master_bedroom_shades
           - climate.master_bedroom
+          - media_player.master_bedroom_apple_tv
       - type: entities
         title: Master Bath
         entities:
@@ -94,22 +96,10 @@ views:
           - switch.master_laundry_plug
           - binary_sensor.master_bath_motion
           - cover.master_bath_skylight_switch
-      - type: conditional
-        conditions:
-          - entity: media_player.roku_master_bedroom
-            state_not: "idle"
-        card:
-          type: media-control
-          entity: media_player.roku_master_bedroom
       - type: media-control
         entity: media_player.sonos_master_bedroom
-
-
-
-
-
-
-
+      - type: media-control
+        entity: media_player.master_bedroom_apple_tv
 
   - title: Outside
     cards:
