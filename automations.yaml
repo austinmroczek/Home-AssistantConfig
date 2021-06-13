@@ -290,12 +290,8 @@
   - before: sunset
     condition: sun
   action:
-  - service: zwave_js.refresh_value
-    data:
-      entity_id: light.hall_level
-  - service: zwave_js.refresh_value
-    data:
-      entity_id: switch.kitchen_switch
+  - event: poll_request
+    event_data: {}
   - delay:
       hours: 0
       minutes: 0
@@ -315,6 +311,13 @@
   - condition: sun
     after: sunset
   action:
+  - event: poll_request
+    event_data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
   - service: scene.turn_on
     entity_id: scene.OnDisarmedNighttime
   initial_state: true
@@ -326,6 +329,8 @@
     entity_id: alarm_control_panel.home1
     to: armed_away
   action:
+  - event: poll_request
+    event_data: {}
   - service: homeassistant.turn_off
     entity_id: group.house_media_players
   - delay:
@@ -351,6 +356,8 @@
   - condition: sun
     before: sunset
   action:
+  - event: poll_request
+    event_data: {}
   - delay: 120
   - service: scene.turn_on
     entity_id: scene.OnArmedStayDaytime
@@ -362,28 +369,20 @@
   mode: single
 - id: AlarmTriggered
   alias: 'Alarm: Triggered'
-  initial_state: true
   trigger:
-    platform: state
+  - platform: state
     entity_id: alarm_control_panel.home1
     to: triggered
   action:
+  - event: poll_request
+    event_data: {}
   - service: scene.turn_on
     entity_id: scene.OnAlarmTriggered
   - service: lock.unlock
     data:
       entity_id: lock.kitchen_door_lock
-  - service: notify.austin
-    data_template:
-      message: '{% set alarm_source = states[''alarm_control_panel.home1''].attributes.triggered_source
-        %} {% set alarm_zone = states[''alarm_control_panel.home1''].attributes.triggered_zone
-        %} {% set alarm_ac_loss = states[''alarm_control_panel.home1''].attributes.ac_loss
-        %} {% set alarm_low_battery = states[''alarm_control_panel.home1''].attributes.low_battery
-        %}
-
-        The alarm has been triggered! Source: {{ alarm_source }} Zone: {{ alarm_zone
-        }} AC Loss: {{ alarm_ac_loss }} Low Battery: {{ alarm_low_battery }}'
-      title: Goldsmith Alarm Triggered!
+  initial_state: true
+  mode: single
 - id: RainDelayManuallyTriggered
   alias: Rain Delay manually triggered
   initial_state: true
@@ -609,3 +608,19 @@
     data:
       entity_id: media_player.sonos_kid
       sleep_time: 0
+- id: '1623550652084'
+  alias: Poll Devices
+  description: Poll older Z-Wave devices to ensure we have updated status before we
+    run scenes.
+  trigger:
+  - platform: event
+    event_type: poll_request
+  condition: []
+  action:
+  - service: zwave_js.refresh_value
+    data:
+      entity_id: light.hall_level
+  - service: zwave_js.refresh_value
+    data:
+      entity_id: switch.kitchen_switch
+  mode: single
