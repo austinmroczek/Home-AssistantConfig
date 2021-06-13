@@ -290,15 +290,18 @@
   - before: sunset
     condition: sun
   action:
-  - entity_id: scene.OnDisarmedDaytime
-    service: scene.turn_on
+  - service: zwave_js.refresh_value
+    data:
+      entity_id: light.hall_level
+  - service: zwave_js.refresh_value
+    data:
+      entity_id: switch.kitchen_switch
   - delay:
       hours: 0
-      minutes: 3
-      seconds: 0
+      minutes: 0
+      seconds: 30
       milliseconds: 0
-  - data: {}
-    entity_id: scene.ondisarmeddaytime
+  - entity_id: scene.OnDisarmedDaytime
     service: scene.turn_on
   initial_state: true
   mode: single
