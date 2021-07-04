@@ -454,7 +454,7 @@
   trigger:
   - platform: state
     entity_id: lock.kitchen_door_lock
-    to: Unlocked
+    to: unlocked
   condition:
   - condition: state
     entity_id: alarm_control_panel.home1
