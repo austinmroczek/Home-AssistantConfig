@@ -94,7 +94,11 @@
       sonos_entity: media_player.sonos_master_bedroom
       volume: 0.5
     service: script.sonos_say
-  - delay: '7'
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 7
+      milliseconds: 0
   - data:
       delay: 00:00:03
       message: The laundry area is flooded in the master bathroom.
@@ -623,4 +627,31 @@
   - service: zwave_js.refresh_value
     data:
       entity_id: switch.kitchen_switch
+  mode: single
+- id: '1625439560442'
+  alias: Flag reminder at sunset
+  description: Remind users if a flag is outside at sunset.
+  trigger:
+  - platform: sun
+    event: sunrise
+  condition:
+  - condition: state
+    entity_id: input_boolean.flag_outside
+    state: 'on'
+  action:
+  - data:
+      delay: 00:00:03
+      message: Bring the flags in from the balcony.
+      sonos_entity: media_player.sonos_master_bedroom
+      volume: 0.5
+    service: script.sonos_say
+  - data:
+      delay: 00:00:03
+      message: Bring the flags in from the balcony.
+      sonos_entity: media_player.sonos_living_room
+      volume: 0.5
+    service: script.sonos_say
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.flag_outside
   mode: single
