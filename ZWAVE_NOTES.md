@@ -15,7 +15,7 @@ Note:  device is ttyAMA0
 ## Updating zwavejs2mqtt
 
 ```console
-root@rpi# docker docker pull zwavejs/zwavejs2mqtt
+root@rpi# docker pull zwavejs/zwavejs2mqtt
 root@rpi# docker ps
 root@rpi# docker stop [container_id]
 root@rpi# docker rm [container_id]
