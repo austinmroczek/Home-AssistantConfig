@@ -3,34 +3,57 @@
   entities:
     group.internet:
       entity_id:
-      - switch.melanie_internet
+      - switch.kid_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
-      order: 6
+      order: 12
       friendly_name: Internet
       state: 'off'
     light.dining_room_level:
-      friendly_name: Dining Room
+      supported_color_modes:
+      - brightness
+      friendly_name: Dining
       supported_features: 33
       state: 'off'
     light.hall_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Hall
       supported_features: 33
       state: 'off'
     switch.kitchen_switch:
-      friendly_name: Kitchen Lights
+      friendly_name: Kitchen
       state: 'off'
     switch.piano_outlet_switch:
       friendly_name: Piano Outlet
       state: 'off'
     switch.stairway_switch:
-      friendly_name: "stairs\0\0\0\0\0\0\0\0\0\0"
+      friendly_name: Stairs
       state: 'off'
     switch.garage_lights_main:
+      restored: true
+      supported_features: 0
       friendly_name: Garage Lights Main
-      state: 'off'
+      state: unavailable
     switch.garage_lights_laundry:
+      restored: true
+      supported_features: 0
       friendly_name: Garage Lights Laundry
+      state: unavailable
+    media_player.master_bedroom_tv:
+      source_list:
+      - Live TV
+      friendly_name: Master Bedroom TV
+      supported_features: 20285
+      device_class: tv
+      state: 'off'
+    media_player.master_bedroom_apple_tv:
+      friendly_name: Master Bedroom AppleTV
+      supported_features: 317363
+      state: 'off'
+    media_player.living_room_apple_tv:
+      friendly_name: Living Room AppleTV
+      supported_features: 317363
       state: 'off'
 - id: HourBeforeSunset
   name: Hour Before Sunset

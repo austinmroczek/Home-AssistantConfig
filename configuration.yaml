@@ -170,6 +170,10 @@ input_boolean:
     name: Rain Delay
     icon: mdi:water
     initial: false
+  flag_outside:
+    name: Flag(s) Outside
+    initial: false
+
 
 lovelace:
   mode: yaml

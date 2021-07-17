@@ -11,6 +11,7 @@ views:
           - sensor.hall_temperature
           - sensor.master_bedroom_temperature
           - input_boolean.enable_climate
+          - input_boolean.flag_outside
           - scene.bedtime
           - scene.showtime
 
@@ -135,10 +136,9 @@ views:
         entities:
           - switch.back_floodlights_switch
           - switch.kitchen_door_light_switch
-          - switch.front_patio_switch_1
+          - switch.front_patio
           - switch.front_entry_light_switch
           - switch.front_porch_switch
-          - timer.front_patio_motion_timer
       - type: entities
         title: Weather
         entities:
