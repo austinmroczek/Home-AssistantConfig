@@ -1,4 +1,4 @@
 
 - name: austin
   platform: discord
-  token: ODY1NzAyMjcyMjczMDg4NTMz.YPH2EQ.xq8LNCZJdufXvKUjyiLzygUYv2w
+  token: !secret discord_token
