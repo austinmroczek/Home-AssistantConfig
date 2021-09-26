@@ -293,6 +293,11 @@
   - condition: sun
     after: sunset
   action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
   - event: poll_request
     event_data: {}
   - delay:
@@ -311,6 +316,11 @@
     entity_id: alarm_control_panel.home1
     to: armed_away
   action:
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 10
+      milliseconds: 0
   - event: poll_request
     event_data: {}
   - service: homeassistant.turn_off
