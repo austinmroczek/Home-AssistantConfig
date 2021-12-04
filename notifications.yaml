@@ -1,29 +1,4 @@
 
 - name: austin
-  platform: smtp
-  server: !secret smtp_server
-  port: !secret smtp_port
-  timeout: 15
-  sender: !secret smtp_sender
-  encryption: starttls
-  username: !secret smtp_username
-  password: !secret smtp_password
-  recipient: 
-    - !secret smtp_recipient1
-    - !secret smtp_recipient2
-  sender_name: Mroczek Home Assistant
-- name: emergency
-  platform: smtp
-  server: !secret smtp_server
-  port: !secret smtp_port
-  timeout: 15
-  sender: !secret smtp_sender
-  encryption: starttls
-  username: !secret smtp_username
-  password: !secret smtp_password
-  recipient:
-    - !secret smtp_recipient1
-    - !secret smtp_recipient2
-    - !secret smtp_recipient3
-  sender_name: Mroczek Home Assistant
-
+  platform: discord
+  token: !secret discord_token
