@@ -179,15 +179,14 @@
       state: 'off'
     group.house_media_players:
       entity_id:
-      - media_player.roku_living_room
-      - media_player.roku_master_bedroom
+      - media_player.roku_guest
       - media_player.sonos_living_room
       - media_player.sonos_master_bedroom
       - media_player.sonos_kid
       order: 30
       friendly_name: House Media Players
       state: 'on'
-    media_player.roku_living_room:
+    media_player.roku_guest:
       source_list:
       - Home
       - AMC
@@ -223,47 +222,7 @@
       - YouTube
       app_name: Roku
       source: Roku
-      friendly_name: Living Room
-      supported_features: 151481
-      device_class: receiver
-      state: idle
-    media_player.roku_master_bedroom:
-      source_list:
-      - Home
-      - AMC
-      - Angry Birds Space
-      - BBC America
-      - Crackle
-      - Disney Plus
-      - DisneyNOW
-      - FOX NOW
-      - FXNOW
-      - Fanatiz
-      - FandangoNOW Movies & TV
-      - Hulu
-      - NASA TV
-      - NBC
-      - Netflix
-      - Newsy
-      - Nick Jr.
-      - PBS
-      - PBS KIDS
-      - Paramount Plus
-      - Plex - Stream for Free
-      - Prime Video
-      - Roku Tips & Tricks
-      - SHOWTIME
-      - STARZ
-      - SYFY
-      - The CW
-      - The Roku Channel
-      - Twitch
-      - VH1
-      - Watch TNT
-      - YouTube
-      app_name: Roku
-      source: Roku
-      friendly_name: Master Bedroom
+      friendly_name: Roku Guest
       supported_features: 151481
       device_class: receiver
       state: idle
