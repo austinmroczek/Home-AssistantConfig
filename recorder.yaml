@@ -4,7 +4,6 @@ exclude:
   domains:
     - media_player
     - openweathermap
-    - plex
     - remote
     - roku
     - sonos
