@@ -13,13 +13,13 @@
       supported_color_modes:
       - brightness
       friendly_name: Dining
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     light.hall_level:
       supported_color_modes:
       - brightness
       friendly_name: Hall
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     switch.kitchen_switch:
       friendly_name: Kitchen
@@ -30,23 +30,34 @@
     switch.stairway_switch:
       friendly_name: Stairs
       state: 'off'
-    switch.garage_lights_main:
-      restored: true
-      supported_features: 0
-      friendly_name: Garage Lights Main
-      state: unavailable
-    switch.garage_lights_laundry:
-      restored: true
-      supported_features: 0
-      friendly_name: Garage Lights Laundry
-      state: unavailable
     media_player.master_bedroom_tv:
       source_list:
+      - AV
+      - Amazon Prime Video
+      - Apple
+      - Component
+      - Disney+
+      - HDMI 3
+      - Hulu
+      - LG Channels
+      - LG Content Store
       - Live TV
+      - Music
+      - Netflix
+      - Nintendo Switch
+      - Photo & Video
+      - Sling TV
+      - Sports Alert
+      - Web Browser
+      - YouTube
+      volume_level: 0.27
+      is_volume_muted: false
+      source: Apple
+      sound_output: tv_speaker
+      device_class: tv
       friendly_name: Master Bedroom TV
       supported_features: 20285
-      device_class: tv
-      state: 'off'
+      state: 'on'
     media_player.master_bedroom_apple_tv:
       friendly_name: Master Bedroom AppleTV
       supported_features: 317363
@@ -54,6 +65,27 @@
     media_player.living_room_apple_tv:
       friendly_name: Living Room AppleTV
       supported_features: 317363
+      state: 'off'
+    light.garage_front:
+      supported_color_modes:
+      - brightness
+      friendly_name: Garage Front Light
+      supported_features: 32
+      state: 'off'
+    switch.garage_lights:
+      friendly_name: Garage Lights
+      state: 'off'
+    switch.master_bedroom_lamps:
+      friendly_name: Master Bedroom Lamps
+      state: 'off'
+    light.master_bedroom:
+      supported_color_modes:
+      - brightness
+      friendly_name: Master Bedroom Lights
+      supported_features: 32
+      state: 'off'
+    switch.master_fan_light:
+      friendly_name: Master Bedroom Fan Light
       state: 'off'
 - id: HourBeforeSunset
   name: Hour Before Sunset
