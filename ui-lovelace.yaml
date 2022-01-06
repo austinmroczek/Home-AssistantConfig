@@ -80,8 +80,9 @@ views:
           - sensor.master_bedroom_temperature
           - binary_sensor.master_bedroom_motion
           - fan.master_fan_level
+          - switch.master_bedroom_lamps
           - switch.master_fan_light
-          - switch.master_lights_switch
+          - light.master_bedroom
           - cover.master_bedroom_shades
           - climate.master_bedroom
           - media_player.master_bedroom_apple_tv
@@ -96,7 +97,7 @@ views:
           - light.master_bath_toilet
           - switch.master_laundry_plug
           - binary_sensor.master_bath_motion
-          - cover.master_bath_skylight_switch
+          - cover.master_bath_skylight
       - type: media-control
         entity: media_player.sonos_master_bedroom
       - type: media-control
@@ -107,10 +108,8 @@ views:
       - type: entities
         title: Garage
         entities:
-          - switch.garage_lights_main
-          - switch.garage_lights_laundry
-          - input_boolean.laundry
-          - timer.laundry
+          - light.garage_front
+          - switch.garage_lights
       - type: entities
         title: Sprinklers
         entities:
