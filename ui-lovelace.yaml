@@ -124,6 +124,7 @@ views:
         title: Lights
         entities:
           - switch.back_floodlights_switch
+          - switch.back_balcony_lights
           - switch.kitchen_door_light_switch
           - switch.front_patio
           - switch.front_entry_light_switch
@@ -141,29 +142,3 @@ views:
         title:  Water Heater
         entities:
           - switch.water_heater_outlet 
- 
-
-  - title: Door
-    cards:
-      - type: entities
-        title: Kitchen Door
-        entities:
-          - group.door_keypad_1
-          - group.door_keypad_2
-          - group.door_keypad_3
-          - group.door_keypad_4
-          - group.door_keypad_5
-          - group.door_keypad_6
-          - group.door_keypad_7
-          - group.door_keypad_8
-          - group.door_keypad_9
-          - group.door_keypad_10
-          - group.door_keypad_11
-          - group.door_keypad_12
-          - group.door_keypad_13
-          - group.door_keypad_14
-          - group.door_keypad_15
-          - group.door_keypad_16
-          - group.door_keypad_17
-          - group.door_keypad_18
-
