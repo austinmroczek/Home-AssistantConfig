@@ -626,3 +626,14 @@
       - service: scene.turn_on
         target:
           entity_id: scene.bedtime
+- id: '1641447432195'
+  alias: Zooz ZEN71
+  description: ''
+  use_blueprint:
+    path: zooz-zen71-switch-automation-helper.yaml
+    input:
+      zooz_zen71: 8ae5bcb98b2f8d15e03f7893826481d8
+      switch_up_2x:
+      - scene: scene.outside_lights_on
+      switch_down_2x:
+      - scene: scene.bedtime

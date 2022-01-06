@@ -371,14 +371,22 @@
       friendly_name: Kitchen Door
       state: 'off'
     light.hall_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Hall
-      supported_features: 33
+      supported_features: 32
       state: 'off'
-    switch.garage_lights_main:
-      friendly_name: Garage Lights Main
+    light.garage_front:
+      supported_color_modes:
+      - brightness
+      friendly_name: Garage Front Light
+      supported_features: 32
       state: 'off'
-    switch.garage_lights_laundry:
-      friendly_name: Garage Lights Laundry
+    switch.garage_lights:
+      friendly_name: Garage Lights
+      state: 'off'
+    switch.back_balcony_lights:
+      friendly_name: Back Balcony Lights
       state: 'off'
 - id: WaterLawn
   name: WaterLawn
@@ -397,3 +405,37 @@
     switch.back_drip_switch: false
     switch.front_lawn: false
     switch.front_drip: false
+- id: '1641447053132'
+  name: Outside lights on
+  entities:
+    switch.back_balcony_lights:
+      friendly_name: Back Balcony Lights
+      state: 'on'
+    light.garage_front:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      friendly_name: Garage Front Light
+      supported_features: 32
+      state: 'on'
+    switch.garage_lights:
+      friendly_name: Garage Lights
+      state: 'off'
+    switch.back_floodlights_switch:
+      friendly_name: Back Floodlights
+      state: 'on'
+    switch.kitchen_door_light_switch:
+      friendly_name: Kitchen Door
+      state: 'on'
+    switch.front_porch_switch:
+      friendly_name: Front Porch
+      state: 'on'
+    switch.front_entry_light_switch:
+      friendly_name: Front Entry
+      state: 'off'
+    switch.front_entry:
+      restored: true
+      friendly_name: Front Entry
+      supported_features: 0
+      state: unavailable
