@@ -615,3 +615,14 @@
     target:
       entity_id: input_boolean.flag_outside
   mode: single
+- id: '1641445278269'
+  alias: Bedtime on button double press
+  description: Set the Bedtime scene on double down press of the bedroom light button
+  use_blueprint:
+    path: IOT_Ninja/zooz-zen30-double-switch-automation-helper.yaml
+    input:
+      zooz_zen30: dfb6b0948b3864762f67d058c6f4168b
+      dimmer_down_2x:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.bedtime
