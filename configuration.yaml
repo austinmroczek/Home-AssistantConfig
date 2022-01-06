@@ -26,8 +26,8 @@ http:
   ssl_certificate: !secret ssl_certificate
 
 updater:
-
 system_health:
+mobile_app:
 
 # Discover some devices automatically
 discovery:
