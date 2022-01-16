@@ -321,15 +321,48 @@
 - id: OnAlarmTriggered
   name: OnAlarmTriggered
   entities:
-    switch.master_lights_switch: true
-    switch.stairway_switch: true
-    light.kid: true
-    light.hall_level: true
-    switch.kitchen_switch: true
-    switch.kitchen_door_light_switch: true
-    switch.front_porch_switch: true
-    switch.front_entry_light_switch: true
-    climate.master_bedroom: false
+    switch.stairway_switch:
+      friendly_name: Stairs
+      state: 'on'
+    light.kid:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 3
+      friendly_name: Kid Light
+      supported_features: 32
+      state: 'on'
+    light.hall_level:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 229
+      friendly_name: Hall
+      supported_features: 32
+      state: 'on'
+    switch.kitchen_switch:
+      friendly_name: Kitchen
+      state: 'on'
+    switch.kitchen_door_light_switch:
+      friendly_name: Kitchen Door
+      state: 'on'
+    switch.front_porch_switch:
+      friendly_name: Front Porch
+      state: 'on'
+    switch.front_entry_light_switch:
+      friendly_name: Front Entry
+      state: 'on'
+    light.master_bedroom:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 255
+      friendly_name: Master Bedroom Lights
+      supported_features: 32
+      state: 'on'
+    switch.master_fan_light:
+      friendly_name: Master Bedroom Fan Light
+      state: 'on'
 - id: OnArmedStayDaytime
   name: OnArmedStayDaytime
   entities:
