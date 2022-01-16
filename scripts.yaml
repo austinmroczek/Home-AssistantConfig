@@ -1,23 +1,34 @@
-# https://www.home-assistant.io/cookbook/sonos_say/
 sonos_say:
-  alias: "Sonos TTS script"
+  alias: Sonos TTS script
   sequence:
-   - service: sonos.snapshot
-     data_template:
-       entity_id: "{{ sonos_entity }}"
-   - service: sonos.unjoin
-     data_template:
-       entity_id: "{{ sonos_entity }}"
-   - service: media_player.volume_set
-     data_template:
-       entity_id: "{{ sonos_entity }}"
-       volume_level: "{{ volume }}"
-   - service: tts.google_say
-     data_template:
-       entity_id: "{{ sonos_entity }}"
-       message: "{{ message }}"
-   - delay: "{{ delay }}"
-   - service: sonos.restore
-     data_template:
-       entity_id: "{{ sonos_entity }}"
-
+  - service: sonos.snapshot
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+  - service: sonos.unjoin
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+  - service: media_player.volume_set
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+      volume_level: '{{ volume }}'
+  - service: tts.google_say
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+      message: '{{ message }}'
+  - delay: '{{ delay }}'
+  - service: sonos.restore
+    data_template:
+      entity_id: '{{ sonos_entity }}'
+sleep_master_bedroom_apple_tv:
+  alias: Sleep Master Bedroom Apple TV
+  sequence:
+  - service: remote.send_command
+    target:
+      entity_id: remote.master_bedroom_apple_tv
+    data:
+      delay_secs: 1
+      command: home_hold,select
+  - service: media_player.turn_off
+    target:
+      entity_id: media_player.master_bedroom_apple_tv
+  mode: single

@@ -471,3 +471,44 @@
       friendly_name: Front Entry
       supported_features: 0
       state: unavailable
+- id: '1641679475055'
+  name: Outside Lights Off
+  entities:
+    switch.back_balcony_lights:
+      friendly_name: Back Balcony Lights
+      state: 'off'
+    switch.in_wall_dual_relay_1_way_switch_module_2x_1_5kw_with_power_meter_2:
+      friendly_name: Front Patio (2)
+      state: 'off'
+    switch.in_wall_dual_relay_1_way_switch_module_2x_1_5kw_with_power_meter_3:
+      friendly_name: Front Patio (3)
+      state: 'off'
+    switch.front_patio:
+      friendly_name: Front Patio
+      state: 'off'
+    select.front_patio_local_protection_state:
+      options:
+      - Unprotected
+      - ProtectedBySequence
+      - NoOperationPossible
+      friendly_name: 'Front Patio: Local protection state'
+      state: Unprotected
+    select.front_patio_rf_protection_state:
+      options:
+      - Unprotected
+      - NoControl
+      - NoResponse
+      friendly_name: 'Front Patio: RF protection state'
+      state: Unprotected
+    light.garage_front:
+      supported_color_modes:
+      - brightness
+      friendly_name: Garage Front Light
+      supported_features: 32
+      state: 'off'
+    switch.garage_lights:
+      friendly_name: Garage Lights
+      state: 'off'
+    switch.kitchen_door_light_switch:
+      friendly_name: Kitchen Door
+      state: 'on'

@@ -627,8 +627,8 @@
         target:
           entity_id: scene.bedtime
 - id: '1641447432195'
-  alias: Zooz ZEN71
-  description: ''
+  alias: Master Bedroom Lamps multi-tap
+  description: Actions to take on multi-tap on master bedroom lamp switch
   use_blueprint:
     path: zooz-zen71-switch-automation-helper.yaml
     input:
@@ -637,3 +637,14 @@
       - scene: scene.outside_lights_on
       switch_down_2x:
       - scene: scene.bedtime
+- id: '1641679319792'
+  alias: Garage Lights multi-tap
+  description: ''
+  use_blueprint:
+    path: IOT_Ninja/zooz-zen30-double-switch-automation-helper.yaml
+    input:
+      zooz_zen30: 1698a955f727fd1348d9cf0404fa5a08
+      dimmer_up_2x:
+      - scene: scene.outside_lights_on
+      dimmer_down_2x:
+      - scene: scene.outside_lights_off
