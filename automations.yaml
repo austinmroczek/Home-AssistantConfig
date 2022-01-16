@@ -331,7 +331,11 @@
       seconds: 0
       milliseconds: 0
   - service: scene.turn_on
-    entity_id: scene.OnArmedAway
+    data: {}
+    target:
+      entity_id:
+      - scene.OnArmedAway
+      - scene.outside_lights_off
   - service: lock.lock
     data: {}
     target:

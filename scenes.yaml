@@ -100,17 +100,23 @@
       - switch.kid_internet
       - switch.ipad_internet
       - switch.guest_roku_internet
-      order: 6
+      order: 29
       friendly_name: Internet
       state: 'off'
     switch.piano_outlet_switch:
       friendly_name: Piano Outlet
       state: 'off'
-    switch.garage_lights_main:
-      friendly_name: Garage Lights Main
-      state: 'off'
-    switch.garage_lights_laundry:
-      friendly_name: Garage Lights Laundry
+    group.outside_lights:
+      entity_id:
+      - light.garage_front
+      - switch.garage_lights
+      - switch.back_balcony_lights
+      - switch.kitchen_door_light_switch
+      - switch.front_patio
+      - switch.front_entry_light_switch
+      - switch.front_porch_switch
+      order: 17
+      friendly_name: Outside Lights
       state: 'off'
 - id: AtNoon
   name: AtNoon
@@ -190,14 +196,13 @@
   name: OnArmedAway
   entities:
     light.hall_level:
+      supported_color_modes:
+      - brightness
       friendly_name: Hall
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     switch.kitchen_switch:
-      friendly_name: Kitchen Lights
-      state: 'off'
-    switch.master_lights_switch:
-      friendly_name: Master Bedroom Lights
+      friendly_name: Kitchen
       state: 'off'
     switch.front_porch_switch:
       friendly_name: Front Porch
@@ -206,8 +211,10 @@
       friendly_name: Front Entry
       state: 'off'
     light.kid:
+      supported_color_modes:
+      - brightness
       friendly_name: Kid Light
-      supported_features: 33
+      supported_features: 32
       state: 'off'
     group.house_media_players:
       entity_id:
@@ -215,49 +222,9 @@
       - media_player.sonos_living_room
       - media_player.sonos_master_bedroom
       - media_player.sonos_kid
-      order: 30
+      order: 31
       friendly_name: House Media Players
       state: 'on'
-    media_player.roku_guest:
-      source_list:
-      - Home
-      - AMC
-      - Angry Birds Space
-      - BBC America
-      - Crackle
-      - Disney Plus
-      - DisneyNOW
-      - FOX NOW
-      - FXNOW
-      - Fanatiz
-      - FandangoNOW Movies & TV
-      - Hulu
-      - NASA TV
-      - NBC
-      - Netflix
-      - Newsy
-      - Nick Jr.
-      - PBS
-      - PBS KIDS
-      - Paramount Plus
-      - Plex - Stream for Free
-      - Prime Video
-      - Roku Tips & Tricks
-      - SHOWTIME
-      - STARZ
-      - SYFY
-      - The CW
-      - The Roku Channel
-      - Twitch
-      - VH1
-      - Watch TNT
-      - YouTube
-      app_name: Roku
-      source: Roku
-      friendly_name: Roku Guest
-      supported_features: 151481
-      device_class: receiver
-      state: idle
     media_player.sonos_living_room:
       source_list:
       - Christmas
@@ -271,7 +238,7 @@
       repeat: 'off'
       sonos_group:
       - media_player.sonos_living_room
-      friendly_name: Living Room
+      friendly_name: Living Room Sonos
       supported_features: 457279
       state: idle
     media_player.sonos_master_bedroom:
@@ -282,23 +249,24 @@
       - Sunday unplugged
       volume_level: 0.12
       is_volume_muted: false
-      media_content_id: x-sonos-http:PXjuSkiGyRNo3WYo7Nwe0cMibF2jlzqmHBRfGv8vlv3lwnCcVzPAw4uw0a19hbRHiTVCCx6WiB5Ylv_CnvaKDkJ2PxuY99Qty%3a%3aST%3a3040207538845718264%3a%3aRINCON_7828CAC4FE6001400%3a1609017632.mp3?sid=236&flags=0&sn=1
+      media_content_id: x-sonos-http:VC1%3a%3aST%3a%3aST%3a3022649540740978424%3a%3aTR%3a5693675%3a%3a11%3a%3aRINCON_949F3E89170E01400%3a147.mp3?sid=236&flags=32768&sn=1
       media_content_type: music
-      media_duration: 231
-      media_position: 0
-      media_position_updated_at: '2021-03-22T00:06:04.658201+00:00'
-      media_title: Seven Nation Army
-      media_artist: The White Stripes
-      media_album_name: Elephant
+      media_duration: 211
+      media_position: 2
+      media_position_updated_at: '2022-01-16T16:34:29.394641+00:00'
+      media_title: Somewhere Over The Rainbow
+      media_artist: Israel Kamakawiwo'ole
+      media_album_name: Alone In Iz World
+      media_channel: Sunday unplugged
+      source: Sunday unplugged
       shuffle: false
       repeat: 'off'
       sonos_group:
       - media_player.sonos_master_bedroom
-      queue_position: 0
-      friendly_name: Office
-      entity_picture: /api/media_player_proxy/media_player.sonos_master_bedroom?token=69440c39d6e7da132e16d1c8e76496bd1fbf02261bbd9ac040dfb26a61416687&cache=b5a477762e5e65ed
+      entity_picture: /api/media_player_proxy/media_player.sonos_master_bedroom?token=6ff89977d6a7058d31315b507f43077d1285d82ffa39d71fc0e79147d3a68e06&cache=bd4bdce2fad53bf4
+      friendly_name: Office Sonos
       supported_features: 457279
-      state: paused
+      state: playing
     media_player.sonos_kid:
       source_list:
       - Christmas
@@ -312,7 +280,7 @@
       repeat: 'off'
       sonos_group:
       - media_player.sonos_kid
-      friendly_name: Melanie
+      friendly_name: Melanie Sonos
       supported_features: 457279
       state: idle
     group.master_bath_lights:
@@ -323,7 +291,7 @@
       - light.master_bath_shower
       - light.master_bath_tub
       - light.master_bath_toilet
-      order: 29
+      order: 33
       friendly_name: Master Bath Lights
       state: 'off'
     climate.master_bedroom:
@@ -333,17 +301,11 @@
       min_temp: 45
       max_temp: 95
       target_temp_step: 1
-      current_temperature: 71
+      current_temperature: 68
       temperature: 74
       hvac_action: 'off'
       friendly_name: Master Bedroom
       supported_features: 1
-      state: 'off'
-    switch.garage_lights_main:
-      friendly_name: Garage Lights Main
-      state: 'off'
-    switch.garage_lights_laundry:
-      friendly_name: Garage Lights Laundry
       state: 'off'
 - id: OnDisarmedNighttime
   name: OnDisarmedNighttime
