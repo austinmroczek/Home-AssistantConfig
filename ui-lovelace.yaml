@@ -130,7 +130,7 @@ views:
           - switch.front_entry_light_switch
           - switch.front_porch_switch
       - type: entities
-        title: Weather
+        title: Current Weather
         entities:
           - sun.sun
           - sensor.openweathermap_cloud_coverage
@@ -142,3 +142,4 @@ views:
         title:  Water Heater
         entities:
           - switch.water_heater_outlet 
+

@@ -195,3 +195,8 @@ timer:
 webostv:
   host: !secret master_tv_address
   name: Master Bedroom TV
+
+volvooncall:
+  username: !secret volvo_username
+  password: !secret volvo_password
+  region: na
