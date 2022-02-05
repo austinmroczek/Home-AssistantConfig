@@ -29,56 +29,42 @@
     service: scene.turn_on
     entity_id: scene.AtSunrise
 - id: StartWaterHeater0600
-  alias: Start water heater
-  initial_state: true
+  alias: Start water heater for morning
+  description: Start hot water re-circulator so there is warm water at 06:30
   trigger:
-    platform: time
+  - platform: time
     at: 06:00:00
   action:
-    service: switch.turn_on
-    entity_id: switch.water_heater_outlet
-- id: StopWaterHeater0700
-  alias: Stop water heater
-  initial_state: true
-  trigger:
-    platform: time
-    at: 07:00:00
-  action:
-    service: switch.turn_off
-    entity_id: switch.water_heater_outlet
-- id: MasterBathMotionEnds
-  alias: Master bath motion ends
-  initial_state: true
-  trigger:
-    platform: state
-    entity_id: binary_sensor.master_bath_toilet_motion
-    to: 'off'
-  action:
   - service: timer.start
-    entity_id: timer.water_heater
+    data: {}
+    target:
+      entity_id: timer.water_heater
+  initial_state: true
 - id: MasterBathMotionStarts
   alias: Master bath motion starts
-  initial_state: true
+  description: Start the hot water timer when there is motion in the bathroom
   trigger:
-    platform: state
+  - platform: state
     entity_id: binary_sensor.master_bath_toilet_motion
     to: 'on'
   action:
-  - service: timer.cancel
-    entity_id: timer.water_heater
-  - service: switch.turn_on
-    entity_id: switch.water_heater_outlet
+  - service: timer.start
+    data: {}
+    target:
+      entity_id: timer.water_heater
+  initial_state: true
 - id: WaterHeaterTimerEnds
   alias: Water Heater timer ends
-  initial_state: true
+  description: Turn off the hot water re-circulator when the timer ends
   trigger:
-    platform: event
+  - platform: event
     event_type: timer.finished
     event_data:
       entity_id: timer.water_heater
   action:
-    service: switch.turn_off
+  - service: switch.turn_off
     entity_id: switch.water_heater_outlet
+  initial_state: true
 - id: ClimateEnabled
   alias: Climate Enabled
   description: Turn on heat/air and close the skylight.
@@ -652,3 +638,18 @@
       - scene: scene.outside_lights_on
       dimmer_down_2x:
       - scene: scene.outside_lights_off
+- id: '1644087651554'
+  alias: Water Heater timer starts
+  description: Turn on the hot water re-circulator when the timer starts
+  trigger:
+  - platform: event
+    event_type: timer.started
+    event_data:
+      entity_id: timer.water_heater
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.water_heater_outlet
+  mode: single
