@@ -29,13 +29,19 @@
     service: scene.turn_on
     entity_id: scene.AtSunrise
 - id: StartWaterHeater0600
-  alias: Start water heater for morning
-  description: Start hot water re-circulator so there is warm water at 06:30
+  alias: Start water heater
+  description: Start hot water re-circulator so there is warm water
   trigger:
   - platform: time
     at: 06:00:00
   - platform: state
     entity_id: input_button.hot_water
+  - platform: state
+    entity_id: binary_sensor.master_bath_toilet_motion_detection
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.master_bath_light_home_security_motion_detection
+    to: 'on'
   action:
   - service: timer.start
     data:
