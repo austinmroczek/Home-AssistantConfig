@@ -66,7 +66,7 @@ function ha_upgrade {
 }
 function update_ssl {
   echo update SSL certs from Lets Encrypt
-  /usr/local/bin/certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
+  /usr/bin/certbot renew --quiet --no-self-upgrade --standalone --preferred-challenges http-01
   echo if certbot failed, likely need to temporarily open router firewall for port 80
   cp /etc/letsencrypt/live/mroczek689154.duckdns.org/privkey.pem /home/homeassistant/ssl/privkey.pem
   cp /etc/letsencrypt/live/mroczek689154.duckdns.org/fullchain.pem /home/homeassistant/ssl/fullchain.pem
