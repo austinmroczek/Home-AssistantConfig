@@ -2,3 +2,10 @@
 - name: austin
   platform: discord
   token: !secret discord_token
+
+- name: adults
+  platform: group
+  services:
+    - service: mobile_app_austin_iphone
+    - service: mobile_app_alyssa_iphone
+

@@ -662,3 +662,68 @@
     target:
       entity_id: switch.water_heater_outlet
   mode: single
+- id: '1587841836008'
+  alias: Laundry flood
+  description: If the laundry floods, announce it on Sonos.
+  trigger:
+  - entity_id: binary_sensor.laundry_strip_flood
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.adults
+    data:
+      message: The laundry area is flooded in the master bathroom.
+  - data:
+      delay: 00:00:03
+      message: The laundry area is flooded in the master bathroom.
+      sonos_entity: media_player.sonos_master_bedroom
+      volume: 0.5
+    service: script.sonos_say
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 7
+      milliseconds: 0
+  - data:
+      delay: 00:00:03
+      message: The laundry area is flooded in the master bathroom.
+      sonos_entity: media_player.sonos_living_room
+      volume: 0.5
+    service: script.sonos_say
+  mode: single
+- id: AlarmTriggered
+  alias: 'Alarm: Triggered'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home1
+    to: triggered
+  action:
+  - event: poll_request
+    event_data: {}
+  - service: scene.turn_on
+    entity_id: scene.OnAlarmTriggered
+  - service: lock.unlock
+    data:
+      entity_id: lock.kitchen_door_lock
+  - service: notify.adults
+    data:
+      message: The house alarm has been triggered.
+  initial_state: true
+  mode: single
+- id: RainDelayTurnsOnWhenSkylightSensesRain
+  alias: Rain Delay turns on when skylight senses rain
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.master_bath_skylight_flood
+    to: 'on'
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.rain_delay
+  - service: notify.adults
+    data:
+      message: 'The skylight sensed rain.  Close the windows. '
+      title: It's raining!
+  initial_state: true
+  mode: single
