@@ -34,9 +34,12 @@
   trigger:
   - platform: time
     at: 06:00:00
+  - platform: state
+    entity_id: input_button.hot_water
   action:
   - service: timer.start
-    data: {}
+    data:
+      duration: '0'
     target:
       entity_id: timer.water_heater
   initial_state: true

@@ -171,6 +171,7 @@ input_boolean:
     name: Flag(s) Outside
     initial: false
 
+input_button:
 
 lovelace:
   mode: yaml
