@@ -9,3 +9,10 @@
     - service: mobile_app_austin_iphone
     - service: mobile_app_alyssa_iphone
 
+- name: everyone
+  platform: group
+  services:
+    - service: mobile_app_austin_iphone
+    - service: mobile_app_alyssa_iphone
+    - service: mobile_app_melanie_iphone
+    - service: mobile_app_iphone
