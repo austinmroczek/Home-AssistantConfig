@@ -89,11 +89,11 @@ binary_sensor:
       fish_cold:
         friendly_name: "Fish Tank is Cold"
         device_class: cold
-        value_template: "{{ states('sensor.fish_temperature')|float < 72 }}"
+        value_template: "{{ states('sensor.fish_temperature')|float(default=100) < 72 }}"
       fish_hot:
         friendly_name: "Fish Tank is Hot"
         device_class: heat
-        value_template: "{{ states('sensor.fish_temperature')|float > 75 }}"
+        value_template: "{{ states('sensor.fish_temperature')|float(default=1) > 75 }}"
   - platform: mqtt
     name: YouTube
     state_topic: "ha/internet/youtube"
