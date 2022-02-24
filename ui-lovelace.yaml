@@ -40,7 +40,7 @@ views:
       - type: entities
         title: Kitchen
         entities:
-          - switch.kitchen_switch
+          - switch.kitchen_lights
           - lock.kitchen_door_lock
           - sensor.kitchen_door_lock_battery
       - type: entities
@@ -53,7 +53,7 @@ views:
       - type: entities
         title: Other
         entities:
-          - light.hall_level
+          - switch.hall
           - switch.stairway_switch
           - group.fish
           - light.dining_room_level
@@ -126,7 +126,7 @@ views:
         entities:
           - switch.back_floodlights_switch
           - switch.back_balcony_lights
-          - switch.kitchen_door_light_switch
+          - switch.kitchen_door
           - switch.front_patio
           - switch.front_entry_light_switch
           - switch.front_porch_switch

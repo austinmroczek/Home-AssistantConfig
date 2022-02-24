@@ -6,7 +6,7 @@
       - light.garage_front
       - switch.garage_lights
       - switch.back_balcony_lights
-      - switch.kitchen_door_light_switch
+      - switch.kitchen_door
       - switch.front_patio
       - switch.front_entry_light_switch
       - switch.front_porch_switch

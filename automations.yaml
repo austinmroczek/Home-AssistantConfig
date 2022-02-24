@@ -37,10 +37,10 @@
   - platform: state
     entity_id: input_button.hot_water
   - platform: state
-    entity_id: binary_sensor.master_bath_toilet_motion_detection
+    entity_id: binary_sensor.master_bath_toilet_motion
     to: 'on'
   - platform: state
-    entity_id: binary_sensor.master_bath_light_home_security_motion_detection
+    entity_id: binary_sensor.master_bath_motion
     to: 'on'
   action:
   - service: timer.start
@@ -582,10 +582,7 @@
   action:
   - service: zwave_js.refresh_value
     data:
-      entity_id: light.hall_level
-  - service: zwave_js.refresh_value
-    data:
-      entity_id: switch.kitchen_switch
+      entity_id: switch.kitchen_lights
   mode: single
 - id: '1625439560442'
   alias: Flag reminder at sunset

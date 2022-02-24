@@ -15,14 +15,11 @@
       friendly_name: Dining
       supported_features: 32
       state: 'off'
-    light.hall_level:
-      supported_color_modes:
-      - brightness
+    switch.hall:
       friendly_name: Hall
-      supported_features: 32
       state: 'off'
-    switch.kitchen_switch:
-      friendly_name: Kitchen
+    switch.kitchen_lights:
+      friendly_name: Kitchen Lights
       state: 'off'
     switch.piano_outlet_switch:
       friendly_name: Piano Outlet
@@ -111,7 +108,7 @@
       - light.garage_front
       - switch.garage_lights
       - switch.back_balcony_lights
-      - switch.kitchen_door_light_switch
+      - switch.kitchen_door
       - switch.front_patio
       - switch.front_entry_light_switch
       - switch.front_porch_switch
@@ -189,19 +186,16 @@
     switch.stairway_switch: false
     switch.front_entry_light_switch: false
     switch.piano_outlet_switch: false
-    light.hall_level: false
+    switch.hall: false
     light.dining_room_level: false
-    switch.kitchen_switch: false
+    switch.kitchen_lights: false
 - id: OnArmedAway
   name: OnArmedAway
   entities:
-    light.hall_level:
-      supported_color_modes:
-      - brightness
+    switch.hall:
       friendly_name: Hall
-      supported_features: 32
       state: 'off'
-    switch.kitchen_switch:
+    switch.kitchen_lights:
       friendly_name: Kitchen
       state: 'off'
     switch.front_porch_switch:
@@ -310,13 +304,13 @@
 - id: OnDisarmedNighttime
   name: OnDisarmedNighttime
   entities:
-    light.hall_level: true
+    switch.hall: true
     climate.master_bedroom: cool
 - id: OnDisarmedDaytime
   name: OnDisarmedDaytime
   entities:
-    light.hall_level: false
-    switch.kitchen_switch: false
+    switch.hall: false
+    switch.kitchen_lights: false
     climate.master_bedroom: cool
 - id: OnAlarmTriggered
   name: OnAlarmTriggered
@@ -332,18 +326,13 @@
       friendly_name: Kid Light
       supported_features: 32
       state: 'on'
-    light.hall_level:
-      supported_color_modes:
-      - brightness
-      color_mode: brightness
-      brightness: 229
+    switch.hall:
       friendly_name: Hall
-      supported_features: 32
       state: 'on'
-    switch.kitchen_switch:
-      friendly_name: Kitchen
+    switch.kitchen_lights:
+      friendly_name: Kitchen Lights
       state: 'on'
-    switch.kitchen_door_light_switch:
+    switch.kitchen_door:
       friendly_name: Kitchen Door
       state: 'on'
     switch.front_porch_switch:
@@ -367,12 +356,12 @@
   name: OnArmedStayDaytime
   entities:
     switch.front_porch_switch: false
-    switch.kitchen_door_light_switch: false
+    switch.kitchen_door: false
 - id: OnArmedStayNighttime
   name: OnArmedStayNighttime
   entities:
     switch.front_porch_switch: true
-    switch.kitchen_door_light_switch: true
+    switch.kitchen_door: true
 - id: AtSunset
   name: AtSunset
   entities:
@@ -394,14 +383,11 @@
     switch.back_floodlights_switch:
       friendly_name: Back Floodlights
       state: 'off'
-    switch.kitchen_door_light_switch:
+    switch.kitchen_door:
       friendly_name: Kitchen Door
       state: 'off'
-    light.hall_level:
-      supported_color_modes:
-      - brightness
+    switch.hall:
       friendly_name: Hall
-      supported_features: 32
       state: 'off'
     light.garage_front:
       supported_color_modes:
@@ -452,7 +438,7 @@
     switch.back_floodlights_switch:
       friendly_name: Back Floodlights
       state: 'on'
-    switch.kitchen_door_light_switch:
+    switch.kitchen_door:
       friendly_name: Kitchen Door
       state: 'on'
     switch.front_porch_switch:
@@ -504,6 +490,6 @@
     switch.garage_lights:
       friendly_name: Garage Lights
       state: 'off'
-    switch.kitchen_door_light_switch:
+    switch.kitchen_door:
       friendly_name: Kitchen Door
       state: 'on'
