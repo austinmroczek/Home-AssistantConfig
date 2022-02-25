@@ -724,3 +724,24 @@
       title: It's raining!
   initial_state: true
   mode: single
+- id: '1645831617312'
+  alias: Check if car charging when low battery
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:00:00'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.xc90_battery_charging
+      state: 'off'
+    - condition: numeric_state
+      entity_id: sensor.xc_90_battery_level
+      below: '50'
+  action:
+  - service: notify.austin
+    data:
+      title: Plug in XC90
+      message: It's after 9 and the battery is low
+  mode: single
