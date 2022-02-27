@@ -1,7 +1,8 @@
 
 - name: austin
-  platform: discord
-  token: !secret discord_token
+  platform: group
+  services:
+    - service: mobile_app_austin_iphone
 
 - name: adults
   platform: group
