@@ -309,9 +309,28 @@
 - id: OnDisarmedDaytime
   name: OnDisarmedDaytime
   entities:
-    switch.hall: false
-    switch.kitchen_lights: false
-    climate.master_bedroom: cool
+    switch.hall:
+      friendly_name: Hall
+      state: 'off'
+    switch.kitchen_lights:
+      friendly_name: Kitchen Lights
+      state: 'off'
+    climate.master_bedroom:
+      hvac_modes:
+      - cool
+      - 'off'
+      min_temp: 45
+      max_temp: 95
+      target_temp_step: 1
+      current_temperature: 71
+      temperature: 74
+      hvac_action: idle
+      friendly_name: Master Bedroom
+      supported_features: 1
+      state: cool
+    switch.kitchen_door:
+      friendly_name: Kitchen Door
+      state: 'off'
 - id: OnAlarmTriggered
   name: OnAlarmTriggered
   entities:
