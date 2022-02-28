@@ -140,6 +140,7 @@ switch:
 
 automation: !include automations.yaml
 automation secret: !include automations_with_secret.yaml
+energy:
 group: !include groups.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
