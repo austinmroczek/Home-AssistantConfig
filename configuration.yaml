@@ -25,7 +25,6 @@ http:
   ssl_key: !secret ssl_key
   ssl_certificate: !secret ssl_certificate
 
-updater:
 system_health:
 mobile_app:
 

@@ -8,7 +8,6 @@ exclude:
     - roku
     - sonos
     - sun
-    - updater
     - weather
   entities:
     - automation.kid_motion_ends
