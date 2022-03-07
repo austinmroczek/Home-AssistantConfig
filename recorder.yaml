@@ -13,3 +13,9 @@ exclude:
     - automation.kid_motion_ends
     - automation.kid_motion_starts
     - timer.kid_music
+    - sensor.openweathermap_weather_code
+    - sensor.openweathermap_condition
+    - sensor.openweathermap_weather
+    - sensor.austin_iphone_activity
+    - sensor.austin_iphone_battery_state
+    - sensor.austin_iphone_last_update_trigger
