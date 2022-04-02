@@ -89,12 +89,12 @@ views:
       - type: entities
         title: Master Bath
         entities:
-          - light.master_bath_level
+          - light.master_bath_light
           - light.master_bath_sink
           - light.master_bath_vanity
           - light.master_bath_shower
           - light.master_bath_tub
-          - light.master_bath_toilet
+          - light.master_bath_toilet_light
           - switch.master_laundry_plug
           - binary_sensor.master_bath_motion
           - cover.master_bath_skylight
