@@ -64,7 +64,7 @@ views:
       - type: entities
         title: Kid
         entities:
-          - light.kid
+          - light.kid_light
           - group.internet
           - binary_sensor.kid_motion
       - type: media-control
