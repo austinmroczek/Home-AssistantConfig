@@ -44,15 +44,6 @@
       - sensor.smart_strip_power_3
       - sensor.smart_strip_power_4
 
-  fish:
-    name: Fish Tank
-    entities:
-      - sensor.fish_temperature
-      - switch.smart_strip_switch_1
-      - switch.smart_strip_switch_2
-      - switch.smart_strip_switch_3
-      - switch.smart_strip_switch_4
-
   kitchen_door_light:
     name: Kitchen Door Light
     entities:

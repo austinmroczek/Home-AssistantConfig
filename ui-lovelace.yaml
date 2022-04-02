@@ -55,7 +55,6 @@ views:
         entities:
           - switch.hall
           - switch.stairway_switch
-          - group.fish
           - light.dining_room_level
           - switch.desktop
       - type: media-control

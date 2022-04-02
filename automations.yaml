@@ -222,16 +222,6 @@
   action:
     service: scene.turn_on
     entity_id: scene.AtNoon
-- id: At4PM
-  alias: At1600
-  trigger:
-  - at: '16:00:00'
-    platform: time
-  action:
-  - entity_id: scene.At4PM
-    service: scene.turn_on
-  initial_state: true
-  mode: single
 - id: At8PM
   alias: At2000
   trigger:
@@ -380,34 +370,6 @@
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.rain_delay
-- id: '1616797914312'
-  alias: Turn on fish heater if cold
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.fish_cold
-    to: 'on'
-  condition: []
-  action:
-  - type: turn_on
-    device_id: 20530ef3e5c32f8532dd167f6a8d537c
-    entity_id: switch.smart_strip_switch_2
-    domain: switch
-  mode: single
-- id: '1616798006049'
-  alias: Turn off fish heater if hot
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.fish_hot
-    to: 'on'
-  condition: []
-  action:
-  - type: turn_off
-    device_id: 20530ef3e5c32f8532dd167f6a8d537c
-    entity_id: switch.smart_strip_switch_2
-    domain: switch
-  mode: single
 - id: kitchenDoorUnlockedArmedAway
   alias: Kitchen Door Unlocked while Armed Away
   trigger:

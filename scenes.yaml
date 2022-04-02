@@ -87,8 +87,9 @@
 - id: HourBeforeSunset
   name: Hour Before Sunset
   entities:
-    switch.smart_strip_switch_1: true
-    switch.piano_outlet_switch: true
+    switch.piano_outlet_switch:
+      friendly_name: Piano Outlet
+      state: 'on'
 - id: AtMidnight
   name: AtMidnight
   entities:
@@ -117,8 +118,7 @@
       state: 'off'
 - id: AtNoon
   name: AtNoon
-  entities:
-    switch.smart_strip_switch_1: false
+  entities: {}
 - id: At0630
   name: At0630
   entities:
@@ -135,17 +135,6 @@
     switch.kid_internet:
       friendly_name: Kid Internet
       state: 'on'
-- id: At4PM
-  name: At1600
-  entities:
-    switch.smart_strip_switch_2:
-      friendly_name: Smart Strip 2
-      node_id: 25
-      power_consumption: 3
-      state: 'off'
-      value_id: '216172782538014720'
-      value_index: 0
-      value_instance: 3
 - id: At8PM
   name: At2000
   entities:
@@ -160,21 +149,13 @@
   entities:
     switch.guest_roku_internet:
       friendly_name: Guest Roku Internet
-      state: 'on'
+      state: unavailable
     switch.ipad_internet:
       friendly_name: iPad Internet
-      state: 'off'
+      state: unavailable
     switch.kid_internet:
       friendly_name: Kid Internet
-      state: 'off'
-    switch.smart_strip_switch_1:
-      friendly_name: Smart Strip 1
-      node_id: 25
-      power_consumption: 0
-      state: 'off'
-      value_id: '144115188500086784'
-      value_index: 0
-      value_instance: 2
+      state: unavailable
 - id: InternetOn
   name: InternetOn
   entities:
@@ -390,9 +371,12 @@
 - id: AtSunset
   name: AtSunset
   entities:
-    switch.smart_strip_switch_1: true
-    switch.back_floodlights_switch: true
-    switch.piano_outlet_switch: true
+    switch.back_floodlights_switch:
+      friendly_name: Back Floodlights
+      state: 'on'
+    switch.piano_outlet_switch:
+      friendly_name: Piano Outlet
+      state: 'on'
 - id: AtSunrise
   name: AtSunrise
   entities:
