@@ -165,9 +165,6 @@ input_button:
 lovelace:
   mode: yaml
 
-mqtt:
-  broker: !secret mqtt_broker_address
-
 sensor:
   - platform: cert_expiry
     host: ha.mroczek.org
