@@ -20,14 +20,16 @@
     entity_id: scene.hour_before_sunset
 - id: atSunrise
   alias: AtSunrise
-  initial_state: true
   trigger:
-    platform: sun
+  - platform: sun
     event: sunrise
     offset: -00:00:00
   action:
-    service: scene.turn_on
-    entity_id: scene.AtSunrise
+  - service: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.atsunrise
+  initial_state: true
 - id: StartWaterHeater0600
   alias: Start water heater
   description: Start hot water re-circulator so there is warm water
@@ -255,13 +257,6 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 10
-      milliseconds: 0
-  - event: poll_request
-    event_data: {}
-  - delay:
-      hours: 0
-      minutes: 0
       seconds: 30
       milliseconds: 0
   - entity_id: scene.OnDisarmedDaytime
@@ -281,17 +276,12 @@
   - delay:
       hours: 0
       minutes: 0
-      seconds: 10
-      milliseconds: 0
-  - event: poll_request
-    event_data: {}
-  - delay:
-      hours: 0
-      minutes: 0
       seconds: 30
       milliseconds: 0
   - service: scene.turn_on
-    entity_id: scene.OnDisarmedNighttime
+    data: {}
+    target:
+      entity_id: scene.ondisarmednighttime
   initial_state: true
   mode: single
 - id: AlarmArmedAway
@@ -301,13 +291,6 @@
     entity_id: alarm_control_panel.home1
     to: armed_away
   action:
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 10
-      milliseconds: 0
-  - event: poll_request
-    event_data: {}
   - service: media_player.media_stop
     data: {}
     target:
@@ -344,11 +327,11 @@
   - condition: sun
     before: sunset
   action:
-  - event: poll_request
-    event_data: {}
   - delay: 120
   - service: scene.turn_on
-    entity_id: scene.OnArmedStayDaytime
+    data: {}
+    target:
+      entity_id: scene.onarmedstaydaytime
   - service: lock.lock
     data: {}
     target:
@@ -540,19 +523,6 @@
     data:
       entity_id: media_player.sonos_kid
       sleep_time: 0
-- id: '1623550652084'
-  alias: Poll Devices
-  description: Poll older Z-Wave devices to ensure we have updated status before we
-    run scenes.
-  trigger:
-  - platform: event
-    event_type: poll_request
-  condition: []
-  action:
-  - service: zwave_js.refresh_value
-    data:
-      entity_id: switch.kitchen_lights
-  mode: single
 - id: '1625439560442'
   alias: Flag reminder at sunset
   description: Remind users if a flag is outside at sunset.
@@ -665,10 +635,10 @@
     entity_id: alarm_control_panel.home1
     to: triggered
   action:
-  - event: poll_request
-    event_data: {}
   - service: scene.turn_on
-    entity_id: scene.OnAlarmTriggered
+    data: {}
+    target:
+      entity_id: scene.onalarmtriggered
   - service: lock.unlock
     data:
       entity_id: lock.kitchen_door_lock
