@@ -308,8 +308,15 @@
       milliseconds: 0
   - event: poll_request
     event_data: {}
-  - service: homeassistant.turn_off
-    entity_id: group.house_media_players
+  - service: media_player.media_stop
+    data: {}
+    target:
+      entity_id:
+      - media_player.sonos_master_bedroom
+      - media_player.sonos_living_room
+      - media_player.sonos_kid
+      - media_player.master_bedroom_apple_tv
+      - media_player.living_room_apple_tv
   - delay:
       hours: 0
       minutes: 2
@@ -319,8 +326,8 @@
     data: {}
     target:
       entity_id:
-      - scene.OnArmedAway
       - scene.outside_lights_off
+      - scene.onarmedaway
   - service: lock.lock
     data: {}
     target:
