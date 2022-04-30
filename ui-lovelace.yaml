@@ -6,7 +6,6 @@ views:
         title: Main
         entities:
           - alarm_control_panel.home1
-          - binary_sensor.youtube
           - group.internet
           - sensor.hall_temperature
           - sensor.master_bedroom_temperature
@@ -83,7 +82,6 @@ views:
           - switch.master_bedroom_lamps
           - switch.master_fan_light
           - light.master_bedroom
-          - cover.master_bedroom_shades
           - climate.master_bedroom
           - media_player.master_bedroom_apple_tv
       - type: entities
