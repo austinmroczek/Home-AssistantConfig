@@ -185,75 +185,6 @@
     switch.front_entry_light_switch:
       friendly_name: Front Entry
       state: 'off'
-    group.house_media_players:
-      entity_id:
-      - media_player.roku_guest_bedroom
-      - media_player.sonos_living_room
-      - media_player.sonos_master_bedroom
-      - media_player.sonos_kid
-      order: 14
-      friendly_name: House Media Players
-      state: 'on'
-    media_player.sonos_living_room:
-      source_list:
-      - Christmas
-      - Melanie dance mix
-      - Other stuff (clean)
-      - Sunday unplugged
-      group_members:
-      volume_level: 0.24
-      is_volume_muted: false
-      media_content_id: ''
-      media_content_type: music
-      media_title: Sunday unplugged (My Station)
-      media_channel: Sunday unplugged (My Station)
-      shuffle: false
-      repeat: 'off'
-      sonos_group:
-      - media_player.sonos_living_room
-      friendly_name: Living Room Sonos
-      supported_features: 981567
-      state: paused
-    media_player.sonos_master_bedroom:
-      source_list:
-      - Christmas
-      - Melanie dance mix
-      - Other stuff (clean)
-      - Sunday unplugged
-      group_members:
-      volume_level: 0.12
-      is_volume_muted: false
-      media_content_id: x-sonos-http:VC1%3a%3aST%3a%3aST%3a3022649540740978424%3a%3aTR%3a5693675%3a%3a11%3a%3aRINCON_949F3E89170E01400%3a147.mp3?sid=236&flags=32768&sn=1
-      media_content_type: music
-      shuffle: false
-      repeat: 'off'
-      sonos_group:
-      - media_player.sonos_master_bedroom
-      queue_position: 1
-      queue_size: 1
-      friendly_name: Office Sonos
-      supported_features: 981567
-      state: playing
-    media_player.sonos_kid:
-      source_list:
-      - Christmas
-      - Melanie dance mix
-      - Other stuff (clean)
-      - Sunday unplugged
-      group_members:
-      volume_level: 0.03
-      is_volume_muted: false
-      media_content_id: ''
-      media_content_type: music
-      media_title: Melanie Martinez Radio (My Station)
-      media_channel: Melanie Martinez Radio (My Station)
-      shuffle: false
-      repeat: 'off'
-      sonos_group:
-      - media_player.sonos_kid
-      friendly_name: Melanie Sonos
-      supported_features: 981567
-      state: paused
     group.master_bath_lights:
       entity_id:
       - light.master_bath_level
@@ -262,7 +193,7 @@
       - light.master_bath_shower
       - light.master_bath_tub
       - light.master_bath_toilet
-      order: 16
+      order: 15
       friendly_name: Master Bath Lights
       state: 'off'
     climate.master_bedroom:
@@ -272,7 +203,7 @@
       min_temp: 45
       max_temp: 95
       target_temp_step: 1
-      current_temperature: 70
+      current_temperature: 68
       temperature: 74
       hvac_action: 'off'
       friendly_name: Master Bedroom
