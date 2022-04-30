@@ -149,13 +149,13 @@
   entities:
     switch.guest_roku_internet:
       friendly_name: Guest Roku Internet
-      state: unavailable
+      state: 'off'
     switch.ipad_internet:
       friendly_name: iPad Internet
-      state: unavailable
+      state: 'off'
     switch.kid_internet:
       friendly_name: Kid Internet
-      state: unavailable
+      state: 'off'
 - id: InternetOn
   name: InternetOn
   entities:
@@ -391,7 +391,7 @@
       restored: true
       friendly_name: Front Entry
       supported_features: 0
-      state: unavailable
+      state: 'off'
 - id: '1641679475055'
   name: Outside Lights Off
   entities:
@@ -407,32 +407,18 @@
     switch.front_patio:
       friendly_name: Front Patio
       state: 'off'
-    select.front_patio_local_protection_state:
-      options:
-      - Unprotected
-      - ProtectedBySequence
-      - NoOperationPossible
-      friendly_name: 'Front Patio: Local protection state'
-      state: Unprotected
-    select.front_patio_rf_protection_state:
-      options:
-      - Unprotected
-      - NoControl
-      - NoResponse
-      friendly_name: 'Front Patio: RF protection state'
-      state: Unprotected
     light.garage_front:
       restored: true
       supported_color_modes:
       - brightness
       friendly_name: Garage Front Light
       supported_features: 32
-      state: unavailable
+      state: 'off'
     switch.garage_lights:
       restored: true
       friendly_name: Garage Lights
       supported_features: 0
-      state: unavailable
+      state: 'off'
     switch.kitchen_door:
       friendly_name: Kitchen Door
       state: 'off'
