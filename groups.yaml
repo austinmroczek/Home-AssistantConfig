@@ -132,7 +132,7 @@
   master_bath_lights:
     name: Master Bath Lights
     entities:
-      - light.master_bath_level
+      - light.master_bath_light
       - light.master_bath_sink
       - light.master_bath_vanity
       - light.master_bath_shower
