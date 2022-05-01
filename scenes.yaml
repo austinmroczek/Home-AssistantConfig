@@ -28,33 +28,8 @@
       friendly_name: Stairs
       state: 'off'
     media_player.master_bedroom_tv:
-      source_list:
-      - AV
-      - Amazon Prime Video
-      - Apple
-      - Component
-      - Disney+
-      - HDMI 3
-      - Hulu
-      - LG Channels
-      - LG Content Store
-      - Live TV
-      - Music
-      - Netflix
-      - Nintendo Switch
-      - Photo & Video
-      - Sling TV
-      - Sports Alert
-      - Web Browser
-      - YouTube
-      volume_level: 0.27
-      is_volume_muted: false
-      source: Apple
-      sound_output: tv_speaker
-      device_class: tv
       friendly_name: Master Bedroom TV
-      supported_features: 20285
-      state: 'on'
+      state: 'off'
     media_player.master_bedroom_apple_tv:
       friendly_name: Master Bedroom AppleTV
       supported_features: 317363
