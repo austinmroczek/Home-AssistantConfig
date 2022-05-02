@@ -416,44 +416,44 @@
     entity_id: switch.front_entry_light_switch
 - id: WaterPlants
   alias: Water Plants
-  initial_state: true
   trigger:
-    platform: time
+  - platform: time
     at: 06:30:00
-  action:
-    service: scene.turn_on
-    entity_id: scene.WaterPlants
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: time
       weekday:
       - mon
       - wed
       - sat
+      before: 00:00:00
     - condition: state
       entity_id: input_boolean.rain_delay
       state: 'off'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.WaterPlants
+  initial_state: true
 - id: WaterFrontLawn
   alias: Water Front Lawn
-  initial_state: true
   trigger:
-    platform: time
+  - platform: time
     at: 06:32:00
-  action:
-    service: scene.turn_on
-    entity_id: scene.WaterLawn
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: time
       weekday:
-      - mon
       - wed
-      - sat
+      before: 00:00:00
     - condition: state
       entity_id: input_boolean.rain_delay
       state: 'off'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.WaterLawn
+  initial_state: true
 - id: stopAllWatering
   alias: Stop All Watering
   initial_state: true
@@ -465,22 +465,23 @@
     entity_id: scene.StopAllWater
 - id: WeeklySoaking
   alias: Weekly Soaking
-  initial_state: true
   trigger:
-    platform: time
+  - platform: time
     at: 07:00:00
-  action:
-    service: switch.turn_on
-    entity_id: switch.back_drip_switch
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: time
       weekday:
       - sat
+      before: 00:00:00
     - condition: state
       entity_id: input_boolean.rain_delay
       state: 'off'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.back_drip_switch
+  initial_state: true
 - id: StopWeeklySoaking
   alias: Stop Weekly Soaking
   initial_state: true

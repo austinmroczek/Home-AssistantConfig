@@ -319,20 +319,39 @@
 - id: WaterLawn
   name: WaterLawn
   entities:
-    switch.front_lawn: true
+    switch.front_lawn:
+      friendly_name: Front Lawn
+      state: 'on'
+  icon: mdi:sprinkler-variant
 - id: WaterPlants
   name: WaterPlants
   entities:
-    switch.side_drip_switch: true
-    switch.back_drip_switch: true
-    switch.front_drip: true
+    switch.side_drip_switch:
+      friendly_name: Side Drip
+      state: 'on'
+    switch.back_drip_switch:
+      friendly_name: Back Drip
+      state: 'on'
+    switch.front_drip:
+      friendly_name: Front Drip
+      state: 'on'
+  icon: mdi:sprinkler-variant
 - id: StopAllWater
   name: StopAllWater
   entities:
-    switch.side_drip_switch: false
-    switch.back_drip_switch: false
-    switch.front_lawn: false
-    switch.front_drip: false
+    switch.side_drip_switch:
+      friendly_name: Side Drip
+      state: 'off'
+    switch.back_drip_switch:
+      friendly_name: Back Drip
+      state: 'off'
+    switch.front_lawn:
+      friendly_name: Front Lawn
+      state: 'off'
+    switch.front_drip:
+      friendly_name: Front Drip
+      state: 'off'
+  icon: mdi:sprinkler
 - id: '1641447053132'
   name: Outside lights on
   entities:
