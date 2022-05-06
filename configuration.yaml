@@ -19,8 +19,6 @@ mobile_app:
 
 # Discover some devices automatically
 discovery:
-  ignore:
-    - sonos
 
 # Enables support for tracking state changes over time
 history:
@@ -54,13 +52,6 @@ logger:
     skybellpy: warn
     
 media_player:
-
-sonos:
-  media_player:
-    hosts:
-      - !secret sonos_living_room_ip
-      - !secret sonos_master_bedroom_ip
-      - !secret sonos_kid_bedroom_ip
 
 # docs at https://home-assistant.io/components/skybell/
 skybell:
@@ -129,7 +120,6 @@ sun:
 tts:
   - platform: google_translate
     service_name: google_say
-    base_url: !secret tts_url
 
 input_boolean:
   enable_climate:
