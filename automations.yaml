@@ -249,6 +249,7 @@
   trigger:
   - entity_id: alarm_control_panel.home1
     platform: state
+    not_from: unavailable
     to: disarmed
   condition:
   - before: sunset
@@ -268,6 +269,7 @@
   trigger:
   - platform: state
     entity_id: alarm_control_panel.home1
+    not_from: unavailable
     to: disarmed
   condition:
   - condition: sun
@@ -289,6 +291,7 @@
   trigger:
   - platform: state
     entity_id: alarm_control_panel.home1
+    not_from: unavailable
     to: armed_away
   action:
   - service: media_player.media_stop
@@ -322,6 +325,7 @@
   trigger:
   - platform: state
     entity_id: alarm_control_panel.home1
+    not_from: unavailable
     to: armed_home
   condition:
   - condition: sun
