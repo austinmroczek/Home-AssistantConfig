@@ -15,6 +15,12 @@ views:
           - scene.bedtime
           - scene.showtime
 
+      - type: entities
+        title: Car
+        entities:
+          - switch.charge_now
+          - sensor.charging_status
+
       - type: conditional
         conditions:
           - entity: input_boolean.enable_climate
