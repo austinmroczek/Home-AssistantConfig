@@ -1,0 +1,34 @@
+# see https://github.com/austinmroczek/mqtt-control-openwrt
+
+binary_sensor:
+  - name: YouTube
+    state_topic: "ha/internet/youtube"
+    device_class: connectivity
+    availability:
+      - topic: "ha/internet/youtube/available"
+
+switch:
+  - name: Kid Internet
+    unique_id: kid_internet
+    state_topic: "ha/internet/kid_computer"
+    command_topic: "ha/internet/kid_computer"
+    retain: true
+    availability:
+      - topic: "ha/internet/kid_computer/available"
+
+  - name: iPad Internet
+    unique_id: ipad_internet
+    state_topic: "ha/internet/ipad"
+    command_topic: "ha/internet/ipad"
+    retain: true
+    availability:
+      - topic: "ha/internet/ipad/available"
+
+  - name: Guest Roku Internet
+    unique_id: guest_roku_internet
+    state_topic: "ha/internet/roku"
+    command_topic: "ha/internet/roku"
+    retain: true
+    availability:
+      - topic: "ha/internet/roku/available"
+

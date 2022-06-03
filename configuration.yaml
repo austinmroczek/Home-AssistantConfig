@@ -63,12 +63,6 @@ binary_sensor:
     monitored_conditions:
       - button
       - motion
-  - platform: mqtt
-    name: YouTube
-    state_topic: "ha/internet/youtube"
-    device_class: connectivity
-    availability:
-      - topic: "ha/internet/youtube/available"
 
 camera:
   - platform: skybell
@@ -78,31 +72,6 @@ switch:
     monitored_conditions:
       - do_not_disturb
       - motion_sensor
-# see https://github.com/austinmroczek/mqtt-control-openwrt
-  - platform: mqtt
-    unique_id: kid_internet
-    name: Kid Internet
-    state_topic: "ha/internet/kid_computer"
-    command_topic: "ha/internet/kid_computer"
-    retain: true
-    availability:
-      - topic: "ha/internet/kid_computer/available"
-  - platform: mqtt
-    unique_id: ipad_internet
-    name: iPad Internet
-    state_topic: "ha/internet/ipad"
-    command_topic: "ha/internet/ipad"
-    retain: true
-    availability:
-      - topic: "ha/internet/ipad/available"
-  - platform: mqtt
-    unique_id: guest_roku_internet
-    name: Guest Roku Internet
-    state_topic: "ha/internet/roku"
-    command_topic: "ha/internet/roku"
-    retain: true
-    availability:
-      - topic: "ha/internet/roku/available"
   - platform: wake_on_lan
     mac: !secret desktop_mac
     name: Desktop
@@ -111,6 +80,7 @@ automation: !include automations.yaml
 automation secret: !include automations_with_secret.yaml
 energy:
 group: !include groups.yaml
+mqtt: !include mqtt.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
 scene: !include scenes.yaml
