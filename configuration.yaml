@@ -2,26 +2,30 @@ homeassistant:
   # Package support
   packages: !include_dir_named packages
 
-# Enables the frontend
-frontend:
-
-# Enables configuration UI
-config:
-
 http:
   use_x_forwarded_for: true
   trusted_proxies: !secret trusted_proxy
   ssl_key: !secret ssl_key
   ssl_certificate: !secret ssl_certificate
 
-system_health:
-mobile_app:
-
-# Discover some devices automatically
+automation: !include automations.yaml
+automation secret: !include automations_with_secret.yaml
+config:
 discovery:
-
-# Enables support for tracking state changes over time
+energy:
+frontend:
+group: !include groups.yaml
 history:
+input_button:
+media_player:
+mobile_app:
+mqtt: !include mqtt.yaml
+notify: !include notifications.yaml
+recorder: !include recorder.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sun:
+system_health:
 
 # View all events in a logbook
 logbook:
@@ -51,8 +55,6 @@ logger:
     homeassistant.core: error
     skybellpy: warn
     
-media_player:
-
 # docs at https://home-assistant.io/components/skybell/
 skybell:
   username: !secret skybell_username
@@ -75,17 +77,6 @@ switch:
   - platform: wake_on_lan
     mac: !secret desktop_mac
     name: Desktop
-
-automation: !include automations.yaml
-automation secret: !include automations_with_secret.yaml
-energy:
-group: !include groups.yaml
-mqtt: !include mqtt.yaml
-notify: !include notifications.yaml
-recorder: !include recorder.yaml
-scene: !include scenes.yaml
-script: !include scripts.yaml
-sun:
 
 tts:
   - platform: google_translate
@@ -110,7 +101,6 @@ input_boolean:
     name: Flag(s) Outside
     initial: false
 
-input_button:
 
 lovelace:
   mode: yaml
