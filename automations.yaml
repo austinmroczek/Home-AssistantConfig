@@ -682,6 +682,9 @@
     - condition: numeric_state
       entity_id: sensor.xc_90_battery_level
       below: '50'
+    - condition: state
+      entity_id: device_tracker.volvo_yv4br0cl0n1814975
+      state: home
   action:
   - service: notify.austin
     data:
