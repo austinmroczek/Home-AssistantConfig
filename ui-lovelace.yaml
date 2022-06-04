@@ -14,13 +14,6 @@ views:
           - input_boolean.flag_outside
           - scene.bedtime
           - scene.showtime
-
-      - type: entities
-        title: Car
-        entities:
-          - switch.charge_now
-          - sensor.charging_status
-
       - type: conditional
         conditions:
           - entity: input_boolean.enable_climate
@@ -29,9 +22,24 @@ views:
           type: thermostat
           entity: climate.central
           name: Central Heat/Air
-
       - type: weather-forecast
         entity: weather.openweathermap
+
+  - title: Cars
+    cards:
+      - type: entities
+        title: JuiceBox Charger
+        entities:
+          - switch.charge_now
+          - sensor.charging_status
+      - type: entities
+        title: Bessie
+        entities:
+          - binary_sensor.xc90_plug_status
+          - binary_sensor.xc90_battery_charging
+          - sensor.xc_90_battery_level
+
+
 
 
   - title: Downstairs
