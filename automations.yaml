@@ -678,7 +678,7 @@
   - condition: and
     conditions:
     - condition: state
-      entity_id: binary_sensor.xc90_battery_charging
+      entity_id: binary_sensor.xc90_plug_status
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.xc_90_battery_level
