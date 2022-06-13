@@ -710,3 +710,28 @@
       volume: 0.5
     service: script.sonos_say
   mode: single
+- id: '1655090844282'
+  alias: Juicebox charge now if Sparky plugged in
+  description: If Sparky is plugged into the Juicebox for 5 minutes, then set Juicebox
+    to charge now.  Sparky will not charge until midnight anyways, but will immediately
+    honk the horn once there is power available on the charge cable.  We don't want
+    that to happen at midnight.
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.charging_status
+    to: plugged
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: binary_sensor.xc90_plug_status
+    state: 'off'
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.charge_now
+  mode: single
