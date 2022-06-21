@@ -1,0 +1,14 @@
+exclude:
+  entities:
+    - binary_sensor.master_bedroom_motion
+    - binary_sensor.master_bath_motion
+    - binary_sensor.kid_motion
+    - binary_sensor.master_bath_toilet_motion
+    - sensor.master_bath_light_burglar
+    - sensor.master_bath_toilet_burglar
+    - switch.master_bedroom_thermostat_switch
+  domains:
+    - automation
+    - sun
+    - timer
+    - zwavejs
