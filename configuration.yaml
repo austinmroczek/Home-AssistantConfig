@@ -40,25 +40,7 @@ logger:
     homeassistant.core: error
     skybellpy: warn
     
-# docs at https://home-assistant.io/components/skybell/
-skybell:
-  username: !secret skybell_username
-  password: !secret skybell_password
-
-binary_sensor:
-  - platform: skybell
-    monitored_conditions:
-      - button
-      - motion
-
-camera:
-  - platform: skybell
-
 switch:
-  - platform: skybell
-    monitored_conditions:
-      - do_not_disturb
-      - motion_sensor
   - platform: wake_on_lan
     mac: !secret desktop_mac
     name: Desktop
