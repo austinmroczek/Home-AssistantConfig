@@ -672,7 +672,7 @@
   description: ''
   trigger:
   - platform: time
-    at: '21:00:00'
+    at: '18:00:00'
   condition:
   - condition: and
     conditions:
@@ -681,7 +681,7 @@
       state: 'off'
     - condition: numeric_state
       entity_id: sensor.xc_90_battery_level
-      below: '50'
+      below: '75'
     - condition: state
       entity_id: device_tracker.volvo_yv4br0cl0n1814975
       state: home
@@ -689,7 +689,7 @@
   - service: notify.austin
     data:
       title: Plug in XC90
-      message: It's after 9 and the battery is low
+      message: It's after 6 and the car battery is low
   mode: single
 - id: '1648926796382'
   alias: Kitchen sink flood
