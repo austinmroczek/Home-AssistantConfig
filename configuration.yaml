@@ -86,7 +86,7 @@ timer:
   kid_music:
     duration: '00:05:00'
 
-volvooncall:
-  username: !secret volvo_username
-  password: !secret volvo_password
-  region: na
+#volvooncall:
+#  username: !secret volvo_username
+#  password: !secret volvo_password
+#  region: na
