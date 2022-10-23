@@ -31,3 +31,47 @@ sonos_say:
     data_template:
       entity_id: '{{ sonos_entity }}'
   mode: single
+close_master_windows:
+  alias: Close Master Windows
+  sequence:
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_open
+    domain: switch
+  - type: turn_on
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_close
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_close
+    domain: switch
+  mode: single
+  icon: mdi:window-closed
+open_master_windows:
+  alias: Open Master Windows
+  sequence:
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_close
+    domain: switch
+  - type: turn_on
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_open
+    domain: switch
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_open
+    domain: switch
+  mode: single
+  icon: mdi:window-open
