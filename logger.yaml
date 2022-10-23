@@ -1,0 +1,10 @@
+default: info
+logs:
+  # hide 'Updating skybell binary_sensor took longer than the scheduled update interval' messages
+  homeassistant.components.skybell.binary_sensor: error
+  # debug level for totalconnect
+  homeassistant.components.totalconnect: debug
+  homeassistant.helpers.entity: error
+  homeassistant.core: error
+  skybellpy: warn
+  total_connect_client: debug
