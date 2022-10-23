@@ -2,6 +2,8 @@ homeassistant:
   # Package support
   packages: !include_dir_named packages
 
+default_config:
+
 http:
   use_x_forwarded_for: true
   trusted_proxies: !secret trusted_proxy
@@ -10,36 +12,17 @@ http:
 
 automation: !include automations.yaml
 automation secret: !include automations_with_secret.yaml
-config:
 discovery:
-energy:
-frontend:
 group: !include groups.yaml
-history:
-input_button:
 logbook: !include logbook.yaml
+logger: !include logger.yaml
 media_player:
-mobile_app:
 mqtt: !include mqtt.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
-sun:
-system_health:
 
-# Define logging levels
-logger:
-  default: info
-  logs: 
-    # hide 'Updating skybell binary_sensor took longer than the scheduled update interval' messages
-    homeassistant.components.skybell.binary_sensor: error
-    # debug level for totalconnect
-    homeassistant.components.totalconnect: debug
-    homeassistant.helpers.entity: error
-    homeassistant.core: error
-    skybellpy: warn
-    
 switch:
   - platform: wake_on_lan
     mac: !secret desktop_mac
@@ -85,8 +68,3 @@ timer:
     duration: '96:00:00'
   kid_music:
     duration: '00:05:00'
-
-#volvooncall:
-#  username: !secret volvo_username
-#  password: !secret volvo_password
-#  region: na
