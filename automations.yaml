@@ -94,8 +94,11 @@
     target:
       entity_id: climate.central
   - data: {}
-    entity_id: cover.master_bath_skylight_switch
     service: cover.close_cover
+    target:
+      entity_id:
+      - cover.master_bath_skylight_switch
+      - cover.master_windows
   initial_state: true
   mode: single
 - id: ClimateDisabled
@@ -669,6 +672,12 @@
     data:
       message: 'The skylight sensed rain.  Close the windows. '
       title: It's raining!
+  - service: cover.close_cover
+    data: {}
+    target:
+      entity_id:
+      - cover.master_bath_skylight
+      - cover.master_windows
   initial_state: true
   mode: single
 - id: '1645831617312'
