@@ -657,6 +657,10 @@
   - platform: state
     entity_id: binary_sensor.master_bath_skylight_flood
     to: 'on'
+  - platform: state
+    entity_id:
+    - binary_sensor.master_bath_skylight_water_alarm_water_leak_detected_location_provided
+    to: 'on'
   action:
   - service: input_boolean.turn_on
     data:
