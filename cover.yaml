@@ -1,0 +1,23 @@
+- platform: template
+  covers:
+    master_windows:
+      device_class: awning
+      friendly_name: "Master Windows"
+      open_cover:
+        service: script.open_master_windows
+      close_cover:
+        service: script.close_master_windows
+      stop_cover:
+        service: script.stop_master_windows
+
+    master_blinds:
+      device_class: blind
+      friendly_name: "Master Blinds"
+      open_cover:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.master_blinds_open
+      close_cover:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.master_blinds_close

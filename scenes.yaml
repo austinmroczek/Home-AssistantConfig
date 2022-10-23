@@ -59,6 +59,10 @@
     switch.master_fan_light:
       friendly_name: Master Bedroom Fan Light
       state: 'off'
+    cover.master_blinds:
+      state: 'closed'
+    cover.master_windows:
+      state: 'closed'
 - id: HourBeforeSunset
   name: Hour Before Sunset
   entities:
