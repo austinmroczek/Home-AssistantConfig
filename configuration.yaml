@@ -12,6 +12,7 @@ http:
 
 automation: !include automations.yaml
 automation secret: !include automations_with_secret.yaml
+cover: !include cover.yaml
 discovery:
 group: !include groups.yaml
 logbook: !include logbook.yaml

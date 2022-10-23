@@ -88,6 +88,7 @@ views:
       - type: entities
         title: Master Bedroom
         entities:
+          - cover.master_windows
           - sensor.master_bedroom_sensor_relative_humidity
           - sensor.master_bedroom_sensor_luminance
           - sensor.master_bedroom_temperature
