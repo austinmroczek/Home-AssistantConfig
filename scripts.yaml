@@ -34,8 +34,14 @@ sonos_say:
 close_master_windows:
   alias: Close Master Windows
   sequence:
-  - service: script.stop_master_windows
+  - service: script.turn_off
     data: {}
+    target:
+      entity_id: script.open_master_windows
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_open
+    domain: switch
   - type: turn_on
     device_id: ea4b74fece2d16c3d58080fa1565cb2b
     entity_id: switch.master_window_close
@@ -54,8 +60,14 @@ close_master_windows:
 open_master_windows:
   alias: Open Master Windows
   sequence:
-  - service: script.stop_master_windows
+  - service: script.turn_off
     data: {}
+    target:
+      entity_id: script.close_master_windows
+  - type: turn_off
+    device_id: ea4b74fece2d16c3d58080fa1565cb2b
+    entity_id: switch.master_window_close
+    domain: switch
   - type: turn_on
     device_id: ea4b74fece2d16c3d58080fa1565cb2b
     entity_id: switch.master_window_open
