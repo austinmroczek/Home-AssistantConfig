@@ -65,9 +65,3 @@ automation:
             {% endif %}
     - service: timer.start
       entity_id: timer.master_bedroom_fan_cooldown
-
-# Timer used to control how often the speed of the office fan is updated
-timer:
-  master_bedroom_fan_cooldown:
-    name: "Master Bedroom Fan Cooldown"
-    duration: '00:05:00'
