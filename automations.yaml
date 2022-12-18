@@ -643,6 +643,8 @@
   mode: single
 - id: AlarmTriggered
   alias: 'Alarm: Triggered'
+  description: Actions taken when the Alarm is triggered for any reason (police, medical
+    or fire).
   trigger:
   - platform: state
     entity_id: alarm_control_panel.home1
@@ -658,6 +660,14 @@
   - service: notify.adults
     data:
       message: The house alarm has been triggered.
+  - service: cover.close_cover
+    data: {}
+    target:
+      entity_id: cover.master_windows
+  - service: cover.open_cover
+    data: {}
+    target:
+      entity_id: cover.master_blinds
   initial_state: true
   mode: single
 - id: RainDelayTurnsOnWhenSkylightSensesRain
