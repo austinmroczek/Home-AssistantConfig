@@ -103,6 +103,7 @@
   mode: single
 - id: ClimateDisabled
   alias: Climate Disabled
+  description: Actions taken when the central HVAC is turned off.
   trigger:
   - platform: state
     entity_id: input_boolean.enable_climate
@@ -112,6 +113,11 @@
     data:
       entity_id: climate.central
       hvac_mode: 'off'
+  - service: climate.set_hvac_mode
+    data:
+      hvac_mode: cool
+    target:
+      entity_id: climate.master_bedroom
   initial_state: true
   mode: single
 - id: Climate_0100
@@ -747,4 +753,21 @@
     data: {}
     target:
       entity_id: switch.charge_now
+  mode: single
+- id: '1671399805823'
+  alias: Disable Master Fan when Heating
+  description: Disables the Master Fan when the central HVAC is in heating mode.
+  trigger:
+  - platform: state
+    entity_id:
+    - climate.central
+    attribute: hvac_action
+    to: heating
+  condition: []
+  action:
+  - service: climate.set_hvac_mode
+    data:
+      hvac_mode: 'off'
+    target:
+      entity_id: climate.master_bedroom
   mode: single
