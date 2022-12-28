@@ -3,6 +3,11 @@
     # https://www.home-assistant.io/docs/installation/raspberry-pi/
 
     source /srv/homeassistant/bin/activate
+    
+    # upgrade pip first
+    pip install --upgrade pip
+    
+    # now upgrade HA
     pip3 install --upgrade homeassistant
 
     exit 0
