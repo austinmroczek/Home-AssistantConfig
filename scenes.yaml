@@ -1,14 +1,6 @@
 - id: bedtime
   name: Bedtime
   entities:
-    group.internet:
-      entity_id:
-      - switch.kid_internet
-      - switch.ipad_internet
-      - switch.guest_roku_internet
-      order: 12
-      friendly_name: Internet
-      state: 'off'
     light.dining_room_level:
       supported_color_modes:
       - brightness
@@ -60,9 +52,9 @@
       friendly_name: Master Bedroom Fan Light
       state: 'off'
     cover.master_blinds:
-      state: 'closed'
+      state: closed
     cover.master_windows:
-      state: 'closed'
+      state: closed
 - id: HourBeforeSunset
   name: Hour Before Sunset
   entities:
@@ -72,14 +64,6 @@
 - id: AtMidnight
   name: AtMidnight
   entities:
-    group.internet:
-      entity_id:
-      - switch.kid_internet
-      - switch.ipad_internet
-      - switch.guest_roku_internet
-      order: 29
-      friendly_name: Internet
-      state: 'off'
     switch.piano_outlet_switch:
       friendly_name: Piano Outlet
       state: 'off'
@@ -98,48 +82,6 @@
 - id: AtNoon
   name: AtNoon
   entities: {}
-- id: At0630
-  name: At0630
-  entities:
-    switch.master_bath_toilet_plug: true
-- id: At0730
-  name: At0730
-  entities:
-    switch.guest_roku_internet:
-      friendly_name: Guest Roku Internet
-      state: 'on'
-    switch.ipad_internet:
-      friendly_name: iPad Internet
-      state: 'on'
-    switch.kid_internet:
-      friendly_name: Kid Internet
-      state: 'on'
-- id: At8PM
-  name: At2000
-  entities:
-    switch.ipad_internet:
-      friendly_name: iPad Internet
-      state: 'off'
-    switch.kid_internet:
-      friendly_name: Kid Internet
-      state: 'off'
-- id: At9PM
-  name: At2100
-  entities:
-    switch.guest_roku_internet:
-      friendly_name: Guest Roku Internet
-      state: 'off'
-    switch.ipad_internet:
-      friendly_name: iPad Internet
-      state: 'off'
-    switch.kid_internet:
-      friendly_name: Kid Internet
-      state: 'off'
-- id: InternetOn
-  name: InternetOn
-  entities:
-    switch.ipad_internet: true
-    switch.kid_internet: true
 - id: Showtime
   name: ShowTime
   entities:

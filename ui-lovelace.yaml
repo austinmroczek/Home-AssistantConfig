@@ -6,7 +6,6 @@ views:
         title: Main
         entities:
           - alarm_control_panel.home1
-          - group.internet
           - sensor.hall_temperature
           - sensor.master_bedroom_temperature
           - input_button.hot_water
@@ -78,7 +77,6 @@ views:
         title: Kid
         entities:
           - light.kid_light
-          - group.internet
           - binary_sensor.kid_motion
       - type: media-control
         entity: media_player.sonos_kid

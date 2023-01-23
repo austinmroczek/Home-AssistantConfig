@@ -159,37 +159,6 @@
       entity_id: climate.central
   initial_state: true
   mode: single
-- id: Weekday_Internet
-  alias: Weekday Internet
-  initial_state: true
-  trigger:
-    platform: time
-    at: 08:15:00
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.internet
-  condition:
-    condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-- id: Weekend_Internet
-  alias: Weekend Internet
-  initial_state: true
-  trigger:
-    platform: time
-    at: 06:30:00
-  action:
-    service: homeassistant.turn_on
-    entity_id: group.internet
-  condition:
-    condition: time
-    weekday:
-    - sat
-    - sun
 - id: AtMidnight
   alias: AtMidnight
   initial_state: true

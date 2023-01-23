@@ -98,13 +98,6 @@
       - sensor.front_patio_voltage_2
       - sensor.front_patio_voltage_3
 
-  internet:
-    name: Internet
-    entities:
-      - switch.kid_internet
-      - switch.ipad_internet
-      - switch.guest_roku_internet
-
   doorbell:
     name: Skybell
     entities:

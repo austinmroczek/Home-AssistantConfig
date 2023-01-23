@@ -18,7 +18,6 @@ group: !include groups.yaml
 logbook: !include logbook.yaml
 logger: !include logger.yaml
 media_player:
-mqtt: !include mqtt.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
 scene: !include scenes.yaml
