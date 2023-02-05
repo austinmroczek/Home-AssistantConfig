@@ -38,14 +38,13 @@ Switchable 4 | 4 | n/a | |
 As reported by ZwaveJS to Home Assistant.
 
 ## Devices that require polling
-- kitchen door light
 - all remotec switches for the lawn
-- hall
 
 ## Fakro skylight notes
 
 Per email with Fakro support on 12/3/19
 If the window is closed, it always reports Value 0, even if it is raining
+
 If the window is open
 
 - Value 0 - occurs only after the first answer since the power reset - when the rain sensor does not detect
