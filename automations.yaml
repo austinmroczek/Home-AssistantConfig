@@ -212,16 +212,6 @@
     service: scene.turn_on
   initial_state: true
   mode: single
-- id: At9PM
-  alias: At2100
-  trigger:
-  - at: '21:00:00'
-    platform: time
-  action:
-  - entity_id: scene.at9pm
-    service: scene.turn_on
-  initial_state: true
-  mode: single
 - id: AlarmDisarmedDaytime
   alias: 'Alarm: Disarmed Daytime'
   trigger:
@@ -765,5 +755,5 @@
   - service: cover.close_cover
     data: {}
     target:
-      device_id: 5812b916da6d545ada26a3243924db48
+      entity_id: cover.master_blinds
   mode: single
