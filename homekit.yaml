@@ -1,0 +1,38 @@
+- filter:
+    include_domains:
+      - camera
+      - climate
+      - cover
+      - fan
+      - input_button
+      - light
+      - lock
+      - media_player
+      - scene
+    include_entities:
+      - input_boolean.rain_delay
+      - input_boolean.flag_outside
+    exclude_domains:
+      - automation
+      - binary_sensor
+      - button
+      - device_tracker
+      - group
+      - input_boolean
+      - input_datetime
+      - input_number
+      - input_select
+      - input_text
+      - number
+      - person
+      - remote
+      - script
+      - select
+      - sensor
+      - switch
+      - timer
+      - update
+      - weather
+      - zone
+
+      

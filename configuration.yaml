@@ -15,6 +15,7 @@ automation secret: !include automations_with_secret.yaml
 cover: !include cover.yaml
 discovery:
 group: !include groups.yaml
+homekit: !include homekit.yaml
 logbook: !include logbook.yaml
 logger: !include logger.yaml
 media_player:
