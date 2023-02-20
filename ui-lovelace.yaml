@@ -11,6 +11,7 @@ views:
           - input_button.hot_water
           - input_boolean.enable_climate
           - input_boolean.flag_outside
+          - input_button.dinner
           - scene.bedtime
           - scene.showtime
       - type: conditional
@@ -110,7 +111,7 @@ views:
           - binary_sensor.master_bath_motion
           - cover.master_bath_skylight
       - type: media-control
-        entity: media_player.sonos_master_bedroom
+        entity: media_player.sonos_office
       - type: media-control
         entity: media_player.master_bedroom_apple_tv
 
