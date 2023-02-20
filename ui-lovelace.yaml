@@ -68,7 +68,6 @@ views:
           - switch.hall
           - switch.stairway_switch
           - light.dining_room_level
-          - switch.desktop
       - type: media-control
         entity: media_player.living_room_apple_tv
       - type: media-control

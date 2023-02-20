@@ -23,11 +23,6 @@ recorder: !include recorder.yaml
 scene: !include scenes.yaml
 script: !include scripts.yaml
 
-switch:
-  - platform: wake_on_lan
-    mac: !secret desktop_mac
-    name: Desktop
-
 tts:
   - platform: google_translate
     service_name: google_say
