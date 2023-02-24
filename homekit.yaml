@@ -8,10 +8,11 @@
       - light
       - lock
       - media_player
-      - scene
     include_entities:
-      - input_boolean.rain_delay
+      - input_boolean.dinner
       - input_boolean.flag_outside
+      - input_boolean.rain_delay
+      - scene.bedtime
     exclude_domains:
       - automation
       - binary_sensor
@@ -26,6 +27,7 @@
       - number
       - person
       - remote
+      - scene
       - script
       - select
       - sensor

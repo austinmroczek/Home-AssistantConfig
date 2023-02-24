@@ -11,7 +11,7 @@ views:
           - input_button.hot_water
           - input_boolean.enable_climate
           - input_boolean.flag_outside
-          - input_button.dinner
+          - input_boolean.dinner
           - scene.bedtime
           - scene.showtime
       - type: conditional
