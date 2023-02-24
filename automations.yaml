@@ -785,3 +785,25 @@
     target:
       entity_id: input_boolean.dinner
   mode: single
+- id: '1677281191992'
+  alias: Lock Car
+  description: Locks car if home for more than 5 minutes and doors are closed.
+  trigger:
+  - platform: state
+    entity_id:
+    - device_tracker.volvo_yv4br0cl0n1814975
+    to: home
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition:
+  - condition: state
+    entity_id: binary_sensor.xc90_doors
+    state: 'off'
+  action:
+  - service: lock.lock
+    data: {}
+    target:
+      device_id: 4893b4d1b2f2f0415f599bc12c799e1c
+  mode: single
