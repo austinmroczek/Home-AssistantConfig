@@ -327,11 +327,6 @@
     switch.front_entry_light_switch:
       friendly_name: Front Entry
       state: 'off'
-    switch.front_entry:
-      restored: true
-      friendly_name: Front Entry
-      supported_features: 0
-      state: 'off'
 - id: '1641679475055'
   name: Outside Lights Off
   entities:
