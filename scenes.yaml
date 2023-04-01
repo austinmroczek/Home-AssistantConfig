@@ -42,6 +42,8 @@
     switch.master_bedroom_lamps:
       friendly_name: Master Bedroom Lamps
       state: 'off'
+    switch.master_closet:
+      state: 'off'
     light.master_bedroom:
       supported_color_modes:
       - brightness

@@ -96,6 +96,7 @@ views:
           - switch.master_bedroom_lamps
           - switch.master_fan_light
           - light.master_bedroom
+          - switch.master_closet
           - climate.master_bedroom
           - media_player.master_bedroom_apple_tv
       - type: entities
