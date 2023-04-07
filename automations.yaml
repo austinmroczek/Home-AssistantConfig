@@ -812,3 +812,14 @@
     target:
       entity_id: lock.xc90_door_lock
   mode: single
+- id: '1680906325496'
+  alias: Turn off closet light
+  description: Turns off master closet light after 15 minutes
+  use_blueprint:
+    path: turn_off_switch_after_time.yaml
+    input:
+      switch: switch.master_closet
+      time:
+        hours: 0
+        minutes: 15
+        seconds: 0

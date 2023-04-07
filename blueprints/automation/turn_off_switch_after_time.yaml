@@ -1,0 +1,28 @@
+blueprint:
+  name: Turn off Switch after Time has elapsed
+  description: Given a switch entity, watch for it turning on, and then turn it off after a certain period of time.
+  domain: automation
+  input:
+    switch:
+      name: Switch
+      description: Select the switch to monitor and control
+      selector:
+        entity:
+          domain: switch
+    time:
+      name: Duration
+      description: The duration to leave the switch on for
+      selector:
+        duration:
+
+trigger:
+  - platform: state
+    entity_id: !input switch
+    to: 'on'
+    for: !input time
+condition: []
+action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: !input switch
+mode: single
