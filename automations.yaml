@@ -243,11 +243,6 @@
   - condition: sun
     after: sunset
   action:
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 30
-      milliseconds: 0
   - service: scene.turn_on
     data: {}
     target:

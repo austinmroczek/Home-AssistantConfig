@@ -147,6 +147,7 @@
   entities:
     switch.hall: true
     climate.master_bedroom: cool
+    switch.kitchen_lights: true
 - id: OnDisarmedDaytime
   name: OnDisarmedDaytime
   entities:
