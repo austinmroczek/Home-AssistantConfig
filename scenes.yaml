@@ -108,6 +108,8 @@
     switch.front_entry_light_switch:
       friendly_name: Front Entry
       state: 'off'
+    light.dining_room_level:
+      state: 'off'
     group.master_bath_lights:
       entity_id:
       - light.master_bath_light
