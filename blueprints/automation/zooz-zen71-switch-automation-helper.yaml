@@ -10,11 +10,12 @@ blueprint:
         device:
           integration: zwave_js
           manufacturer: Zooz
-          model: ZEN71
+          multiple: false
     switch_up_1x:
       name: Top Paddle 1x
-      description: 'Action to run on switch upper paddle single tap. Default: Turn
-        on switch.'
+      description:
+        "Action to run on switch upper paddle single tap. Default: Turn
+        on switch."
       default: []
       selector:
         action: {}
@@ -26,8 +27,9 @@ blueprint:
         action: {}
     switch_up_3x:
       name: Top Paddle 3x
-      description: 'Action to run on switch upper paddle triple tap. Default: Enter
-        inclusion/pairing mode.'
+      description:
+        "Action to run on switch upper paddle triple tap. Default: Enter
+        inclusion/pairing mode."
       default: []
       selector:
         action: {}
@@ -45,7 +47,7 @@ blueprint:
         action: {}
     switch_up_hold:
       name: Top Paddle Hold
-      description: 'Action to run on switch upper paddle press-and-hold.'
+      description: Action to run on switch upper paddle press-and-hold.
       default: []
       selector:
         action: {}
@@ -57,8 +59,9 @@ blueprint:
         action: {}
     switch_down_1x:
       name: Lower Paddle 1x
-      description: 'Action to run on switch lower paddle single tap. Default: Turn
-        off switch.'
+      description:
+        "Action to run on switch lower paddle single tap. Default: Turn
+        off switch."
       default: []
       selector:
         action: {}
@@ -70,8 +73,9 @@ blueprint:
         action: {}
     switch_down_3x:
       name: Lower Paddle 3x
-      description: 'Action to run on switch lower paddle triple tap. Default: Enter
-        exclusion/un-pairing mode.'
+      description:
+        "Action to run on switch lower paddle triple tap. Default: Enter
+        exclusion/un-pairing mode."
       default: []
       selector:
         action: {}
@@ -89,13 +93,13 @@ blueprint:
         action: {}
     switch_down_hold:
       name: Bottom Paddle Hold
-      description: 'Action to run on switch lower paddle press-and-hold.'
+      description: Action to run on switch lower paddle press-and-hold.
       default: []
       selector:
         action: {}
     switch_down_release:
       name: Bottom Paddle Release
-      description: Action to run on switch lower paddle double tap.
+      description: Action to run on switch lower paddle paddle release.
       default: []
       selector:
         action: {}
@@ -103,35 +107,43 @@ blueprint:
 mode: single
 max_exceeded: silent
 trigger:
-- platform: event
-  event_type: zwave_js_value_notification
-  event_data:
-    command_class_name: Central Scene
-    device_id: !input 'zooz_zen71'
+  - platform: event
+    event_type: zwave_js_value_notification
+    event_data:
+      command_class_name: Central Scene
+      device_id: !input zooz_zen71
 action:
-- variables:
-    scene_id: '{{ trigger.event.data.label }}'
-    attribute_id: '{{ trigger.event.data.value }}'
-- choose:
-  - conditions: '{{ scene_id == ''Scene 001'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ attribute_id == ''KeyPressed'' }}'
-        sequence: !input 'switch_up_1x'
-      - conditions: '{{ attribute_id == ''KeyPressed2x'' }}'
-        sequence: !input 'switch_up_2x'
-      - conditions: '{{ attribute_id == ''KeyPressed4x'' }}'
-        sequence: !input 'switch_up_4x'
-      - conditions: '{{ attribute_id == ''KeyPressed5x'' }}'
-        sequence: !input 'switch_up_5x'
-  - conditions: '{{ scene_id == ''Scene 002'' }}'
-    sequence:
-    - choose:
-      - conditions: '{{ attribute_id == ''KeyPressed'' }}'
-        sequence: !input 'switch_down_1x'
-      - conditions: '{{ attribute_id == ''KeyPressed2x'' }}'
-        sequence: !input 'switch_down_2x'
-      - conditions: '{{ attribute_id == ''KeyPressed4x'' }}'
-        sequence: !input 'switch_down_4x'
-      - conditions: '{{ attribute_id == ''KeyPressed5x'' }}'
-        sequence: !input 'switch_down_5x'
+  - variables:
+      scene_id: "{{ trigger.event.data.label }}"
+      attribute_id: "{{ trigger.event.data.value }}"
+  - choose:
+      - conditions: "{{ scene_id == 'Scene 001' }}"
+        sequence:
+          - choose:
+              - conditions: "{{ attribute_id == 'KeyPressed' }}"
+                sequence: !input switch_up_1x
+              - conditions: "{{ attribute_id == 'KeyPressed2x' }}"
+                sequence: !input switch_up_2x
+              - conditions: "{{ attribute_id == 'KeyPressed4x' }}"
+                sequence: !input switch_up_4x
+              - conditions: "{{ attribute_id == 'KeyPressed5x' }}"
+                sequence: !input switch_up_5x
+              - conditions: "{{ attribute_id == 'KeyHeldDown' }}"
+                sequence: !input switch_up_hold
+              - conditions: "{{ attribute_id == 'KeyReleased' }}"
+                sequence: !input switch_up_release
+      - conditions: "{{ scene_id == 'Scene 002' }}"
+        sequence:
+          - choose:
+              - conditions: "{{ attribute_id == 'KeyPressed' }}"
+                sequence: !input switch_down_1x
+              - conditions: "{{ attribute_id == 'KeyPressed2x' }}"
+                sequence: !input switch_down_2x
+              - conditions: "{{ attribute_id == 'KeyPressed4x' }}"
+                sequence: !input switch_down_4x
+              - conditions: "{{ attribute_id == 'KeyPressed5x' }}"
+                sequence: !input switch_down_5x
+              - conditions: "{{ attribute_id == 'KeyHeldDown' }}"
+                sequence: !input switch_down_hold
+              - conditions: "{{ attribute_id == 'KeyReleased' }}"
+                sequence: !input switch_down_release
